@@ -1,0 +1,16 @@
+{
+  "name": "@biblo/babel-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larsmunkholm/biblo.git"
+  },
+  "author": "Lars Munkholm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/larsmunkholm/biblo/issues"
+  },
+  "homepage": "https://github.com/larsmunkholm/biblo#readme"
+}

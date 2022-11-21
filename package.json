@@ -1,0 +1,35 @@
+{
+  "name": "biblo",
+  "description": "",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "cd packages/react-native && npm run build",
+    "clean": "eslint --fix \"./packages/*/src/**/*.*\" && prettier --write \"./packages/*/src/**/*.*\"",
+    "deploy": "npm run deploy --workspaces"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larsmunkholm/biblo.git"
+  },
+  "author": "Lars Munkholm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/larsmunkholm/biblo/issues"
+  },
+  "homepage": "https://github.com/larsmunkholm/biblo#readme",
+  "workspaces": [
+    "packages/babel-plugin",
+    "packages/react-native"
+  ],
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^3.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.3"
+  }
+}
