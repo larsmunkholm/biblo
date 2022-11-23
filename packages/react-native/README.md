@@ -41,7 +41,8 @@ npm run android
 
 ## 💾 Installation
 
-> **Note**
+> **Warning**
+> 
 > This package requires that you use **Metro version 0.72.1** or newer.
 
 📦 Using **npm**
@@ -73,6 +74,7 @@ module.exports = {
 Biblo uses `require.context` to import all files that end in `.biblo.tsx`, `.biblo.jsx` or whatever you choose.
 
 > **Note**
+> 
 > If you're using **Expo** you can skip this step as they have already enabled `unstable_allowRequireContext`
 
 **Example 1:**
