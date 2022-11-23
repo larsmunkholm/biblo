@@ -145,7 +145,8 @@ export const BibloProvider = ({
                 setSelectedItem,
                 indexOptions: {
                     ...indexOptions,
-                    listItemHeight: indexOptions?.listItemHeight || 40,
+                    sectionListItemHeight:
+                        indexOptions?.sectionListItemHeight || 40,
                 },
                 readerOptions,
                 defaultStyles,

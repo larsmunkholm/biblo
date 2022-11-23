@@ -32,7 +32,7 @@ export const IndexSectionHeader = ({ title, itemsCount }: Props) => {
                           backgroundColor: "#ccc",
                           justifyContent: "center",
                       },
-                { height: indexOptions.listItemHeight },
+                { height: indexOptions.sectionListItemHeight },
                 indexOptions.sectionHeaderStyle,
             ]}
             textStyle={indexOptions.sectionHeaderTextStyle}

@@ -1,132 +1,62 @@
 import React from "react";
-import { Animated, StyleProp, TextStyle, ViewStyle } from "react-native";
-import { BibloBio, BibloItem, BibloWrapper } from "./Biblo.interface";
+import { StyleProp, TextStyle, ViewStyle } from "react-native";
+import {
+    BibloReaderWrapperProps,
+    BibloReaderScrollViewProps,
+    BibloReaderHeaderProps,
+    BibloReaderHeaderTitleProps,
+    BibloReaderHeaderSubtitleProps,
+    BibloReaderHeaderDescriptionProps,
+    BibloReaderHeaderTagsProps,
+    BibloReaderHeaderPathProps,
+    BibloReaderSeparatorProps,
+    BibloReaderItemProps,
+    BibloReaderItemTitleProps,
+    BibloReaderItemDescriptionProps,
+    BibloReaderFooterProps,
+    BibloReaderItemComponentWrapperProps,
+} from "./ReaderProps.interface";
 
 export interface ReaderOptions {
     disableDefaultStyles?: boolean;
     wrapperStyle?: StyleProp<ViewStyle>;
-    wrapperComponent?: (props: {
-        item: BibloItem;
-        style?: StyleProp<ViewStyle>;
-        children: React.ReactNode;
-    }) => React.ReactElement;
-    scrollViewProps?: React.ComponentProps<typeof Animated.ScrollView>;
+    wrapperComponent?: React.ElementType<BibloReaderWrapperProps>;
+    scrollViewProps?: BibloReaderScrollViewProps;
     headerStyle?: StyleProp<ViewStyle>;
-    headerComponent?: (props: {
-        bio: BibloBio;
-        style?: StyleProp<ViewStyle>;
-        children: React.ReactNode;
-    }) => React.ReactElement;
+    headerComponent?: React.ElementType<BibloReaderHeaderProps>;
     headerTitleStyle?: StyleProp<ViewStyle>;
     headerTitleTextStyle?: StyleProp<TextStyle>;
-    headerTitleComponent?: ({
-        style,
-        textStyle,
-        title,
-        children,
-    }: {
-        style?: StyleProp<ViewStyle>;
-        textStyle?: StyleProp<TextStyle>;
-        title: string;
-        children: React.ReactNode;
-    }) => React.ReactElement;
+    headerTitleComponent?: React.ElementType<BibloReaderHeaderTitleProps>;
     headerSubtitleHidden?: boolean;
     headerSubtitleStyle?: StyleProp<ViewStyle>;
     headerSubtitleTextStyle?: StyleProp<TextStyle>;
-    headerSubtitleComponent?: ({
-        style,
-        textStyle,
-        subtitle,
-        children,
-    }: {
-        style?: StyleProp<ViewStyle>;
-        textStyle?: StyleProp<TextStyle>;
-        subtitle: string;
-        children: React.ReactNode;
-    }) => React.ReactElement;
+    headerSubtitleComponent?: React.ElementType<BibloReaderHeaderSubtitleProps>;
     headerDescriptionStyle?: StyleProp<ViewStyle>;
     headerDescriptionTextStyle?: StyleProp<TextStyle>;
-    headerDescriptionComponent?: ({
-        style,
-        textStyle,
-        description,
-        children,
-    }: {
-        style?: StyleProp<ViewStyle>;
-        textStyle?: StyleProp<TextStyle>;
-        description: React.ReactNode;
-        children: React.ReactNode;
-    }) => React.ReactElement;
+    headerDescriptionComponent?: React.ElementType<BibloReaderHeaderDescriptionProps>;
     headerTagsHidden?: boolean;
     headerTagsStyle?: StyleProp<ViewStyle>;
     headerTagsTextStyle?: StyleProp<TextStyle>;
-    headerTagsComponent?: ({
-        style,
-        textStyle,
-        tags,
-        children,
-    }: {
-        style?: StyleProp<ViewStyle>;
-        textStyle?: StyleProp<TextStyle>;
-        tags: string[];
-        children: React.ReactNode;
-    }) => React.ReactElement;
+    headerTagsComponent?: React.ElementType<BibloReaderHeaderTagsProps>;
     headerPathHidden?: boolean;
     headerPathStyle?: StyleProp<ViewStyle>;
     headerPathTextStyle?: StyleProp<TextStyle>;
-    headerPathComponent?: ({
-        style,
-        textStyle,
-        path,
-        children,
-    }: {
-        style?: StyleProp<ViewStyle>;
-        textStyle?: StyleProp<TextStyle>;
-        path: string;
-        children: React.ReactNode;
-    }) => React.ReactElement;
+    headerPathComponent?: React.ElementType<BibloReaderHeaderPathProps>;
     separatorStyle?: StyleProp<ViewStyle>;
-    separator?: (props: {
-        index: number;
-        isFirst: boolean;
-        isLast: boolean;
-        style?: StyleProp<ViewStyle>;
-    }) => React.ReactElement;
+    separator?: React.ElementType<BibloReaderSeparatorProps>;
     disableHeaderSeparator?: boolean;
     disableFooterSeparator?: boolean;
     itemStyle?: StyleProp<ViewStyle>;
-    item?: (props: {
-        index: number;
-        isFirst: boolean;
-        isLast: boolean;
-        bio: BibloBio;
-        title: string;
-        description?: React.ReactNode;
-        style?: StyleProp<ViewStyle>;
-        children: React.ReactNode;
-    }) => React.ReactNode;
+    item?: React.ElementType<BibloReaderItemProps>;
     itemTitleStyle?: StyleProp<ViewStyle>;
     itemTitleTextStyle?: StyleProp<TextStyle>;
-    itemTitleComponent?: (props: {
-        title: string;
-        style?: StyleProp<ViewStyle>;
-        textStyle?: StyleProp<TextStyle>;
-        children: React.ReactNode;
-    }) => React.ReactElement;
+    itemTitleComponent?: React.ElementType<BibloReaderItemTitleProps>;
     itemDescriptionStyle?: StyleProp<ViewStyle>;
     itemDescriptionTextStyle?: StyleProp<TextStyle>;
-    itemDescriptionComponent?: (props: {
-        description: React.ReactNode;
-        style?: StyleProp<ViewStyle>;
-        textStyle?: StyleProp<TextStyle>;
-        children: React.ReactNode;
-    }) => React.ReactElement;
+    itemDescriptionComponent?: React.ElementType<BibloReaderItemDescriptionProps>;
     itemComponentStyle?: StyleProp<ViewStyle>;
-    itemComponentWrapper?: BibloWrapper;
+    itemComponentWrapper?: React.ElementType<BibloReaderItemComponentWrapperProps>;
     footerStyle?: StyleProp<ViewStyle>;
-    footerComponent?: (props: {
-        bio: BibloBio;
-        style?: StyleProp<ViewStyle>;
-    }) => React.ReactElement;
+    footerComponent?: React.ElementType<BibloReaderFooterProps>;
     onMount?: () => void;
 }

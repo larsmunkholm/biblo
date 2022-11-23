@@ -2,6 +2,7 @@ import React from "react";
 import { StyleProp, ViewStyle } from "react-native";
 import { ReaderOptions } from "./ReaderOptions.interface";
 import { IndexOptions } from "./IndexOptions.interface";
+import { BibloReaderItemComponentWrapperProps } from "./ReaderProps.interface";
 
 type RecursivePartial<T> = {
     [P in keyof T]?: T[P] extends (infer U)[]
@@ -13,14 +14,9 @@ type RecursivePartial<T> = {
 
 type DefaultType = Record<string, any>;
 
-export type BibloWrapper = (props: {
-    style?: StyleProp<ViewStyle>;
-    children: React.ReactNode;
-}) => React.ReactNode;
-
 interface Basics<T> {
     props?: Partial<T>;
-    wrapper?: BibloWrapper;
+    wrapper?: React.ElementType<BibloReaderItemComponentWrapperProps>;
     wrapperStyle?: StyleProp<ViewStyle>;
 }
 

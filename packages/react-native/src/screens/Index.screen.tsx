@@ -85,7 +85,7 @@ export const IndexScreen = () => {
                             title={section.title}
                             itemsCount={section.data.length}
                             style={[
-                                { height: indexOptions.listItemHeight },
+                                { height: indexOptions.sectionListItemHeight },
                                 indexOptions.sectionFooterStyle,
                             ]}
                         />
@@ -93,8 +93,9 @@ export const IndexScreen = () => {
                 }
                 renderItem={({ item }) => <IndexItem item={item} />}
                 getItemLayout={(data, index) => ({
-                    length: indexOptions.listItemHeight,
-                    offset: (indexOptions.listItemHeight as number) * index,
+                    length: indexOptions.sectionListItemHeight,
+                    offset:
+                        (indexOptions.sectionListItemHeight as number) * index,
                     index,
                 })}
                 {...(indexOptions.sectionListProps as any)}
