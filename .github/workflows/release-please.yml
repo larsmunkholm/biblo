@@ -26,6 +26,7 @@ jobs:
               with:
                   files: |
                       packages/react-native/**
+              if: ${{ steps.release.outputs.release_created }}
 
             # Publish @biblo/react-native
             - name: Publish @biblo/react-native
@@ -48,6 +49,7 @@ jobs:
               with:
                   files: |
                       packages/babel-plugin/**
+              if: ${{ steps.release.outputs.release_created }}
 
             # Publish @biblo/babel-plugin
             - name: Publish @biblo/babel-plugin
