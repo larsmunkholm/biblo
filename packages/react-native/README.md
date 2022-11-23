@@ -31,7 +31,7 @@ Just like with StoryBook, these files (usually ending in `.biblo.tsx`) must be s
 
 You can run an example by performing these steps:
 
-```
+```shell
 git clone git@github.com:larsmunkholm/biblo.git
 cd biblo
 cd example

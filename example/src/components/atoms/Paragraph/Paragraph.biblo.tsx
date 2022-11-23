@@ -1,4 +1,3 @@
-import React from "react";
 import { BibloBio, BibloBook } from "@biblo/react-native";
 import {
     Paragraph,

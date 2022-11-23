@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "build": "cd packages/react-native && npm run build",
-    "clean": "eslint --fix \"./packages/*/src/**/*.*\" && prettier --write \"./packages/*/src/**/*.*\"",
+    "clean": "eslint --fix \"./{packages/*/src,example}/**/*.{ts,js}{,x}\" && prettier --write \"./*{packages/*/src,example}/**/*.{ts,tsx,js,jsx,json}\"",
     "deploy": "npm run deploy --workspaces"
   },
   "repository": {
