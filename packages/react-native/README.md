@@ -41,7 +41,7 @@ npm run android
 
 ## 💾 Installation
 
-> **Warning**
+> **Note**
 > 
 > This package requires that you use **Metro version 0.72.1** or newer.
 
@@ -71,11 +71,15 @@ module.exports = {
 
 ### Ⓜ️ Metro
 
-Biblo uses `require.context` to import all files that end in `.biblo.tsx`, `.biblo.jsx` or whatever you choose.
+> **Note**
+>
+> If you're using **Expo** you can skip this step as they have already enabled `unstable_allowRequireContext`
 
 > **Note**
-> 
-> If you're using **Expo** you can skip this step as they have already enabled `unstable_allowRequireContext`
+>
+> This is supported since [version **0.72.1** of Metro](https://github.com/facebook/metro/releases/tag/v0.72.1).
+
+Biblo uses `require.context` to import all files that end in `.biblo.tsx`, `.biblo.jsx` or whatever you choose.
 
 **Example 1:**
 
@@ -92,13 +96,11 @@ config.transformer.unstable_allowRequireContext = true;
 module.exports = (async () => {
     return {
         transformer: {
-            unstable_allowRequireContext: true, // Biblo needs this
+            unstable_allowRequireContext: true,
         },
     };
 })();
 ```
-
-This is supported since [version **0.72.1** of Metro](https://github.com/facebook/metro/releases/tag/v0.72.1).
 
 ### 🎯 TypeScript
 
@@ -115,7 +117,7 @@ Luckily, you can fix that by including `"@biblo/react-native"` in your **tsconfi
 
 ## 🛠 Usage
 
-#### A basic viewport
+#### 🪟 A basic viewport
 
 Lets's start by importing all the stuff we need:
 
@@ -159,7 +161,7 @@ export default function App() {
 }
 ````
 
-#### A basic component example
+#### 📄 A basic component example
 
 Imagine you have a component named **Separator**. It's file may be named `Separator.component.tsx`
 
