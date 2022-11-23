@@ -35,7 +35,7 @@ export const IndexItem = ({ item }: Props) => {
 
     return (
         <Container
-            style={{ height: indexOptions.listItemHeight }}
+            style={{ height: indexOptions.sectionListItemHeight }}
             title={item.title}
             subtitle={item.subtitle}
             titleStyle={indexOptions.sectionItemTitleStyle}
