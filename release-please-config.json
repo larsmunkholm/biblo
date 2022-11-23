@@ -1,0 +1,8 @@
+{
+  "packages": {
+    ".": {},
+    "packages/babel-plugin": {},
+    "packages/react-native": {}
+  },
+  "plugins": ["sentence-case"]
+}
