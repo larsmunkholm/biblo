@@ -27,7 +27,7 @@ jobs:
 
             # Publish @biblo/react-native
             - name: Publish @biblo/react-native
-            - uses: actions/setup-node@v3
+              uses: actions/setup-node@v3
               with:
                 node-version: 16
                 registry-url: 'https://registry.npmjs.org'
@@ -49,7 +49,7 @@ jobs:
 
             # Publish @biblo/babel-plugin
             - name: Publish @biblo/babel-plugin
-            - uses: actions/setup-node@v3
+              uses: actions/setup-node@v3
               with:
                 node-version: 16
                 registry-url: 'https://registry.npmjs.org'
