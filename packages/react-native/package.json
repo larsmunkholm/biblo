@@ -2,13 +2,14 @@
   "name": "@biblo/react-native",
   "version": "0.0.1",
   "description": "",
+  "private": false,
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "rimraf ./lib && tsc",
+    "build": "rimraf ./lib && tsc && node ./scripts/copy-d-ts.js",
     "clean": "eslint --fix \"./src/**/*.*\" && prettier --write \"./src/**/*.*\"",
     "deploy": "npm run clean && npm run build && npm publish"
   },

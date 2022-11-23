@@ -14,8 +14,9 @@ import {
     BibloReader,
 } from "@biblo/react-native";
 
-// @ts-ignore
-const components = bibloImporter(require.context("/", true, /\.biblo\.tsx$/));
+const components = bibloImporter(
+    require.context("/", true, /\.biblo\.[tj]sx?$/),
+);
 
 export default function App() {
     const scrollViewRef = useRef<ScrollView>(null);
@@ -43,7 +44,7 @@ export default function App() {
                         }),
                 }}
                 getSection={({ path }) =>
-                    path.match(/components\/([a-z]+)\//)[1]
+                    path.match(/components\/([a-z]+)\//)?.[1] || "Component"
                 }
             >
                 <View style={{ backgroundColor: "white", height: "50%" }}>

@@ -5,10 +5,9 @@ import { SeparatorProps } from "./Separator.props";
 export default {
     title: "Separator",
     description:
-        "Vær opmærksom på, at separatoren i alle disse eksempler er placeret i en kasse med luft i top og bund.",
+        "Be aware that the separator in all these examples is placed in a box with padding in top and bottom.",
     tags: ["graphics"],
     component: Separator,
-    //wrapper: (style: StyleProp<ViewStyle>) => <View style={style} />,
     wrapperStyle: {
         marginHorizontal: 0,
         paddingVertical: 10,
@@ -17,26 +16,20 @@ export default {
     },
 } as BibloBio<SeparatorProps>;
 
-export const Default: BibloBook = {
-    title: "Standard",
-};
+export const Default: BibloBook = {};
 
 export const MarginVertical: BibloBook<SeparatorProps> = {
-    title: "Margin vertikalt",
-    args: { marginVertical: true },
+    props: { marginVertical: true },
 };
 
 export const MarginTop: BibloBook<SeparatorProps> = {
-    title: "Margin top",
-    args: { marginTop: true },
+    props: { marginTop: true },
 };
 
 export const MarginBottom: BibloBook<SeparatorProps> = {
-    title: "Margin bottom",
-    args: { marginTop: true },
+    props: { marginTop: true },
 };
 
 export const NoMarginHorizontal: BibloBook<SeparatorProps> = {
-    title: "Uden horisontal margin",
-    args: { noMarginHorizontal: true },
+    props: { noMarginHorizontal: true },
 };
