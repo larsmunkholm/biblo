@@ -9,14 +9,14 @@ export interface ReaderOptions {
         item: BibloItem;
         style?: StyleProp<ViewStyle>;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     scrollViewProps?: React.ComponentProps<typeof Animated.ScrollView>;
     headerStyle?: StyleProp<ViewStyle>;
     headerComponent?: (props: {
         bio: BibloBio;
         style?: StyleProp<ViewStyle>;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     headerTitleStyle?: StyleProp<ViewStyle>;
     headerTitleTextStyle?: StyleProp<TextStyle>;
     headerTitleComponent?: ({
@@ -29,7 +29,7 @@ export interface ReaderOptions {
         textStyle?: StyleProp<TextStyle>;
         title: string;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     headerSubtitleHidden?: boolean;
     headerSubtitleStyle?: StyleProp<ViewStyle>;
     headerSubtitleTextStyle?: StyleProp<TextStyle>;
@@ -43,7 +43,7 @@ export interface ReaderOptions {
         textStyle?: StyleProp<TextStyle>;
         subtitle: string;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     headerDescriptionStyle?: StyleProp<ViewStyle>;
     headerDescriptionTextStyle?: StyleProp<TextStyle>;
     headerDescriptionComponent?: ({
@@ -56,7 +56,7 @@ export interface ReaderOptions {
         textStyle?: StyleProp<TextStyle>;
         description: React.ReactNode;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     headerTagsHidden?: boolean;
     headerTagsStyle?: StyleProp<ViewStyle>;
     headerTagsTextStyle?: StyleProp<TextStyle>;
@@ -70,7 +70,7 @@ export interface ReaderOptions {
         textStyle?: StyleProp<TextStyle>;
         tags: string[];
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     headerPathHidden?: boolean;
     headerPathStyle?: StyleProp<ViewStyle>;
     headerPathTextStyle?: StyleProp<TextStyle>;
@@ -84,14 +84,14 @@ export interface ReaderOptions {
         textStyle?: StyleProp<TextStyle>;
         path: string;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     separatorStyle?: StyleProp<ViewStyle>;
     separator?: (props: {
         index: number;
         isFirst: boolean;
         isLast: boolean;
         style?: StyleProp<ViewStyle>;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     disableHeaderSeparator?: boolean;
     disableFooterSeparator?: boolean;
     itemStyle?: StyleProp<ViewStyle>;
@@ -112,7 +112,7 @@ export interface ReaderOptions {
         style?: StyleProp<ViewStyle>;
         textStyle?: StyleProp<TextStyle>;
         children: React.ReactNode;
-    }) => React.ReactNode;
+    }) => React.ReactElement;
     itemDescriptionStyle?: StyleProp<ViewStyle>;
     itemDescriptionTextStyle?: StyleProp<TextStyle>;
     itemDescriptionComponent?: (props: {
@@ -120,13 +120,13 @@ export interface ReaderOptions {
         style?: StyleProp<ViewStyle>;
         textStyle?: StyleProp<TextStyle>;
         children: React.ReactNode;
-    }) => React.ReactNode;
+    }) => React.ReactElement;
     itemComponentStyle?: StyleProp<ViewStyle>;
     itemComponentWrapper?: BibloWrapper;
     footerStyle?: StyleProp<ViewStyle>;
     footerComponent?: (props: {
         bio: BibloBio;
         style?: StyleProp<ViewStyle>;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     onMount?: () => void;
 }

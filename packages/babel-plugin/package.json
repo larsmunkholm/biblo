@@ -2,13 +2,20 @@
   "name": "@biblo/babel-plugin",
   "version": "1.0.0",
   "description": "",
+  "private": false,
   "main": "index.js",
+  "scripts": {
+    "deploy": "npm publish"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/larsmunkholm/biblo.git"
   },
   "author": "Lars Munkholm",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/larsmunkholm/biblo/issues"
   },

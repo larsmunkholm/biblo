@@ -19,12 +19,13 @@ export type BibloWrapper = (props: {
 }) => React.ReactNode;
 
 interface Basics<T> {
-    args?: Partial<T>;
+    props?: Partial<T>;
     wrapper?: BibloWrapper;
     wrapperStyle?: StyleProp<ViewStyle>;
 }
 
 export interface BibloBio<T = DefaultType> extends Basics<T> {
+    component?: React.ElementType<T>;
     title: string;
     subtitle?: string;
     description?: React.ReactNode;
@@ -36,7 +37,7 @@ export interface BibloBio<T = DefaultType> extends Basics<T> {
 export type BibloBasics<T = DefaultType> = BibloBio<T> & { path: string };
 
 export type BibloBook<T = DefaultType> = (
-    | ((args: T) => React.ReactNode)
+    | ((props: T) => React.ReactNode)
     | object
 ) &
     Basics<T> & {
@@ -84,7 +85,7 @@ export interface BibloComponentItem {
     description?: React.ReactNode;
     Wrapper?: any;
     wrapperStyle?: StyleProp<ViewStyle>;
-    args: any;
+    props: any;
     Component: any;
     bio: BibloBasics;
 }

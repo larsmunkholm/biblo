@@ -65,7 +65,7 @@ export const ReaderList = React.memo(({ item }: Props) => {
                         isFirst={index === 0}
                         isLast={index === books.length - 1}
                         Component={book.component}
-                        args={{ ...bio.args, ...book.component.args }}
+                        props={{ ...bio.props, ...book.component.props }}
                         Wrapper={book.component.wrapper || bio.wrapper}
                         wrapperStyle={[
                             bio.wrapperStyle,

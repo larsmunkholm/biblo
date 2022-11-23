@@ -7,14 +7,14 @@ export interface IndexOptions {
     wrapperComponent?: (props: {
         style?: StyleProp<ViewStyle>;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     sectionListProps?: React.ComponentProps<typeof Animated.SectionList>;
     headerStyle?: StyleProp<ViewStyle>;
     headerComponent?: (props: {
         style?: StyleProp<ViewStyle>;
         title: string;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     headerTitle?: string;
     headerTitleStyle?: StyleProp<ViewStyle>;
     headerTitleTextStyle?: StyleProp<TextStyle>;
@@ -28,7 +28,7 @@ export interface IndexOptions {
         textStyle?: StyleProp<TextStyle>;
         title: string;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     headerSearchHidden?: boolean;
     headerSearchPlaceholder?: string;
     headerSearchStyle?: StyleProp<ViewStyle>;
@@ -47,7 +47,7 @@ export interface IndexOptions {
         value: string;
         onChangeText: (value: string) => void;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     headerTagsHidden?: boolean;
     headerTagsStyle?: StyleProp<ViewStyle>;
     headerTagsItemStyle?: StyleProp<ViewStyle>;
@@ -64,7 +64,7 @@ export interface IndexOptions {
         itemTextStyle?: StyleProp<TextStyle>;
         tags: { tag: string; active: boolean }[];
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     listItemHeight?: number;
     sectionHeaderStyle?: StyleProp<ViewStyle>;
     sectionHeaderTextStyle?: StyleProp<TextStyle>;
@@ -78,7 +78,7 @@ export interface IndexOptions {
         textStyle?: StyleProp<TextStyle>;
         title: string;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     sectionItemToggleOnPress?: boolean;
     sectionItemStyle?: StyleProp<ViewStyle>;
     sectionItemTitleStyle?: StyleProp<TextStyle>;
@@ -103,7 +103,7 @@ export interface IndexOptions {
         active: boolean;
         onPress: () => void;
         children: React.ReactNode;
-    }) => JSX.Element;
+    }) => React.ReactElement;
     sectionFooterStyle?: StyleProp<ViewStyle>;
     sectionFooterComponent?: React.ElementType<{
         title: string;

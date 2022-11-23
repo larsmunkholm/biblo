@@ -7,30 +7,26 @@ export default {
     title: "Skeleton",
     tags: ["indicator"],
     component: Skeleton,
-    args: {
+    props: {
         width: 200,
         height: 100,
     },
 } as BibloBio<SkeletonProps>;
 
-export const Default = { title: "Standard" };
+export const Default = {};
 
-export const Colored: BibloBook<SkeletonProps> = (args) => {
-    return <Skeleton {...args} color="red" />;
+export const Colored: BibloBook<SkeletonProps> = (props) => {
+    return <Skeleton {...props} color="red" />;
 };
-Colored.title = "Farvet";
 
 export const WithoutOpacity: BibloBook<SkeletonProps> = {
-    title: "Uden transparens",
-    args: { opacity: 1 },
+    props: { opacity: 1 },
 };
 
 export const WithCustomOpacity: BibloBook<SkeletonProps> = {
-    title: "Med defineret transparens",
-    args: { opacity: 0.5 },
+    props: { opacity: 0.5 },
 };
 
 export const WithCustomRadius: BibloBook<SkeletonProps> = {
-    title: "Med defineret radius",
-    args: { radius: 50 },
+    props: { radius: 50 },
 };

@@ -85,7 +85,7 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                     props.wrapperStyle,
                 ]}
             >
-                <props.Component {...props.args} />
+                <props.Component {...props.props} />
             </ItemComponentWrapper>
         </Item>
     );

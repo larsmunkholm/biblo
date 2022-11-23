@@ -21,8 +21,7 @@ export const ReaderScreen = React.memo(() => {
         if (readerOptions.onMount) {
             readerOptions.onMount();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [readerOptions]);
 
     return selectedItem ? (
         <Wrapper
