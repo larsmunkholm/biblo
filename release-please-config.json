@@ -3,9 +3,7 @@
     ".": {},
     "packages/babel-plugin": {},
     "packages/docs": {},
-    "packages/react-native": {
-      "release-as": "0.2.0"
-    }
+    "packages/react-native": {}
   },
   "plugins": ["sentence-case"]
 }
