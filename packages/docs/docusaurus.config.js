@@ -17,6 +17,7 @@ const config = {
     // GitHub pages deployment config.
     organizationName: "larsmunkholm",
     projectName: "larsmunkholm.github.io",
+    deploymentBranch: "main",
     trailingSlash: true,
 
     // Even if you don't use internalization, you can use this field to set useful
