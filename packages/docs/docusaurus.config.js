@@ -8,15 +8,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
     title: "Biblo",
     tagline: "A component library and workshop for React Native",
-    url: "https://larsmunkholm.github.io",
-    baseUrl: "/biblo",
+    url: "https://larsmunkholm.github.io/",
+    baseUrl: "/biblo/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/logo.svg",
 
     // GitHub pages deployment config.
     organizationName: "larsmunkholm",
-    projectName: "larsmunkholm.github.io",
+    projectName: "larsmunkholm.github.io/biblo",
     deploymentBranch: "main",
     trailingSlash: true,
 
