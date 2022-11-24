@@ -33,6 +33,7 @@ const config = {
             ({
                 docs: {
                     sidebarPath: require.resolve("./sidebars.js"),
+                    breadcrumbs: false,
                     editUrl:
                         "https://github.com/larsmunkholm/biblo/tree/main/packages/docs/",
                 },
