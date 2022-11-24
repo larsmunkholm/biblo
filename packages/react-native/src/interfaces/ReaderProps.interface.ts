@@ -1,9 +1,9 @@
 import React from "react";
 import { Animated, StyleProp, TextStyle, ViewStyle } from "react-native";
-import { BibloBio, BibloItem } from "./Biblo.interface";
+import { BibloBio, BibloFile } from "./Biblo.interface";
 
 export interface BibloReaderWrapperProps {
-    item: BibloItem;
+    item: BibloFile;
     style?: StyleProp<ViewStyle>;
     children: React.ReactNode;
 }

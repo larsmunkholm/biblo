@@ -14,14 +14,14 @@ type RecursivePartial<T> = {
 
 type DefaultType = Record<string, any>;
 
-interface Basics<T> {
+interface SharedBasics<T> {
     props?: Partial<T>;
     wrapper?: React.ElementType<BibloReaderItemComponentWrapperProps>;
     wrapperStyle?: StyleProp<ViewStyle>;
 }
 
-export interface BibloBio<T = DefaultType> extends Basics<T> {
-    component?: React.ElementType<T>;
+export interface BibloBio<T = DefaultType> extends SharedBasics<T> {
+    component: React.ElementType<T>;
     title: string;
     subtitle?: string;
     description?: React.ReactNode;
@@ -30,25 +30,25 @@ export interface BibloBio<T = DefaultType> extends Basics<T> {
     section?: string[];
 }
 
-export type BibloBasics<T = DefaultType> = BibloBio<T> & { path: string };
+export type BibloBioAndPath<T = DefaultType> = BibloBio<T> & { path: string };
 
-export type BibloBook<T = DefaultType> = (
+export type BibloItem<T = DefaultType> = (
     | ((props: T) => React.ReactNode)
     | object
 ) &
-    Basics<T> & {
+    SharedBasics<T> & {
         title?: string;
         description?: React.ReactNode;
-        bind?: (props: Record<string, any>) => Basics<T> & {
+        bind?: (props: Record<string, any>) => SharedBasics<T> & {
             title?: string;
             description?: React.ReactNode;
         };
     };
 
-export type BibloItem<T = DefaultType> = BibloBasics<T> & {
-    books: {
+export type BibloFile<T = DefaultType> = BibloBioAndPath<T> & {
+    items: {
         title: string;
-        component: BibloBook;
+        component: BibloItem;
     }[];
 };
 
@@ -70,7 +70,7 @@ export interface BibloProviderProps {
     readerOptions?: ReaderOptions;
     defaultStyles?: RecursivePartial<DefaultStyles>;
     disableDefaultStyles?: boolean;
-    getSection?: (basics: BibloBasics) => string;
+    getSection?: (basics: BibloBioAndPath) => string;
 }
 
 export interface BibloComponentItem {
@@ -83,5 +83,5 @@ export interface BibloComponentItem {
     wrapperStyle?: StyleProp<ViewStyle>;
     props: any;
     Component: any;
-    bio: BibloBasics;
+    bio: BibloBioAndPath;
 }

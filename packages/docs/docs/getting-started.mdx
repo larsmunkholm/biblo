@@ -1,0 +1,100 @@
+---
+sidebar_position: 3
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# 🚀 Getting started
+
+### 💾 Installation
+
+:::info Note
+This package requires that you use React Native version **0.70.0** or newer.
+
+Or if you're using Expo, make sure it's version **47.0.0** or newer.
+:::
+
+<Tabs>
+<TabItem value="npm" label="📦 npm" default>
+
+```shell
+npm install --save @biblo/react-native @biblo/babel-plugin
+```
+
+</TabItem>
+<TabItem value="yarn" label="🧶 Yarn">
+
+```shell
+yarn add @biblo/react-native @biblo/babel-plugin
+```
+
+</TabItem>
+</Tabs>
+
+The solution is implemented in JavaScript so no native module linking is required.
+
+### 🅱️ Babel
+
+To enable Biblo to list your examples in the same order you export them, add `"@biblo/babel-plugin"` as a plugin in your **babel.config.js** file:
+
+```js title="babel.config.js"
+module.exports = {
+    plugins: ["@biblo/babel-plugin"],
+};
+```
+
+### Ⓜ️ Metro
+
+:::info Note
+If you're using **Expo** (version 47.0.0 or newer) you can skip this step as they have already enabled `unstable_allowRequireContext`
+:::
+
+:::info Note
+This is supported since [version **0.72.1** of Metro](https://github.com/facebook/metro/releases/tag/v0.72.1), and [version **0.70.0** of React Native](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#0700)
+:::
+
+Biblo uses `require.context` to import all files that end in
+- `.biblo.tsx`
+- `.biblo.jsx`
+- `.biblo.ts`
+- `.biblo.js`
+
+You need to enable `unstable_allowRequireContext` in your **metro.config.js** file.
+
+**Example 1:**
+
+```js title="metro.config.js"
+const { getDefaultConfig } = require("expo/metro-config");
+
+const config = getDefaultConfig(__dirname);
+// highlight-next-line
+config.transformer.unstable_allowRequireContext = true;
+```
+
+**Example 2:**
+
+```js title="metro.config.js"
+module.exports = (async () => {
+    return {
+        transformer: {
+            // highlight-next-line
+            unstable_allowRequireContext: true,
+        },
+    };
+})();
+```
+
+### 🎯 TypeScript
+
+Using `require.context` is still experimental in Metro/React Native, so they haven't added it to their TypeScript declaration.
+
+Luckily, you can fix that by including `"@biblo/react-native"` in your **tsconfig.json** file.
+
+```json title="tsconfig.json"
+{
+  "compilerOptions": { },
+  // highlight-next-line
+  "include": ["@biblo/react-native"]
+}
+```

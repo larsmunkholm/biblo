@@ -1,0 +1,85 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# 🏷️ Biblo Bio
+
+:::info Note
+The **default export** must be of the type `BibloBio`.
+:::
+
+This is where you define all the basic information for your component.
+
+## Props
+
+| Property       | Type                  | Required | Description                                                                                                                       |
+|----------------|-----------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `component`    | React.ElementType     | ✅        | The component you want to showcase.                                                                                               |
+| `title`        | string                | ✅        | The name or title of your component.                                                                                              |
+| `subtitle`     | string                | ❌        | A short description that will also be visible in the list of components.                                                          |
+| `description`  | string                | ❌        | A longer description.                                                                                                             |
+| `tags`         | string[]              | ❌        | An array of tags.<br/>E.g. `["interactive", "button"]`                                                                            |
+| `searchTerms`  | string[]              | ❌        | An array of strings that the search will match up against.                                                                        |
+| `section`      | string                | ❌        | The name of the section. This will take precedence over any other logic to find out which section a component belongs in.         |
+| `props`        | {}                    | ❌        | An object defining a default set of props to apply to your component.                                                             |
+| `wrapper`      | React.ElementType     | ❌        | Sometimes it's helpful to have your component wrapped in another component.                                                       |
+| `wrapperStyle` | StyleProp<ViewStyle\> | ❌        | Sometimes it's helpful to just add some styling to the `View` (or another component) that your component is being wrapped inside. |
+
+## Example
+
+<Tabs groupId="language">
+<TabItem value="npm" label="TypeScript" default>
+
+```tsx title="Separator.biblo.tsx"
+import { BibloBio, BibloItem } from "@biblo/react-native";
+import { Separator, SeparatorProps } from "./Separator";
+import { MyWrapper } from "../MyWrapper";
+
+export default {
+    component: Separator,
+    title: "Separator",
+    subtitle: "A line",
+    description: "A line separating two different types of content.",
+    tags: ["graphics"],
+    searchTerms: ["divider", "hr", "horizontal rule"],
+    section: "Atoms",
+    props: {
+        style: "dashed",
+    },
+    wrapper: MyWrapper,
+    wrapperStyle: {
+        padding: 10,
+    },
+} as BibloBio<SeparatorProps>;
+```
+
+</TabItem>
+<TabItem value="yarn" label="JavaScript">
+
+```jsx title="Separator.biblo.jsx"
+import { Separator } from "./Separator";
+import { MyWrapper } from "../MyWrapper";
+
+export default {
+    component: Separator,
+    title: "Separator",
+    subtitle: "A line",
+    description: "A line separating two different types of content.",
+    tags: ["graphics"],
+    searchTerms: ["divider", "hr", "horizontal rule"],
+    section: "Atoms",
+    props: {
+        style: "dashed",
+    },
+    wrapper: MyWrapper,
+    wrapperStyle: {
+        padding: 10,
+    },
+};
+```
+
+</TabItem>
+</Tabs>

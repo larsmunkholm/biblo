@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import {
-    BibloItem,
+    BibloFile,
     BibloProviderProps,
     DefaultStyles,
 } from "../interfaces/Biblo.interface";
@@ -8,9 +8,9 @@ import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 
 interface BibloHook {
-    items: { title: string; data: BibloItem[] }[];
-    selectedItem: BibloItem | undefined;
-    setSelectedItem: (item: BibloItem | undefined) => void;
+    items: { title: string; data: BibloFile[] }[];
+    selectedItem: BibloFile | undefined;
+    setSelectedItem: (item: BibloFile | undefined) => void;
     indexOptions: IndexOptions;
     readerOptions: ReaderOptions;
     defaultStyles: DefaultStyles;
@@ -44,7 +44,7 @@ export const BibloProvider = ({
             ...defStyles?.fontSizes,
         },
     };
-    const [selectedItem, setSelectedItem] = useState<BibloItem | undefined>();
+    const [selectedItem, setSelectedItem] = useState<BibloFile | undefined>();
     const [searchValue, setSearchValue] = useState("");
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
     const items: BibloHook["items"] = useMemo(
@@ -121,7 +121,7 @@ export const BibloProvider = ({
 
     useEffect(() => {
         setSelectedItem((current) => {
-            let updatedItem: BibloItem | undefined;
+            let updatedItem: BibloFile | undefined;
             if (current) {
                 items.find((arr) => {
                     const found = arr.data.find((item) => {

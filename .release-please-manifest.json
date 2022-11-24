@@ -1,5 +1,6 @@
 {
   ".": "0.1.0",
   "packages/babel-plugin": "1.0.0",
+  "packages/docs": "0.1.0",
   "packages/react-native": "0.1.0"
 }

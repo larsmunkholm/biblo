@@ -1,5 +1,5 @@
 import React from "react";
-import { BibloBio, BibloBook } from "@biblo/react-native";
+import { BibloBio, BibloItem } from "@biblo/react-native";
 import { Skeleton } from "./Skeleton.component";
 import { SkeletonProps } from "./Skeleton.props";
 
@@ -15,18 +15,18 @@ export default {
 
 export const Default = {};
 
-export const Colored: BibloBook<SkeletonProps> = (props) => {
+export const Colored: BibloItem<SkeletonProps> = (props) => {
     return <Skeleton {...props} color="red" />;
 };
 
-export const WithoutOpacity: BibloBook<SkeletonProps> = {
+export const WithoutOpacity: BibloItem<SkeletonProps> = {
     props: { opacity: 1 },
 };
 
-export const WithCustomOpacity: BibloBook<SkeletonProps> = {
+export const WithCustomOpacity: BibloItem<SkeletonProps> = {
     props: { opacity: 0.5 },
 };
 
-export const WithCustomRadius: BibloBook<SkeletonProps> = {
+export const WithCustomRadius: BibloItem<SkeletonProps> = {
     props: { radius: 50 },
 };

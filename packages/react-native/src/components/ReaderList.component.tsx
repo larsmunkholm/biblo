@@ -3,18 +3,18 @@ import { View } from "react-native";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { ReaderItem } from "./ReaderItem.component";
 import { Separator as DefaultSeparator } from "./Separator.component";
-import { BibloItem } from "../interfaces/Biblo.interface";
+import { BibloFile } from "../interfaces/Biblo.interface";
 import { ReaderHeader } from "./ReaderHeader.component";
 import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
 
 interface Props {
-    item: BibloItem;
+    item: BibloFile;
 }
 
 export const ReaderList = React.memo(({ item }: Props) => {
     const { readerOptions, disableDefaultStyles: disableDefaultStylesGlobal } =
         useBiblo();
-    const { books, ...bio } = item;
+    const { items, ...bio } = item;
     const disableDefaultStyles =
         disableDefaultStylesGlobal || readerOptions.disableDefaultStyles;
     const disableFooterSeparator =
@@ -37,7 +37,7 @@ export const ReaderList = React.memo(({ item }: Props) => {
             {/** Component header */}
             <ReaderHeader bio={bio} />
 
-            {books.map((book, index) => (
+            {items.map((book, index) => (
                 <View key={index}>
                     {/** Separator */}
                     {(index > 0 || !readerOptions.disableHeaderSeparator) && (
@@ -52,7 +52,7 @@ export const ReaderList = React.memo(({ item }: Props) => {
                             }
                             isLast={
                                 disableFooterSeparator
-                                    ? index === books.length - 1
+                                    ? index === items.length - 1
                                     : false
                             }
                             style={readerOptions.separatorStyle}
@@ -63,7 +63,7 @@ export const ReaderList = React.memo(({ item }: Props) => {
                     <ReaderItem
                         index={index}
                         isFirst={index === 0}
-                        isLast={index === books.length - 1}
+                        isLast={index === items.length - 1}
                         Component={book.component}
                         props={{ ...bio.props, ...book.component.props }}
                         Wrapper={book.component.wrapper || bio.wrapper}
@@ -88,7 +88,7 @@ export const ReaderList = React.memo(({ item }: Props) => {
 
             {/** Separator */}
             {disableFooterSeparator || (
-                <Separator index={books.length} isFirst={false} isLast={true} />
+                <Separator index={items.length} isFirst={false} isLast={true} />
             )}
 
             {/** Footer */}
