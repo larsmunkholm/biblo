@@ -19,9 +19,11 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: cd packages && cd docs && npm ci
+        run: npm ci
+        working-directory: ./packages/docs
       - name: Build website
         run: npm run build
+        working-directory: ./packages/docs
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
