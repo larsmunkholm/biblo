@@ -16,7 +16,7 @@ const config = {
 
     // GitHub pages deployment config.
     organizationName: "larsmunkholm",
-    projectName: "notes",
+    projectName: "larsmunkholm.github.io",
     deploymentBranch: "main",
     trailingSlash: true,
 
