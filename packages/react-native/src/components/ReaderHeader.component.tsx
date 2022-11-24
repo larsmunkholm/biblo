@@ -1,12 +1,12 @@
 import React from "react";
-import { BibloBasics } from "../interfaces/Biblo.interface";
+import { BibloBioAndPath } from "../interfaces/Biblo.interface";
 import { Text, View } from "react-native";
 import { Typography, TypographySize } from "./Typography.component";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
 
 interface Props {
-    bio: BibloBasics;
+    bio: BibloBioAndPath;
 }
 
 export const ReaderHeader = ({ bio }: Props) => {

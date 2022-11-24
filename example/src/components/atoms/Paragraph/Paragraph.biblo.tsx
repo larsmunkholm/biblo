@@ -1,4 +1,4 @@
-import { BibloBio, BibloBook } from "@biblo/react-native";
+import { BibloBio, BibloItem } from "@biblo/react-native";
 import {
     Paragraph,
     ParagraphProps,
@@ -21,63 +21,63 @@ export default {
     },
 } as BibloBio<ParagraphProps>;
 
-export const Default: BibloBook<ParagraphProps> = {};
+export const Default: BibloItem<ParagraphProps> = {};
 
-export const Italic: BibloBook<ParagraphProps> = {
+export const Italic: BibloItem<ParagraphProps> = {
     props: { italic: true },
 };
 
-export const Tiny: BibloBook<ParagraphProps> = {
+export const Tiny: BibloItem<ParagraphProps> = {
     description: "Very small text. Use with caution.",
     props: { size: ParagraphSize.Tiny },
 };
 
-export const Small: BibloBook<ParagraphProps> = {
+export const Small: BibloItem<ParagraphProps> = {
     props: { size: ParagraphSize.Small },
 };
 
-export const Large: BibloBook<ParagraphProps> = {
+export const Large: BibloItem<ParagraphProps> = {
     props: { size: ParagraphSize.Large },
 };
 
-export const Larger: BibloBook<ParagraphProps> = {
+export const Larger: BibloItem<ParagraphProps> = {
     props: { size: ParagraphSize.Larger },
 };
 
-export const ExtraLarge: BibloBook<ParagraphProps> = {
+export const ExtraLarge: BibloItem<ParagraphProps> = {
     props: { size: ParagraphSize.ExtraLarge },
 };
 
-export const Bold: BibloBook<ParagraphProps> = {
+export const Bold: BibloItem<ParagraphProps> = {
     props: { weight: ParagraphWeight.Bold },
 };
 
-export const WithOpacity: BibloBook<ParagraphProps> = {
+export const WithOpacity: BibloItem<ParagraphProps> = {
     props: { opacity: 0.333 },
 };
 
 export const Colored = { props: { color: "red" } };
 
-export const Centered: BibloBook<ParagraphProps> = { props: { center: true } };
+export const Centered: BibloItem<ParagraphProps> = { props: { center: true } };
 
-export const LineHeight125: BibloBook<ParagraphProps> = {
+export const LineHeight125: BibloItem<ParagraphProps> = {
     title: "Line height 1.25",
     description: "This is the default line height.",
     props: { children: MOCK_LOREM_IPSUM },
 };
 
-export const LineHeight1: BibloBook<ParagraphProps> = {
+export const LineHeight1: BibloItem<ParagraphProps> = {
     title: "Line height 1",
     props: { children: MOCK_LOREM_IPSUM, lineHeight: 1 },
 };
 
-export const LineHeight15: BibloBook<ParagraphProps> = {
+export const LineHeight15: BibloItem<ParagraphProps> = {
     title: "Line height 1.5",
     description: "Use this for longer texts",
     props: { children: MOCK_LOREM_IPSUM, lineHeight: 1.5 },
 };
 
-export const LineHeight2: BibloBook<ParagraphProps> = {
+export const LineHeight2: BibloItem<ParagraphProps> = {
     title: "Line height 2",
     props: { children: MOCK_LOREM_IPSUM, lineHeight: 2 },
 };

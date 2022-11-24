@@ -1,7 +1,7 @@
 module.exports = (async () => {
     return {
         transformer: {
-            unstable_allowRequireContext: true, // Biblo needs this
+            unstable_allowRequireContext: true, // docs needs this
         },
     };
 })();

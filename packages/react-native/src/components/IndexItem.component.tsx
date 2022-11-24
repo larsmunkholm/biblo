@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
 import { Pressable, View } from "react-native";
 import { Separator as DefaultSeparator } from "./Separator.component";
-import { BibloItem } from "../interfaces/Biblo.interface";
+import { BibloFile } from "../interfaces/Biblo.interface";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { Typography, TypographySize } from "./Typography.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 
 interface Props {
-    item: BibloItem;
+    item: BibloFile;
 }
 
 export const IndexItem = ({ item }: Props) => {

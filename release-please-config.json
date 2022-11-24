@@ -2,6 +2,7 @@
   "packages": {
     ".": {},
     "packages/babel-plugin": {},
+    "packages/docs": {},
     "packages/react-native": {}
   },
   "plugins": ["sentence-case"]

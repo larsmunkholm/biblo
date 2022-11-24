@@ -1,4 +1,4 @@
-import { BibloBio, BibloBook } from "@biblo/react-native";
+import { BibloBio, BibloItem } from "@biblo/react-native";
 import { Separator } from "./Separator.component";
 import { SeparatorProps } from "./Separator.props";
 
@@ -16,20 +16,20 @@ export default {
     },
 } as BibloBio<SeparatorProps>;
 
-export const Default: BibloBook = {};
+export const Default: BibloItem = {};
 
-export const MarginVertical: BibloBook<SeparatorProps> = {
+export const MarginVertical: BibloItem<SeparatorProps> = {
     props: { marginVertical: true },
 };
 
-export const MarginTop: BibloBook<SeparatorProps> = {
+export const MarginTop: BibloItem<SeparatorProps> = {
     props: { marginTop: true },
 };
 
-export const MarginBottom: BibloBook<SeparatorProps> = {
+export const MarginBottom: BibloItem<SeparatorProps> = {
     props: { marginTop: true },
 };
 
-export const NoMarginHorizontal: BibloBook<SeparatorProps> = {
+export const NoMarginHorizontal: BibloItem<SeparatorProps> = {
     props: { noMarginHorizontal: true },
 };
