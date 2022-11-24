@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0] (2022-11-24)
+
+
+### Features
+
+* Documentation and a lot of improvements
+
 ## [0.1.0](https://github.com/larsmunkholm/biblo/compare/react-native-v0.0.1...react-native-v0.1.0) (2022-11-23)
 
 
