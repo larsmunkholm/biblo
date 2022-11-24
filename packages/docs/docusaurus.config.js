@@ -8,15 +8,16 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
     title: "Biblo",
     tagline: "A component library and workshop for React Native",
-    url: "https://your-docusaurus-test-site.com",
-    baseUrl: "/",
+    url: "https://larsmunkholm.github.io",
+    baseUrl: "/biblo",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    favicon: "img/favicon.ico",
+    favicon: "img/logo.svg",
 
     // GitHub pages deployment config.
     organizationName: "larsmunkholm",
-    projectName: "biblo",
+    projectName: "larsmunkholm.github.io",
+    trailingSlash: true,
 
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
