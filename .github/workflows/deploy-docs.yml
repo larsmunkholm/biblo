@@ -17,7 +17,7 @@ jobs:
                   node-version: 18
                   cache: npm
             - name: Install dependencies
-              run: npm ci
+              run: cd packages && cd docs && npm ci
             - name: Test build website
               run: npm run build
     deploy:
@@ -38,5 +38,5 @@ jobs:
               run: |
                   git config --global user.email "mail@larsersej.dk"
                   git config --global user.name "larsmunkholm"
-                  npm ci
+                  cd packages && cd docs && npm ci
                   npm run deploy
