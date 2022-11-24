@@ -11,7 +11,7 @@ A fully customizable **component library** and workshop living in your **React N
 
 [![Built with](https://skills.thijs.gg/icons?i=react,ts&theme=dark)](https://github.com/larsmunkholm/biblo)
 
-> ### Go read the [documentation](https://larsmunkholm.github.io/biblo/)
+### Go read the [documentation](https://larsmunkholm.github.io/biblo/)
 
 </div>
 
