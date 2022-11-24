@@ -99,10 +99,6 @@ const config = {
                         title: "More",
                         items: [
                             {
-                                label: "Blog",
-                                to: "/blog",
-                            },
-                            {
                                 label: "npm",
                                 href: "https://www.npmjs.com/package/@biblo/react-native",
                             },
