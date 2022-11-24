@@ -39,4 +39,4 @@ jobs:
                   git config --global user.email "mail@larsersej.dk"
                   git config --global user.name "larsmunkholm"
                   cd packages && cd docs && npm ci
-                  npm run deploy
+                  npm run deploy -- --out-dir build/biblo
