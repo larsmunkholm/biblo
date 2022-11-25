@@ -7,14 +7,15 @@ jobs:
     release-please:
         runs-on: ubuntu-latest
         steps:
-            - uses: google-github-actions/release-please-action@v3
+            - name: Run Release Please
+              uses: google-github-actions/release-please-action@v3
               id: release
               with:
                   command: manifest
                   token: ${{secrets.RELEASE_PLEASE_TOKEN}}
 
-            # The logic below handles the npm publication:
-            - uses: actions/checkout@v3
+            - name: Release created - checkout files
+              uses: actions/checkout@v3
               with:
                 fetch-depth: 0
               # these if statements ensure that a publication only occurs when
@@ -22,7 +23,7 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
 
             # Check @biblo/react-native
-            - name: Get changed files in the packages/react-native folder
+            - name: @biblo/react-native - Check for changes
               id: changed-react-native
               uses: tj-actions/changed-files@v34
               with:
@@ -31,21 +32,23 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
 
             # Publish @biblo/react-native
-            - name: Publish @biblo/react-native
+            - name: @biblo/react-native - Setup Node.js
               uses: actions/setup-node@v3
               with:
                 node-version: 16
                 registry-url: 'https://registry.npmjs.org'
               if: steps.changed-react-native.outputs.any_changed == 'true'
-            - run: npm ci
+            - name: @biblo/react-native - Install dependencies
+              run: npm ci
               if: steps.changed-react-native.outputs.any_changed == 'true'
-            - run: cd packages && cd react-native && npm publish
+            - name: @biblo/react-native - Publish to NPM
+              run: cd packages && cd react-native && npm publish
               env:
                 NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
               if: steps.changed-react-native.outputs.any_changed == 'true'
 
             # Check @biblo/babel-plugin
-            - name: Get changed files in the packages/babel-plugin folder
+            - name: @biblo/babel-plugin - Check for changes
               id: changed-babel-plugin
               uses: tj-actions/changed-files@v34
               with:
@@ -54,21 +57,23 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
 
             # Publish @biblo/babel-plugin
-            - name: Publish @biblo/babel-plugin
+            - name: @biblo/babel-plugin - Setup Node.js
               uses: actions/setup-node@v3
               with:
                 node-version: 16
                 registry-url: 'https://registry.npmjs.org'
               if: steps.changed-babel-plugin.outputs.any_changed == 'true'
-            - run: npm ci
+            - name: @biblo/babel-plugin - Install dependencies
+              run: npm ci
               if: steps.changed-babel-plugin.outputs.any_changed == 'true'
-            - run: cd packages && cd babel-plugin && npm publish
+            - name: @biblo/babel-plugin - Publish to NPM
+              run: cd packages && cd babel-plugin && npm publish
               env:
                 NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
               if: steps.changed-babel-plugin.outputs.any_changed == 'true'
 
             # Check @biblo/docs
-            - name: Get changed files in the packages/docs folder
+            - name: @biblo/docs - Check for changes
               id: changed-docs
               uses: tj-actions/changed-files@v34
               with:
@@ -77,25 +82,25 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
 
             # Publish @biblo/babel-plugin
-            - name: Publish @biblo/docs
+            - name: @biblo/docs - Setup Node.js
               uses: actions/setup-node@v3
               with:
                 node-version: 18
                 cache: npm
               if: steps.changed-docs.outputs.any_changed == 'true'
 
-            - name: Install dependencies
+            - name: @biblo/docs - Install dependencies
               run: npm ci
               working-directory: ./packages/docs
               if: steps.changed-docs.outputs.any_changed == 'true'
-            - name: Build website
+            - name: @biblo/docs - Build website
               run: npm run build
               working-directory: ./packages/docs
               if: steps.changed-docs.outputs.any_changed == 'true'
 
               # Popular action to deploy to GitHub Pages:
               # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
-            - name: Deploy to GitHub Pages
+            - name: @biblo/docs - Deploy to GitHub Pages
               uses: peaceiris/actions-gh-pages@v3
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
