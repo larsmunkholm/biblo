@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 🖥️ Try it out
+# Try it out
 
 You can run an example by performing these steps:
 

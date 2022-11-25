@@ -13,6 +13,7 @@
     --ifm-color-primary-light: #ed8c20;
     --ifm-color-primary-lighter: #ef9939;
     --ifm-color-primary-lightest: #f1a652;
+    --ifm-button-on-hero-background-color: #fff;
     --ifm-code-font-size: 95%;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -27,4 +28,8 @@
     --ifm-color-primary-lighter: #fdbb39;
     --ifm-color-primary-lightest: #fdc452;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.hidden {
+    display: none;
 }
