@@ -6,7 +6,7 @@ import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
 
 export const ReaderScreen = React.memo(() => {
     const {
-        selectedItem,
+        selectedFile,
         readerOptions,
         disableDefaultStyles: disableDefaultStylesGlobal,
     } = useBiblo();
@@ -23,21 +23,21 @@ export const ReaderScreen = React.memo(() => {
         }
     }, [readerOptions]);
 
-    return selectedItem ? (
+    return selectedFile ? (
         <Wrapper
-            item={selectedItem}
+            item={selectedFile}
             style={[
                 disableDefaultStyles ? {} : { flex: 1 },
                 readerOptions.wrapperStyle,
             ]}
         >
             <Animated.ScrollView
-                key={selectedItem.path}
+                key={selectedFile.path}
                 keyboardDismissMode="on-drag"
                 keyboardShouldPersistTaps="always"
                 {...readerOptions.scrollViewProps}
             >
-                <ReaderList item={selectedItem} />
+                <ReaderList file={selectedFile} />
             </Animated.ScrollView>
         </Wrapper>
     ) : null;

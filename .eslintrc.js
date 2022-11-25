@@ -33,7 +33,16 @@ module.exports = {
             },
         },
         {
-            files: ["./packages/react-native/**/*.(ts|tsx)"],
+            files: ["./packages/docs/**/*.tsx"],
+            parserOptions: {
+                project: "./packages/docs/tsconfig.json",
+            },
+            rules: {
+                "@typescript-eslint/no-var-requires": ["off"],
+            },
+        },
+        {
+            files: ["./packages/react-native/**/*.{ts|tsx}"],
             extends: ["@react-native-community"],
         },
     ],

@@ -27,7 +27,7 @@ export interface BibloBio<T = DefaultType> extends SharedBasics<T> {
     description?: React.ReactNode;
     searchTerms?: string[];
     tags?: string[];
-    section?: string[];
+    section?: string;
 }
 
 export type BibloBioAndPath<T = DefaultType> = BibloBio<T> & { path: string };

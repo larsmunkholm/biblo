@@ -6,7 +6,7 @@ import { IndexOptions } from "../interfaces/IndexOptions.interface";
 
 export const IndexHeader = () => {
     const {
-        items,
+        files,
         indexOptions,
         searchValue,
         setSearchValue,
@@ -28,8 +28,8 @@ export const IndexHeader = () => {
         () =>
             [
                 ...new Set(
-                    items
-                        .map((item) => item.data.map(({ tags }) => tags))
+                    files
+                        .map((file) => file.data.map(({ tags }) => tags))
                         .flat(2),
                 ),
             ]
@@ -39,7 +39,7 @@ export const IndexHeader = () => {
                     tag: tag as string,
                     active: selectedTags.includes(tag as string),
                 })),
-        [items, selectedTags],
+        [files, selectedTags],
     );
 
     const Container = (indexOptions.headerComponent || View) as NonNullable<
