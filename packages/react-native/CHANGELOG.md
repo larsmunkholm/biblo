@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/larsmunkholm/biblo/compare/react-native-v0.3.0...react-native-v0.3.1) (2022-11-25)
+
+
+### Bug Fixes
+
+* Fix typescript support for `require.context` ([9367009](https://github.com/larsmunkholm/biblo/commit/9367009aa378b6f89fdbb963a6da7c2495a5f3bf))
+
 ## [0.3.0](https://github.com/larsmunkholm/biblo/compare/react-native-v0.2.0...react-native-v0.3.0) (2022-11-24)
 
 
