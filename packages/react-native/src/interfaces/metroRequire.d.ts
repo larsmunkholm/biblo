@@ -3,7 +3,7 @@
 // Adds support for the runtime `require.context` method.
 // https://github.com/facebook/metro/pull/822/
 
-declare let module: NodeModule;
+declare var module: NodeModule;
 
 declare namespace __MetroModuleApi {
     interface RequireContext {

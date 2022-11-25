@@ -129,13 +129,10 @@ module.exports = (async () => {
 
 Using `require.context` is still experimental in Metro/React Native, so they haven't added it to their TypeScript declaration.
 
-Luckily, you can fix that by including `"@biblo/react-native"` in your **tsconfig.json** file.
+Luckily, you can fix that by placing the following `import` in your app:
 
-```json
-{
-  "compilerOptions": { },
-  "include": ["@biblo/react-native"]
-}
+```tsx
+import "@biblo/react-native/lib/interfaces/metroRequire";
 ```
 
 ## 🛠 Usage
