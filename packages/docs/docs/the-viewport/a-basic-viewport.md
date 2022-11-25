@@ -8,7 +8,7 @@ import TabItem from "@theme/TabItem";
 # 🌱 A basic viewport
 
 <Tabs groupId="language">
-<TabItem value="ts" label="TypeScript" default>
+<TabItem value="npm" label="TypeScript" default>
 
 ```tsx
 import {
@@ -42,7 +42,7 @@ export default function App() {
 ```
 
 </TabItem>
-<TabItem value="js" label="JavaScript">
+<TabItem value="yarn" label="JavaScript">
 
 ```jsx
 import {

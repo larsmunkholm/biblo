@@ -23,19 +23,19 @@ The **named exports** must be of the type `BibloItem`.
 
 ## Examples
 
-### 🌱 Simplest
+### Simplest
 
 This is the simplest way to export an example of your component.
 
 <Tabs groupId="language">
-<TabItem value="ts" label="TypeScript" default>
+<TabItem value="npm" label="TypeScript" default>
 
 ```tsx title="Separator.biblo.tsx"
 export const Default: BibloItem<SeparatorProps> = {};
 ```
 
 </TabItem>
-<TabItem value="js" label="JavaScript">
+<TabItem value="yarn" label="JavaScript">
 
 ```jsx title="Separator.biblo.jsx"
 export const Default = {};
@@ -46,12 +46,12 @@ export const Default = {};
 
 The title of the example will be **Default** and it will have no description, no props, no wrapper, no nothing.
 
-### 🌿 Still simple
+### Still simple
 
 Here we'll give it a bit more something something.
 
 <Tabs groupId="language">
-<TabItem value="ts" label="TypeScript" default>
+<TabItem value="npm" label="TypeScript" default>
 
 ```tsx title="Separator.biblo.tsx"
 export const Vertical: BibloItem<SeparatorProps> = {
@@ -67,7 +67,7 @@ export const Vertical: BibloItem<SeparatorProps> = {
 ```
 
 </TabItem>
-<TabItem value="js" label="JavaScript">
+<TabItem value="yarn" label="JavaScript">
 
 ```jsx title="Separator.biblo.jsx"
 export const Vertical = {
@@ -85,12 +85,12 @@ export const Vertical = {
 </TabItem>
 </Tabs>
 
-### 🌴 Advanced
+### Advanced
 
 In case you need to use hooks or some other JavaScript logic - we got your back.
 
 <Tabs groupId="language">
-<TabItem value="ts" label="TypeScript" default>
+<TabItem value="npm" label="TypeScript" default>
 
 ```tsx title="Separator.biblo.tsx"
 export const BrandColored: BibloItem<SeparatorProps> = (props) => {
@@ -106,7 +106,7 @@ BrandColored.props = {
 ```
 
 </TabItem>
-<TabItem value="js" label="JavaScript">
+<TabItem value="yarn" label="JavaScript">
 
 ```jsx title="Separator.biblo.jsx"
 export const BrandColored = (props) => {

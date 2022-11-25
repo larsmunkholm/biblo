@@ -5,9 +5,9 @@ sidebar_position: 3
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Getting started
+# 🚀 Getting started
 
-## 💾 Installation
+### 💾 Installation
 
 :::info Note
 This package requires that you use React Native version **0.70.0** or newer.
@@ -34,7 +34,7 @@ yarn add @biblo/react-native @biblo/babel-plugin
 
 The solution is implemented in JavaScript so no native module linking is required.
 
-## 🅱️ Babel
+### 🅱️ Babel
 
 To enable Biblo to list your examples in the same order you export them, add `"@biblo/babel-plugin"` as a plugin in your **babel.config.js** file:
 
@@ -44,7 +44,7 @@ module.exports = {
 };
 ```
 
-## Ⓜ️ Metro
+### Ⓜ️ Metro
 
 :::info Note
 If you're using **Expo** (version 47.0.0 or newer) you can skip this step as they have already enabled `unstable_allowRequireContext`
@@ -85,7 +85,7 @@ module.exports = (async () => {
 })();
 ```
 
-## 🎯 TypeScript
+### 🎯 TypeScript
 
 Using `require.context` is still experimental in Metro/React Native, so they haven't added it to their TypeScript declaration.
 
@@ -93,7 +93,7 @@ Luckily, you can fix that by placing the following `import` in your app:
 
 ```tsx
 // highlight-next-line
-import "@biblo/react-native/lib/interfaces/metroRequire.d";
+import "@biblo/react-native/lib/interfaces/metroRequire";
 
 const components = bibloImporter(
     require.context("/", true, /\.biblo\.[tj]sx?$/),
