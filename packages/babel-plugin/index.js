@@ -4,8 +4,9 @@ module.exports = function ({ types: t }) {
             ExportNamedDeclaration: {
                 enter({ node }, state) {
                     const currentFilePath = state.file.opts.filename;
+                    const regex = state.opts.regex || /\.biblo\.[tj]sx?$/;
                     if (
-                        /\.biblo\.[tj]sx?$/.test(currentFilePath) &&
+                        regex.test(currentFilePath) &&
                         !currentFilePath.includes("node_modules")
                     ) {
                         if (node.declaration) {
