@@ -13,7 +13,7 @@ import {
     BibloIndex,
     BibloReader,
 } from "@biblo/react-native";
-import "@biblo/react-native/lib/interfaces/metroRequire";
+import "@biblo/react-native/lib/interfaces/metroRequire.d";
 
 const components = bibloImporter(
     require.context("/", true, /\.biblo\.[tj]sx?$/),
