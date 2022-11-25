@@ -9,10 +9,21 @@ import TabItem from "@theme/TabItem";
 
 Let's say you have a component named **Separator**. _Let's create a **Biblo file** for it!_
 
-Add a file named `Separator.biblo.tsx` or `Separator.biblo.jsx` with the following content:
+<Tabs groupId="language" className="hidden">
+<TabItem value="ts" label="TypeScript" default>
+
+Add a file named `Separator.biblo.tsx` with the following content:
+
+</TabItem>
+<TabItem value="js" label="JavaScript">
+
+Add a file named `Separator.biblo.jsx` with the following content:
+
+</TabItem>
+</Tabs>
 
 <Tabs groupId="language">
-<TabItem value="npm" label="TypeScript" default>
+<TabItem value="ts" label="TypeScript" default>
 
 ```tsx title="Separator.biblo.tsx"
 import { BibloBio, BibloItem } from "@biblo/react-native";
@@ -31,7 +42,7 @@ export const Vertical: BibloItem<SeparatorProps> = {
 ```
 
 </TabItem>
-<TabItem value="yarn" label="JavaScript">
+<TabItem value="js" label="JavaScript">
 
 ```jsx title="Separator.biblo.jsx"
 import { Separator, SeparatorProps } from "./Separator.component";

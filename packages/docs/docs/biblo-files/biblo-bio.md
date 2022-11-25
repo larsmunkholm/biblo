@@ -31,7 +31,7 @@ This is where you define all the basic information for your component.
 ## Example
 
 <Tabs groupId="language">
-<TabItem value="npm" label="TypeScript" default>
+<TabItem value="ts" label="TypeScript" default>
 
 ```tsx title="Separator.biblo.tsx"
 import { BibloBio, BibloItem } from "@biblo/react-native";
@@ -57,7 +57,7 @@ export default {
 ```
 
 </TabItem>
-<TabItem value="yarn" label="JavaScript">
+<TabItem value="js" label="JavaScript">
 
 ```jsx title="Separator.biblo.jsx"
 import { Separator } from "./Separator";
