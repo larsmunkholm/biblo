@@ -12,7 +12,7 @@ const config = {
     baseUrl: "/biblo/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    favicon: "img/logo.svg",
+    favicon: "img/favicon.ico",
 
     // GitHub pages deployment config.
     organizationName: "larsmunkholm",
