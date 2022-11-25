@@ -23,7 +23,7 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
 
             # Check @biblo/react-native
-            - name: @biblo/react-native - Check for changes
+            - name: React Native - Check for changes
               id: changed-react-native
               uses: tj-actions/changed-files@v34
               with:
@@ -32,23 +32,23 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
 
             # Publish @biblo/react-native
-            - name: @biblo/react-native - Setup Node.js
+            - name: React Native - Setup Node.js
               uses: actions/setup-node@v3
               with:
                 node-version: 16
                 registry-url: 'https://registry.npmjs.org'
               if: steps.changed-react-native.outputs.any_changed == 'true'
-            - name: @biblo/react-native - Install dependencies
+            - name: React Native - Install dependencies
               run: npm ci
               if: steps.changed-react-native.outputs.any_changed == 'true'
-            - name: @biblo/react-native - Publish to NPM
+            - name: React Native - Publish to NPM
               run: cd packages && cd react-native && npm publish
               env:
                 NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
               if: steps.changed-react-native.outputs.any_changed == 'true'
 
             # Check @biblo/babel-plugin
-            - name: @biblo/babel-plugin - Check for changes
+            - name: Babel plugin - Check for changes
               id: changed-babel-plugin
               uses: tj-actions/changed-files@v34
               with:
@@ -57,23 +57,23 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
 
             # Publish @biblo/babel-plugin
-            - name: @biblo/babel-plugin - Setup Node.js
+            - name: Babel plugin - Setup Node.js
               uses: actions/setup-node@v3
               with:
                 node-version: 16
                 registry-url: 'https://registry.npmjs.org'
               if: steps.changed-babel-plugin.outputs.any_changed == 'true'
-            - name: @biblo/babel-plugin - Install dependencies
+            - name: Babel plugin - Install dependencies
               run: npm ci
               if: steps.changed-babel-plugin.outputs.any_changed == 'true'
-            - name: @biblo/babel-plugin - Publish to NPM
+            - name: Babel plugin - Publish to NPM
               run: cd packages && cd babel-plugin && npm publish
               env:
                 NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
               if: steps.changed-babel-plugin.outputs.any_changed == 'true'
 
             # Check @biblo/docs
-            - name: @biblo/docs - Check for changes
+            - name: Docs - Check for changes
               id: changed-docs
               uses: tj-actions/changed-files@v34
               with:
@@ -82,25 +82,25 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
 
             # Publish @biblo/babel-plugin
-            - name: @biblo/docs - Setup Node.js
+            - name: Docs - Setup Node.js
               uses: actions/setup-node@v3
               with:
                 node-version: 18
                 cache: npm
               if: steps.changed-docs.outputs.any_changed == 'true'
 
-            - name: @biblo/docs - Install dependencies
+            - name: Docs - Install dependencies
               run: npm ci
               working-directory: ./packages/docs
               if: steps.changed-docs.outputs.any_changed == 'true'
-            - name: @biblo/docs - Build website
+            - name: Docs - Build website
               run: npm run build
               working-directory: ./packages/docs
               if: steps.changed-docs.outputs.any_changed == 'true'
 
               # Popular action to deploy to GitHub Pages:
               # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
-            - name: @biblo/docs - Deploy to GitHub Pages
+            - name: Docs - Deploy to GitHub Pages
               uses: peaceiris/actions-gh-pages@v3
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
