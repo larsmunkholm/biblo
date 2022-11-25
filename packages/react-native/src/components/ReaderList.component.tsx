@@ -8,13 +8,13 @@ import { ReaderHeader } from "./ReaderHeader.component";
 import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
 
 interface Props {
-    item: BibloFile;
+    file: BibloFile;
 }
 
-export const ReaderList = React.memo(({ item }: Props) => {
+export const ReaderList = React.memo(({ file }: Props) => {
     const { readerOptions, disableDefaultStyles: disableDefaultStylesGlobal } =
         useBiblo();
-    const { items, ...bio } = item;
+    const { items, ...bio } = file;
     const disableDefaultStyles =
         disableDefaultStylesGlobal || readerOptions.disableDefaultStyles;
     const disableFooterSeparator =

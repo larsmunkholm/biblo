@@ -7,14 +7,14 @@ import { Typography, TypographySize } from "./Typography.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 
 interface Props {
-    item: BibloFile;
+    file: BibloFile;
 }
 
-export const IndexItem = ({ item }: Props) => {
+export const IndexItem = ({ file }: Props) => {
     const [active, setActive] = useState(false);
     const {
-        selectedItem,
-        setSelectedItem,
+        selectedFile,
+        setSelectedFile,
         indexOptions,
         defaultStyles,
         disableDefaultStyles: disableDefaultStylesGlobal,
@@ -24,11 +24,11 @@ export const IndexItem = ({ item }: Props) => {
 
     const onPress = useCallback(() => {
         const setAsActive =
-            selectedItem?.path !== item.path ||
+            selectedFile?.path !== file.path ||
             !indexOptions.sectionItemToggleOnPress;
         setActive(setAsActive);
-        setSelectedItem(setAsActive ? item : undefined);
-    }, [selectedItem, setSelectedItem, item, indexOptions]);
+        setSelectedFile(setAsActive ? file : undefined);
+    }, [selectedFile, setSelectedFile, file, indexOptions]);
 
     const Container = (indexOptions.sectionItemComponent ||
         View) as NonNullable<IndexOptions["sectionItemComponent"]>;
@@ -36,8 +36,8 @@ export const IndexItem = ({ item }: Props) => {
     return (
         <Container
             style={{ height: indexOptions.sectionListItemHeight }}
-            title={item.title}
-            subtitle={item.subtitle}
+            title={file.title}
+            subtitle={file.subtitle}
             titleStyle={indexOptions.sectionItemTitleStyle}
             subtitleStyle={indexOptions.sectionItemSubtitleStyle}
             active={active}
@@ -63,17 +63,17 @@ export const IndexItem = ({ item }: Props) => {
                     style={indexOptions.sectionItemTitleStyle}
                     disableDefaultStyles={disableDefaultStyles}
                 >
-                    {item.title}
+                    {file.title}
                 </Typography>
 
                 {/** SUBTITLE */}
-                {item.subtitle && !indexOptions.sectionItemSubtitleHidden && (
+                {file.subtitle && !indexOptions.sectionItemSubtitleHidden && (
                     <Typography
                         size={TypographySize.Small}
                         style={indexOptions.sectionItemSubtitleStyle}
                         disableDefaultStyles={disableDefaultStyles}
                     >
-                        {item.subtitle}
+                        {file.subtitle}
                     </Typography>
                 )}
             </Pressable>

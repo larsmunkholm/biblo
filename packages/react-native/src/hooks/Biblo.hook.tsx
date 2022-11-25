@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import {
+    BibloBio,
     BibloFile,
     BibloProviderProps,
     DefaultStyles,
@@ -8,9 +9,9 @@ import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 
 interface BibloHook {
-    items: { title: string; data: BibloFile[] }[];
-    selectedItem: BibloFile | undefined;
-    setSelectedItem: (item: BibloFile | undefined) => void;
+    files: { title: string; data: BibloFile[] }[];
+    selectedFile: BibloFile | undefined;
+    setSelectedFile: (file: BibloFile | undefined) => void;
     indexOptions: IndexOptions;
     readerOptions: ReaderOptions;
     defaultStyles: DefaultStyles;
@@ -44,14 +45,23 @@ export const BibloProvider = ({
             ...defStyles?.fontSizes,
         },
     };
-    const [selectedItem, setSelectedItem] = useState<BibloFile | undefined>();
+    const [selectedFile, setSelectedFile] = useState<BibloFile | undefined>();
     const [searchValue, setSearchValue] = useState("");
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
-    const items: BibloHook["items"] = useMemo(
+    const files: BibloHook["files"] = useMemo(
         () =>
             Object.entries(
                 Object.entries(components).reduce<Record<string, any>>(
-                    (acc: any, [path, value]: any) => {
+                    (
+                        acc: Record<string, BibloFile[]>,
+                        [path, value]: [
+                            string,
+                            {
+                                default: BibloBio;
+                                __namedExportsOrder: string[];
+                            },
+                        ],
+                    ) => {
                         const {
                             default: bio,
                             __namedExportsOrder: order,
@@ -67,15 +77,15 @@ export const BibloProvider = ({
                             acc[section] = [];
                         }
 
-                        const books = Object.entries(exports).map(
+                        const items = Object.entries(exports).map(
                             ([title, component]) => {
                                 const returnComponent =
                                     typeof component === "function"
                                         ? component
                                         : typeof bio.component === "object"
-                                        ? { ...bio.component }
+                                        ? { ...(bio.component as object) }
                                         : typeof bio.component !== "undefined"
-                                        ? bio.component.bind({})
+                                        ? (bio.component as any).bind({})
                                         : () => bio.component;
                                 if (
                                     typeof component === "object" ||
@@ -99,7 +109,7 @@ export const BibloProvider = ({
                         );
 
                         if (order?.length) {
-                            books.sort(
+                            items.sort(
                                 (a, b) =>
                                     order.indexOf(a.title) -
                                     order.indexOf(b.title),
@@ -109,7 +119,7 @@ export const BibloProvider = ({
                         acc[section].push({
                             ...bio,
                             path,
-                            books,
+                            items,
                         });
                         return acc;
                     },
@@ -120,10 +130,10 @@ export const BibloProvider = ({
     );
 
     useEffect(() => {
-        setSelectedItem((current) => {
+        setSelectedFile((current) => {
             let updatedItem: BibloFile | undefined;
             if (current) {
-                items.find((arr) => {
+                files.find((arr) => {
                     const found = arr.data.find((item) => {
                         if (item.path === current?.path) {
                             updatedItem = { ...item };
@@ -135,14 +145,14 @@ export const BibloProvider = ({
             }
             return updatedItem;
         });
-    }, [items]);
+    }, [files]);
 
     return (
         <BibloContext.Provider
             value={{
-                items,
-                selectedItem,
-                setSelectedItem,
+                files,
+                selectedFile,
+                setSelectedFile,
                 indexOptions: {
                     ...indexOptions,
                     sectionListItemHeight:

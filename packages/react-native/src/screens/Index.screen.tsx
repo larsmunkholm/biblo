@@ -8,7 +8,7 @@ import { IndexItem } from "../components/IndexItem.component";
 
 export const IndexScreen = () => {
     const {
-        items,
+        files,
         searchValue,
         selectedTags,
         indexOptions,
@@ -16,10 +16,10 @@ export const IndexScreen = () => {
     } = useBiblo();
     const disableDefaultStyles =
         disableDefaultStylesGlobal || indexOptions.disableDefaultStyles;
-    const filteredItems: typeof items = useMemo(() => {
+    const filteredFiles: typeof files = useMemo(() => {
         const lowerCaseQuery = searchValue.toLowerCase();
         return lowerCaseQuery || selectedTags.length
-            ? [...items].map((section) => ({
+            ? [...files].map((section) => ({
                   ...section,
                   data: section.data.filter((exports) => {
                       let skip = false;
@@ -46,8 +46,8 @@ export const IndexScreen = () => {
                       return !skip;
                   }),
               }))
-            : items;
-    }, [items, searchValue, selectedTags]);
+            : files;
+    }, [files, searchValue, selectedTags]);
 
     const Wrapper = (indexOptions.wrapperComponent || View) as NonNullable<
         IndexOptions["wrapperComponent"]
@@ -66,7 +66,7 @@ export const IndexScreen = () => {
             ]}
         >
             <Animated.SectionList
-                sections={filteredItems}
+                sections={filteredFiles}
                 keyExtractor={(_, index) => `item-${index}`}
                 stickySectionHeadersEnabled
                 ListHeaderComponent={IndexHeader}
@@ -91,7 +91,7 @@ export const IndexScreen = () => {
                         />
                     ) : null
                 }
-                renderItem={({ item }) => <IndexItem item={item} />}
+                renderItem={({ item }) => <IndexItem file={item} />}
                 getItemLayout={(data, index) => ({
                     length: indexOptions.sectionListItemHeight,
                     offset:
