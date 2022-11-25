@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.2](https://github.com/larsmunkholm/biblo/compare/react-native-v0.3.1...react-native-v0.3.2) (2022-11-25)
+
+
+### Bug Fixes
+
+* Change how `metroRequire.d.ts` is used and exported ([f4d0f82](https://github.com/larsmunkholm/biblo/commit/f4d0f8243f3580fcfedc1a09ef7c62a87cbe89ca))
+* Change how the example imports `metroRequire.d.ts` ([88ea4e7](https://github.com/larsmunkholm/biblo/commit/88ea4e706248565b8d58551931fb6adb7b483b79))
+
 ## [0.3.1](https://github.com/larsmunkholm/biblo/compare/react-native-v0.3.0...react-native-v0.3.1) (2022-11-25)
 
 
