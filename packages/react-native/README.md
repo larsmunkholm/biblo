@@ -198,20 +198,22 @@ export default {
     component: Separator,
 } as BibloBio<SeparatorProps>;
 
+const Template = (props) => <Separator {...props} />;
+
 // The component in its default form
-export const Horizontal: BibloBook<SeparatorProps> = {};
+export const Horizontal: BibloBook<SeparatorProps> = Template.bind({});
 
 // With props
-export const Vertical: BibloBook<SeparatorProps> = {
-    props: { vertical: true },
+export const Vertical: BibloBook<SeparatorProps> = Template.bind({});
+Vertical.props = {
+    vertical: true,
 };
 
 // With props, a title and a description
-export const MarginTop: BibloBook<SeparatorProps> = {
-    title: "With top margin",
-    description: "You might need a little buffer up top.",
-    props: { marginTop: true },
-};
+export const MarginTop: BibloBook<SeparatorProps> = Template.bind({});
+MarginTop.title = "With top margin";
+MarginTop.description = "You might need a little buffer up top.";
+MarginTop.props = { marginTop: true };
 
 // In case you need more freedom
 export const BrandColored: BibloBook<SeparatorProps> = (props) => {

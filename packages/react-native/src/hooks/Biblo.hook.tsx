@@ -78,34 +78,10 @@ export const BibloProvider = ({
                         }
 
                         const items = Object.entries(exports).map(
-                            ([title, component]) => {
-                                const returnComponent =
-                                    typeof component === "function"
-                                        ? component
-                                        : typeof bio.component === "object"
-                                        ? { ...(bio.component as object) }
-                                        : typeof bio.component !== "undefined"
-                                        ? (bio.component as any).bind({})
-                                        : () => bio.component;
-                                if (
-                                    typeof component === "object" ||
-                                    typeof returnComponent === "object"
-                                ) {
-                                    Object.keys(
-                                        component as Record<string, any>,
-                                    ).map(
-                                        (key) =>
-                                            (returnComponent[key] = (
-                                                component as Record<string, any>
-                                            )[key]),
-                                    );
-                                }
-
-                                return {
-                                    title,
-                                    component: returnComponent,
-                                };
-                            },
+                            ([title, component]) => ({
+                                title,
+                                component: component as any,
+                            }),
                         );
 
                         if (order?.length) {

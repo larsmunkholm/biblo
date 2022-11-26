@@ -31,14 +31,18 @@ This is the simplest way to export an example of your component.
 <TabItem value="ts" label="TypeScript" default>
 
 ```tsx title="Separator.biblo.tsx"
-export const Default: BibloItem<SeparatorProps> = {};
+const Template: BibloItem<SeparatorProps> = (props) => <Separator {...props} />;
+
+export const Default = Template.bind({});
 ```
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
 ```jsx title="Separator.biblo.jsx"
-export const Default = {};
+const Template = (props) => <Separator {...props} />;
+
+export const Default = Template.bind({});
 ```
 
 </TabItem>
@@ -54,15 +58,16 @@ Here we'll give it a bit more something something.
 <TabItem value="ts" label="TypeScript" default>
 
 ```tsx title="Separator.biblo.tsx"
-export const Vertical: BibloItem<SeparatorProps> = {
-    title: "A vertical separator",
-    description: "This is the Separator component in its vertical state.",
-    props: {
-        vertical: true,
-    },
-    wrapperStyle: {
-        padding: 10,
-    },
+const Template: BibloItem<SeparatorProps> = (props) => <Separator {...props} />;
+
+export const Vertical = Template.bind({});
+Vertical.title = "A vertical separator";
+Vertical.description = "This is the Separator component in its vertical state.";
+Vertical.props = {
+    vertical: true,
+};
+Vertical.wrapperStyle = {
+    padding: 10,
 };
 ```
 
@@ -70,15 +75,16 @@ export const Vertical: BibloItem<SeparatorProps> = {
 <TabItem value="js" label="JavaScript">
 
 ```jsx title="Separator.biblo.jsx"
-export const Vertical = {
-    title: "A vertical separator",
-    description: "This is the Separator component in its vertical state.",
-    props: {
-        vertical: true,
-    },
-    wrapperStyle: {
-        padding: 10,
-    },
+const Template = (props) => <Separator {...props} />;
+
+export const Vertical = Template.bind({});
+Vertical.title = "A vertical separator";
+Vertical.description = "This is the Separator component in its vertical state.";
+Vertical.props = {
+    vertical: true,
+};
+Vertical.wrapperStyle = {
+    padding: 10,
 };
 ```
 
@@ -87,7 +93,7 @@ export const Vertical = {
 
 ### 🌴 Advanced
 
-In case you need to use hooks or some other JavaScript logic - we got your back.
+In case you need to use hooks or some other JavaScript logic - here's how you do it:
 
 <Tabs groupId="language">
 <TabItem value="ts" label="TypeScript" default>
@@ -104,6 +110,15 @@ BrandColored.props = {
     style: "dashed",
 };
 ```
+
+:::tip
+If you can't or don't want to import an interface or type definition for the
+props of a component, use this instead:
+
+```tsx
+type SeparatorProps = React.ComponentProps<typeof Separator>
+```
+:::
 
 </TabItem>
 <TabItem value="js" label="JavaScript">

@@ -36,7 +36,8 @@ The solution is implemented in JavaScript so no native module linking is require
 
 ## 🅱️ Babel
 
-To enable Biblo to list your examples in the same order you export them, add `"@biblo/babel-plugin"` as a plugin in your **babel.config.js** file:
+To enable Biblo to list your examples in the same order you export them, add
+`"@biblo/babel-plugin"` as a plugin in your **babel.config.js** file:
 
 ```js title="babel.config.js"
 module.exports = {
@@ -47,11 +48,14 @@ module.exports = {
 ## Ⓜ️ Metro
 
 :::info Note
-If you're using **Expo** (version 47.0.0 or newer) you can skip this step as they have already enabled `unstable_allowRequireContext`
+If you're using **Expo** (version 47.0.0 or newer) you can skip this step as
+they have already enabled `unstable_allowRequireContext`
 :::
 
 :::info Note
-This is supported since [version **0.72.1** of Metro](https://github.com/facebook/metro/releases/tag/v0.72.1), and [version **0.70.0** of React Native](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#0700)
+This is supported since
+[version **0.72.1** of Metro](https://github.com/facebook/metro/releases/tag/v0.72.1),
+and [version **0.70.0** of React Native](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#0700)
 :::
 
 Biblo uses `require.context` to import all files that end in
@@ -87,7 +91,10 @@ module.exports = (async () => {
 
 ## 🎯 TypeScript
 
-Using `require.context` is still experimental in Metro/React Native, so they haven't added it to their TypeScript declaration.
+### RequireContext
+
+Using `require.context` is still experimental in Metro/React Native, so they
+haven't added it to their TypeScript declaration.
 
 Luckily, you can fix that by placing the following `import` in your app:
 
@@ -98,4 +105,43 @@ import "@biblo/react-native/lib/interfaces/metroRequire.d";
 const components = bibloImporter(
     require.context("/", true, /\.biblo\.[tj]sx?$/),
 );
+```
+
+### Component types
+
+It is **recommended** that you enable `strictBindCallApply` in your
+`tsconfig.json` file, so you'll only have to define types once.
+
+```json title="tsconfig.json"
+{
+  "compilerOptions": {
+    // highlight-next-line
+    "strictBindCallApply": true
+  }
+}
+```
+
+This will allow you to do this:
+
+```tsx
+// highlight-next-line
+const Template: BibloItem<SeparatorProps> = (props) => <Separator {...props} />;
+
+export const Default = Template.bind({});
+
+export const MarginVertical = Template.bind({});
+MarginVertical.props = { marginVertical: true };
+```
+
+Instead of this:
+
+```tsx
+const Template = (props) => <Separator {...props} />;
+
+// highlight-next-line
+export const Default: BibloItem<SeparatorProps> = Template.bind({});
+
+// highlight-next-line
+export const MarginVertical: BibloItem<SeparatorProps> = Template.bind({});
+MarginVertical.props = { marginVertical: true };
 ```
