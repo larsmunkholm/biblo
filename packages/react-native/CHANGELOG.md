@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.4.0](https://github.com/larsmunkholm/biblo/compare/react-native-v0.3.2...react-native-v0.4.0) (2022-11-26)
+
+
+### Features
+
+* Add method for resetting selected tags ([7478245](https://github.com/larsmunkholm/biblo/commit/7478245853e7836b48921c6130ef648596efa301))
+* Add methods for enabling and disabling tags when using a custom component for tags in BibloIndex ([f1939f0](https://github.com/larsmunkholm/biblo/commit/f1939f0ddc4d2dd9086c2c6ffba7e4a9f6caa0ce))
+* Add support for using Biblo with navigation ([f91e5fb](https://github.com/larsmunkholm/biblo/commit/f91e5fb4e447747b6765cf4d10dc62a4adf9e72b))
+* Change how examples in Biblo files are made - no objects, use `.bind({})` ([b17be6b](https://github.com/larsmunkholm/biblo/commit/b17be6ba570018d49f7af47139940236cb3a7b4d))
+
+
+### Bug Fixes
+
+* Fix some re-rendering bugs in BibloIndex and BibloReader ([d6984eb](https://github.com/larsmunkholm/biblo/commit/d6984ebea176d8b46fee1208396c968c7458e4c9))
+
 ## [0.3.2](https://github.com/larsmunkholm/biblo/compare/react-native-v0.3.1...react-native-v0.3.2) (2022-11-25)
 
 
