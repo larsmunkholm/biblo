@@ -21,7 +21,12 @@ export const ReaderScreen = React.memo(() => {
         if (readerOptions.onMount) {
             readerOptions.onMount();
         }
-    }, [readerOptions]);
+
+        // We don't want to add readerOptions to the dependency array,
+        // because that will cause onMount() to fire on every change
+        // and not just on mount.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return selectedFile ? (
         <Wrapper
