@@ -10,8 +10,9 @@ import { IndexOptions } from "../interfaces/IndexOptions.interface";
 
 interface BibloHook {
     files: { title: string; data: BibloFile[] }[];
-    selectedFile: BibloFile | undefined;
-    setSelectedFile: (file: BibloFile | undefined) => void;
+    selectedFile: string | undefined;
+    setSelectedFile: (path: string | undefined) => void;
+    onSelectFile?: (path: string) => void;
     indexOptions: IndexOptions;
     readerOptions: ReaderOptions;
     defaultStyles: DefaultStyles;
@@ -32,6 +33,7 @@ export const BibloProvider = ({
     defaultStyles: defStyles,
     disableDefaultStyles = false,
     getSection,
+    onSelectFile,
 }: BibloProviderProps): JSX.Element => {
     const defaultStyles: DefaultStyles = {
         margin: 15,
@@ -45,7 +47,7 @@ export const BibloProvider = ({
             ...defStyles?.fontSizes,
         },
     };
-    const [selectedFile, setSelectedFile] = useState<BibloFile | undefined>();
+    const [selectedFile, setSelectedFile] = useState<string | undefined>();
     const [searchValue, setSearchValue] = useState("");
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
     const files: BibloHook["files"] = useMemo(
@@ -105,30 +107,13 @@ export const BibloProvider = ({
         [components, getSection],
     );
 
-    useEffect(() => {
-        setSelectedFile((current) => {
-            let updatedItem: BibloFile | undefined;
-            if (current) {
-                files.find((arr) => {
-                    const found = arr.data.find((item) => {
-                        if (item.path === current?.path) {
-                            updatedItem = { ...item };
-                            return true;
-                        }
-                    });
-                    return !!found;
-                });
-            }
-            return updatedItem;
-        });
-    }, [files]);
-
     return (
         <BibloContext.Provider
             value={{
                 files,
                 selectedFile,
                 setSelectedFile,
+                onSelectFile,
                 indexOptions: {
                     ...indexOptions,
                     sectionListItemHeight:
