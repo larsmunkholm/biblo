@@ -67,6 +67,7 @@ export interface BibloProviderProps {
     defaultStyles?: RecursivePartial<DefaultStyles>;
     disableDefaultStyles?: boolean;
     getSection?: (basics: BibloBioAndPath) => string;
+    onSelectFile?: (path: string) => void;
 }
 
 export interface BibloComponentItem {
