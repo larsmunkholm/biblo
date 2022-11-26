@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { Pressable, ScrollView } from "react-native";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { Typography, TypographySize } from "./Typography.component";
@@ -34,6 +34,22 @@ export const IndexHeaderTags = () => {
         [files, selectedTags],
     );
 
+    const enableTag = useCallback(
+        (tag: string, multiple = false) =>
+            setSelectedTags((current) =>
+                multiple ? [...current, tag] : [tag],
+            ),
+        [setSelectedTags],
+    );
+
+    const disableTag = useCallback(
+        (tag: string) =>
+            setSelectedTags((current) =>
+                [...current].filter((value) => value !== tag),
+            ),
+        [setSelectedTags],
+    );
+
     const Tags = useMemo(
         () =>
             (indexOptions.headerTagsComponent ||
@@ -62,6 +78,8 @@ export const IndexHeaderTags = () => {
             ]}
             itemStyle={indexOptions.headerTagsItemStyle}
             itemTextStyle={indexOptions.headerTagsItemTextStyle}
+            enableTag={enableTag}
+            disableTag={disableTag}
             resetTags={() => setSelectedTags([])}
         >
             {tags.map(({ tag, active }, index) =>
@@ -69,22 +87,10 @@ export const IndexHeaderTags = () => {
                     <Pressable
                         key={tag}
                         onPress={() =>
-                            setSelectedTags(
-                                active
-                                    ? [...selectedTags].filter(
-                                          (value) => value !== tag,
-                                      )
-                                    : [tag],
-                            )
+                            active ? disableTag(tag) : enableTag(tag)
                         }
                         onLongPress={() =>
-                            setSelectedTags(
-                                active
-                                    ? [...selectedTags].filter(
-                                          (value) => value !== tag,
-                                      )
-                                    : [...selectedTags, tag],
-                            )
+                            active ? disableTag(tag) : enableTag(tag, true)
                         }
                         style={[
                             disableDefaultStyles
