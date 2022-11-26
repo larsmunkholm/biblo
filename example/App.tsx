@@ -1,26 +1,14 @@
-import React, { useRef } from "react";
-import {
-    Dimensions,
-    Platform,
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    View,
-} from "react-native";
-import {
-    bibloImporter,
-    BibloProvider,
-    BibloIndex,
-    BibloReader,
-} from "@biblo/react-native";
-import "@biblo/react-native/lib/interfaces/metroRequire.d";
+import React from "react";
+import { Dimensions, Platform, SafeAreaView, StatusBar } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HomeScreen from "./src/screens/Home.screen";
+import BasicViewportScreen from "./src/screens/basic-viewport/BasicViewport.screen";
+import ReactNavigationScreen from "./src/screens/react-navigation/ReactNavigation.screen";
 
-const components = bibloImporter(
-    require.context("/", true, /\.biblo\.[tj]sx?$/),
-);
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-    const scrollViewRef = useRef<ScrollView>(null);
     return (
         <SafeAreaView
             style={{
@@ -31,37 +19,21 @@ export default function App() {
                 backgroundColor: "white",
             }}
         >
-            <BibloProvider
-                components={components}
-                readerOptions={{
-                    scrollViewProps: {
-                        ref: scrollViewRef,
-                    },
-                    onMount: () =>
-                        scrollViewRef.current?.scrollTo({
-                            x: 0,
-                            y: 0,
-                            animated: false,
-                        }),
-                }}
-                getSection={({ path }) =>
-                    path.match(/components\/([a-z]+)\//)?.[1] || "Component"
-                }
-            >
-                <View style={{ backgroundColor: "white", height: "50%" }}>
-                    <BibloIndex />
-                </View>
-                <View
-                    style={{
-                        height: "50%",
-                        backgroundColor: "white",
-                        borderTopWidth: 1,
-                        borderTopColor: "#000",
-                    }}
-                >
-                    <BibloReader />
-                </View>
-            </BibloProvider>
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen name="Home" component={HomeScreen} />
+                    <Stack.Screen
+                        name="BasicViewport"
+                        options={{ title: "Basic viewport" }}
+                        component={BasicViewportScreen}
+                    />
+                    <Stack.Screen
+                        name="ReactNavigation"
+                        options={{ headerShown: false }}
+                        component={ReactNavigationScreen}
+                    />
+                </Stack.Navigator>
+            </NavigationContainer>
         </SafeAreaView>
     );
 }
