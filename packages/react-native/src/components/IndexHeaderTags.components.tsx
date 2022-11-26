@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import { Pressable, ScrollView } from "react-native";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { Typography, TypographySize } from "./Typography.component";
