@@ -62,6 +62,7 @@ export const IndexHeaderTags = () => {
             ]}
             itemStyle={indexOptions.headerTagsItemStyle}
             itemTextStyle={indexOptions.headerTagsItemTextStyle}
+            resetTags={() => setSelectedTags([])}
         >
             {tags.map(({ tag, active }, index) =>
                 tag ? (
