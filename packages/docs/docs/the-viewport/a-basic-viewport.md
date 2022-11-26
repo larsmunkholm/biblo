@@ -77,3 +77,8 @@ export default function App() {
 
 </TabItem>
 </Tabs>
+
+:::info Note
+If you don't want your Biblo files to end in `.biblo.*`,
+[here's how you change it](/docs/customization/biblo-file-extension/).
+:::
