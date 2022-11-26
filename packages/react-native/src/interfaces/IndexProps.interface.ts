@@ -37,6 +37,8 @@ export interface BibloIndexHeaderTagsProps {
     itemStyle?: StyleProp<ViewStyle>;
     itemTextStyle?: StyleProp<TextStyle>;
     tags: { tag: string; active: boolean }[];
+    enableTag: (tag: string, multiple?: boolean) => void;
+    disableTag: (tag: string) => void;
     resetTags: () => void;
     children: React.ReactNode;
 }

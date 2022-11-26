@@ -19,7 +19,7 @@ interface BibloHook {
     searchValue: string;
     setSearchValue: (value: string) => void;
     selectedTags: string[];
-    setSelectedTags: (tags: string[]) => void;
+    setSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const BibloContext = React.createContext<BibloHook>({} as BibloHook);
