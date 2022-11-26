@@ -1,3 +1,4 @@
+import React from "react";
 import { BibloBio, BibloItem } from "@biblo/react-native";
 import {
     Paragraph,
@@ -15,69 +16,60 @@ export default {
     description:
         "Use this for texts of all types, sizes, weights and colors. Paragraphs, headlines, comments, and so on.",
     tags: ["typography", "text"],
-    component: Paragraph,
     props: {
         children: "Lorem ipsum dolor sit amet.",
     },
 } as BibloBio<ParagraphProps>;
 
-export const Default: BibloItem<ParagraphProps> = {};
+const Template: BibloItem<ParagraphProps> = (props) => <Paragraph {...props} />;
 
-export const Italic: BibloItem<ParagraphProps> = {
-    props: { italic: true },
-};
+export const Default = Template.bind({});
 
-export const Tiny: BibloItem<ParagraphProps> = {
-    description: "Very small text. Use with caution.",
-    props: { size: ParagraphSize.Tiny },
-};
+export const Italic = Template.bind({});
+Italic.props = { italic: true };
 
-export const Small: BibloItem<ParagraphProps> = {
-    props: { size: ParagraphSize.Small },
-};
+export const Tiny = Template.bind({});
+Tiny.description = "Very small text. Use with caution.";
+Tiny.props = { size: ParagraphSize.Tiny };
 
-export const Large: BibloItem<ParagraphProps> = {
-    props: { size: ParagraphSize.Large },
-};
+export const Small = Template.bind({});
+Small.props = { size: ParagraphSize.Small };
 
-export const Larger: BibloItem<ParagraphProps> = {
-    props: { size: ParagraphSize.Larger },
-};
+export const Large = Template.bind({});
+Large.props = { size: ParagraphSize.Large };
 
-export const ExtraLarge: BibloItem<ParagraphProps> = {
-    props: { size: ParagraphSize.ExtraLarge },
-};
+export const Larger = Template.bind({});
+Larger.props = { size: ParagraphSize.Larger };
 
-export const Bold: BibloItem<ParagraphProps> = {
-    props: { weight: ParagraphWeight.Bold },
-};
+export const ExtraLarge = Template.bind({});
+ExtraLarge.props = { size: ParagraphSize.ExtraLarge };
 
-export const WithOpacity: BibloItem<ParagraphProps> = {
-    props: { opacity: 0.333 },
-};
+export const Bold = Template.bind({});
+Bold.props = { weight: ParagraphWeight.Bold };
 
-export const Colored = { props: { color: "red" } };
+export const WithOpacity = Template.bind({});
+WithOpacity.props = { opacity: 0.333 };
 
-export const Centered: BibloItem<ParagraphProps> = { props: { center: true } };
+export const Colored = Template.bind({});
+Colored.props = { color: "red" };
 
-export const LineHeight125: BibloItem<ParagraphProps> = {
-    title: "Line height 1.25",
-    description: "This is the default line height.",
-    props: { children: MOCK_LOREM_IPSUM },
-};
+export const Centered = Template.bind({});
+Centered.props = { center: true };
 
-export const LineHeight1: BibloItem<ParagraphProps> = {
-    title: "Line height 1",
-    props: { children: MOCK_LOREM_IPSUM, lineHeight: 1 },
-};
+export const LineHeight125 = Template.bind({});
+LineHeight125.title = "Line height 1.25";
+LineHeight125.description = "This is the default line height.";
+LineHeight125.props = { children: MOCK_LOREM_IPSUM };
 
-export const LineHeight15: BibloItem<ParagraphProps> = {
-    title: "Line height 1.5",
-    description: "Use this for longer texts",
-    props: { children: MOCK_LOREM_IPSUM, lineHeight: 1.5 },
-};
+export const LineHeight1 = Template.bind({});
+LineHeight1.title = "Line height 1";
+LineHeight1.props = { children: MOCK_LOREM_IPSUM, lineHeight: 1 };
 
-export const LineHeight2: BibloItem<ParagraphProps> = {
-    title: "Line height 2",
-    props: { children: MOCK_LOREM_IPSUM, lineHeight: 2 },
-};
+export const LineHeight15 = Template.bind({});
+LineHeight15.title = "Line height 1.5";
+LineHeight15.description = "Use this for longer texts";
+LineHeight15.props = { children: MOCK_LOREM_IPSUM, lineHeight: 1.5 };
+
+export const LineHeight2 = Template.bind({});
+LineHeight2.title = "Line height 2";
+LineHeight2.props = { children: MOCK_LOREM_IPSUM, lineHeight: 2 };

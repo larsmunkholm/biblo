@@ -21,7 +21,6 @@ interface SharedBasics<T> {
 }
 
 export interface BibloBio<T = DefaultType> extends SharedBasics<T> {
-    component: React.ElementType<T>;
     title: string;
     subtitle?: string;
     description?: React.ReactNode;
@@ -32,10 +31,7 @@ export interface BibloBio<T = DefaultType> extends SharedBasics<T> {
 
 export type BibloBioAndPath<T = DefaultType> = BibloBio<T> & { path: string };
 
-export type BibloItem<T = DefaultType> = (
-    | ((props: T) => React.ReactNode)
-    | object
-) &
+export type BibloItem<T = DefaultType> = ((props: T) => React.ReactNode) &
     SharedBasics<T> & {
         title?: string;
         description?: React.ReactNode;

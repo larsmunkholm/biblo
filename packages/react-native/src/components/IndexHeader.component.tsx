@@ -136,7 +136,7 @@ export const IndexHeader = () => {
                             ? {}
                             : {
                                   marginTop: defaultStyles.margin,
-                                  marginHorizontal: defaultStyles.margin,
+                                  paddingHorizontal: defaultStyles.margin,
                               },
                         indexOptions.headerTagsStyle,
                     ]}

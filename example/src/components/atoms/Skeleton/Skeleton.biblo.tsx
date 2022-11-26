@@ -6,27 +6,25 @@ import { SkeletonProps } from "./Skeleton.props";
 export default {
     title: "Skeleton",
     tags: ["indicator"],
-    component: Skeleton,
     props: {
         width: 200,
         height: 100,
     },
 } as BibloBio<SkeletonProps>;
 
-export const Default = {};
+const Template: BibloItem<SkeletonProps> = (props) => <Skeleton {...props} />;
+
+export const Default = Template.bind({});
 
 export const Colored: BibloItem<SkeletonProps> = (props) => {
     return <Skeleton {...props} color="red" />;
 };
 
-export const WithoutOpacity: BibloItem<SkeletonProps> = {
-    props: { opacity: 1 },
-};
+export const WithoutOpacity = Template.bind({});
+WithoutOpacity.props = { opacity: 1 };
 
-export const WithCustomOpacity: BibloItem<SkeletonProps> = {
-    props: { opacity: 0.5 },
-};
+export const WithCustomOpacity = Template.bind({});
+WithCustomOpacity.props = { opacity: 0.5 };
 
-export const WithCustomRadius: BibloItem<SkeletonProps> = {
-    props: { radius: 50 },
-};
+export const WithCustomRadius = Template.bind({});
+WithCustomRadius.props = { radius: 50 };
