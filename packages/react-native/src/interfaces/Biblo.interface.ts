@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleProp, ViewStyle } from "react-native";
+import { StyleProp, TextStyle, ViewStyle } from "react-native";
 import { ReaderOptions } from "./ReaderOptions.interface";
 import { IndexOptions } from "./IndexOptions.interface";
 import { BibloReaderItemComponentWrapperProps } from "./ReaderProps.interface";
@@ -62,13 +62,28 @@ export interface DefaultStyles {
 export interface BibloProviderProps {
     components: Record<string, any>;
     children: React.ReactNode;
+    addons?: (BibloAddon | (() => BibloAddon))[];
     indexOptions?: IndexOptions;
     readerOptions?: ReaderOptions;
     defaultStyles?: RecursivePartial<DefaultStyles>;
     disableDefaultStyles?: boolean;
+    textParser?: (
+        text: string,
+        meta: {
+            type: "title" | "subtitle" | "description" | "path" | "tag";
+            screen: "index" | "reader";
+            scope: "section" | "file" | "item";
+            style: StyleProp<TextStyle>;
+        },
+    ) => React.ReactNode;
     getSection?: (basics: BibloBioAndPath) => string;
     onSelectFile?: (path: string) => void;
 }
+
+export type BibloAddon = Omit<
+    BibloProviderProps,
+    "components" | "children" | "addons"
+>;
 
 export interface BibloComponentItem {
     index: number;

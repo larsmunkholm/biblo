@@ -5,6 +5,7 @@ import { IndexHeader } from "../components/IndexHeader.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 import { IndexSectionHeader } from "../components/IndexSectionHeader.component";
 import { IndexItem } from "../components/IndexItem.component";
+import { getViewStyles } from "../helpers/getStyles.helper";
 
 export const IndexScreen = () => {
     const {
@@ -60,10 +61,11 @@ export const IndexScreen = () => {
 
     return (
         <Wrapper
-            style={[
-                disableDefaultStyles ? {} : { flex: 1 },
+            style={getViewStyles(
                 indexOptions.wrapperStyle,
-            ]}
+                { flex: 1 },
+                disableDefaultStyles,
+            )}
         >
             <Animated.SectionList
                 sections={filteredFiles}

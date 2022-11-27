@@ -3,6 +3,7 @@ import { Pressable, ScrollView } from "react-native";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { Typography, TypographySize } from "./Typography.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
+import { getViewStyles } from "../helpers/getStyles.helper";
 
 export const IndexHeaderTags = () => {
     const {
@@ -66,15 +67,14 @@ export const IndexHeaderTags = () => {
         <Tags
             tags={tags}
             enabledTags={enabledTags}
-            style={[
-                disableDefaultStyles
-                    ? {}
-                    : {
-                          marginTop: defaultStyles.margin,
-                          paddingHorizontal: defaultStyles.margin,
-                      },
+            style={getViewStyles(
                 indexOptions.headerTagsStyle,
-            ]}
+                {
+                    marginTop: defaultStyles.margin,
+                    paddingHorizontal: defaultStyles.margin,
+                },
+                disableDefaultStyles,
+            )}
             itemStyle={indexOptions.headerTagsItemStyle}
             itemTextStyle={indexOptions.headerTagsItemTextStyle}
             enableTag={enableTag}
@@ -91,20 +91,19 @@ export const IndexHeaderTags = () => {
                         onLongPress={() =>
                             enabled ? disableTag(tag) : enableTag(tag, true)
                         }
-                        style={[
-                            disableDefaultStyles
-                                ? {}
-                                : {
-                                      marginLeft: index ? 5 : 0,
-                                      height: 40,
-                                      padding: 10,
-                                      justifyContent: "center",
-                                      backgroundColor: enabled
-                                          ? "#7f7f7f3f"
-                                          : "#7f7f7f7f",
-                                  },
+                        style={getViewStyles(
                             indexOptions.headerTagsItemStyle,
-                        ]}
+                            {
+                                marginLeft: index ? 5 : 0,
+                                height: 40,
+                                padding: 10,
+                                justifyContent: "center",
+                                backgroundColor: enabled
+                                    ? "#7f7f7f3f"
+                                    : "#7f7f7f7f",
+                            },
+                            disableDefaultStyles,
+                        )}
                     >
                         <Typography
                             size={TypographySize.Small}
