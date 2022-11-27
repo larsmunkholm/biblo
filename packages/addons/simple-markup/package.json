@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/larsmunkholm/biblo/issues"
   },
-  "homepage": "https://github.com/larsmunkholm/biblo#readme",
+  "homepage": "https://larsmunkholm.github.io/biblo/docs/addons/simple-markup/",
   "peerDependencies": {
     "@types/react": "*",
     "@types/react-native": "*",
