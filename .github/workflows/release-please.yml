@@ -180,7 +180,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
 
       - name: Example - Install dependencies
-        run: npm ci
+        run: npm i
         working-directory: ./example
         if: ${{ steps.release.outputs.release_created }}
       - name: Example - Build website

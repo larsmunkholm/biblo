@@ -31,5 +31,6 @@
   "homepage": "/biblo/demo",
   "version": "1.0.0",
   "private": true,
-  "name": "react-native-biblo-example"
+  "name": "react-native-biblo-example",
+  "description": "Biblo example"
 }

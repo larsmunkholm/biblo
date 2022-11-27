@@ -63,3 +63,4 @@ buck-out/
 .expo
 web-build/
 packages/**/*/lib/
+example/package-lock.json
