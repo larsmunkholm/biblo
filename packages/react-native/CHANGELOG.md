@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.2](https://github.com/larsmunkholm/biblo/compare/react-native-v0.5.1...react-native-v0.5.2) (2022-11-27)
+
+
+### Bug Fixes
+
+* Build packages before publishing ([5da356a](https://github.com/larsmunkholm/biblo/commit/5da356a714f0e2c8b6d14b3cc613ed210a361cf7))
+
 ## [0.5.1](https://github.com/larsmunkholm/biblo/compare/react-native-v0.5.0...react-native-v0.5.1) (2022-11-27)
 
 
