@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.3](https://github.com/larsmunkholm/biblo/compare/biblo-v0.4.2...biblo-v0.4.3) (2022-11-27)
+
+
+### Bug Fixes
+
+* Add package-lock.json to example ([8207b82](https://github.com/larsmunkholm/biblo/commit/8207b8259febc92609417bd6e0c01b132b3e8b67))
+
 ## [0.4.2](https://github.com/larsmunkholm/biblo/compare/biblo-v0.4.1...biblo-v0.4.2) (2022-11-27)
 
 
