@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/larsmunkholm/biblo/compare/react-native-v0.5.0...react-native-v0.5.1) (2022-11-27)
+
+
+### Bug Fixes
+
+* Fix support for Expo Web ([6c3b2c8](https://github.com/larsmunkholm/biblo/commit/6c3b2c8acf120a4bb0eb20a8c562ad6ef245d00d))
+
 ## [0.5.0](https://github.com/larsmunkholm/biblo/compare/react-native-v0.4.0...react-native-v0.5.0) (2022-11-27)
 
 

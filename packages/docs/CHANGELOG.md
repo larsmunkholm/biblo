@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/larsmunkholm/biblo/compare/docs-v0.4.0...docs-v0.4.1) (2022-11-27)
+
+
+### Bug Fixes
+
+* Fix support for Expo Web ([6c3b2c8](https://github.com/larsmunkholm/biblo/commit/6c3b2c8acf120a4bb0eb20a8c562ad6ef245d00d))
+
 ## [0.4.0](https://github.com/larsmunkholm/biblo/compare/docs-v0.3.0...docs-v0.4.0) (2022-11-27)
 
 
