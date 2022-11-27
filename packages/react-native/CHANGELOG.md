@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/larsmunkholm/biblo/compare/react-native-v0.4.0...react-native-v0.5.0) (2022-11-27)
+
+
+### Features
+
+* Add support for addons ([36fbb54](https://github.com/larsmunkholm/biblo/commit/36fbb54f9c7689b9869977b261e70efc1b52ca8f))
+
 ## [0.4.0](https://github.com/larsmunkholm/biblo/compare/react-native-v0.3.2...react-native-v0.4.0) (2022-11-26)
 
 

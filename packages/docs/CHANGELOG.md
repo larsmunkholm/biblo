@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/larsmunkholm/biblo/compare/docs-v0.3.0...docs-v0.4.0) (2022-11-27)
+
+
+### Features
+
+* Create addon for simple markup ([495d46c](https://github.com/larsmunkholm/biblo/commit/495d46ce5ffe21cb97b47a7e3a06ca795e809898))
+
 ## [0.3.0](https://github.com/larsmunkholm/biblo/compare/docs-v0.2.0...docs-v0.3.0) (2022-11-26)
 
 
