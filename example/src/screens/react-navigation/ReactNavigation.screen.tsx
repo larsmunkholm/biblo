@@ -5,7 +5,6 @@ import {
     BibloIndex,
     BibloReader,
 } from "@biblo/react-native";
-import "@biblo/react-native/lib/interfaces/metroRequire.d";
 import BibloAddonSimpleMarkup from "@biblo/addon-simple-markup";
 import {
     createNativeStackNavigator,
