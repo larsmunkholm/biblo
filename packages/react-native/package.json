@@ -1,7 +1,8 @@
 {
   "name": "@biblo/react-native",
   "version": "0.5.1",
-  "description": "",
+  "description": "A fully customizable component library and workshop living in your React Native app.",
+  "keywords": ["biblo", "react-native", "expo", "component-library", "styleguide"],
   "private": false,
   "main": "lib/module/index.js",
   "types": "lib/typescript/index.d.ts",
