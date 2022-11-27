@@ -1,4 +1,4 @@
-# 📚 Biblo TypeScript Example
+# Biblo TypeScript Example
 
 <p>
   <!-- iOS -->
