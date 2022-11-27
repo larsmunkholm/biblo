@@ -153,3 +153,37 @@ jobs:
           user_name: larsmunkholm
           user_email: mail@larsersej.dk
         if: steps.changed-docs.outputs.any_changed == 'true'
+
+      # ---------------
+      # BIBLO / EXAMPLE
+      # ---------------
+
+      # Publish @biblo/babel-plugin
+      - name: Example - Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Example - Install dependencies
+        run: npm ci
+        working-directory: ./example
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Example - Build website
+        run: npm run export:web
+        working-directory: ./example
+        if: ${{ steps.release.outputs.release_created }}
+
+      # Popular action to deploy to GitHub Pages:
+      # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
+      - name: Example - Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Build output to publish to the `gh-pages` branch:
+          publish_dir: ./example/web-build
+          destination_dir: ./demo
+          user_name: larsmunkholm
+          user_email: mail@larsersej.dk
+        if: ${{ steps.release.outputs.release_created }}
