@@ -61,5 +61,5 @@ buck-out/
 
 # etc
 .expo
-packages/*/lib/
+packages/**/*/lib/
 example/package-lock.json
