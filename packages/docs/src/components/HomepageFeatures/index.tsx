@@ -15,28 +15,30 @@ const FeatureList: FeatureItem[] = [
             .default,
         description: (
             <>
-                Break down your UI into simple components and develop them in a
-                dedicated workspace.
+                Biblo helps you <b>break down your UI</b> into simple components
+                and develop them in a dedicated workspace.
             </>
         ),
     },
     {
-        title: "Overview",
+        title: "Maintain an overview",
         Svg: require("@site/static/img/undraw_search_re_x5gq.svg").default,
         description: (
             <>
-                Get an overview of all your components in a list with sections,
-                tags and a handy search input.
+                Having a list with <b>sections</b>, <b>tags</b> and a handy{" "}
+                <b>search input</b> helps you maintain an overview of all your
+                components.
             </>
         ),
     },
     {
-        title: "Variants",
+        title: "States and variants",
         Svg: require("@site/static/img/undraw_note_list_re_r4u9.svg").default,
         description: (
             <>
-                List all the different variations of your components, making it
-                easy to know that everything works as expected.
+                Show all the different states and variations of your components,
+                making it easy to <b>see what you&apos;ve got</b>, and know that
+                everything works as expected.
             </>
         ),
     },

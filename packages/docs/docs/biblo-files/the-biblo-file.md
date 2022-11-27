@@ -34,12 +34,32 @@ export default {
     title: "Separator",
 } as BibloBio<SeparatorProps>;
 
-export const Horizontal: BibloItem<SeparatorProps> = {};
+const Template: BibloItem<SeparatorProps> = (props) => <Separator {...props} />;
 
-export const Vertical: BibloItem<SeparatorProps> = {
-    props: { vertical: true },
+export const Horizontal = Template.bind({});
+
+export const Vertical = Template.bind({});
+Vertical.props = {
+    vertical: true,
 };
 ```
+
+:::info Note
+Unless you enable `strictBindCallApply` in your `tsconfig.json` file, you'll
+have to define types on every named export.
+
+[Read more here](/docs/getting-started/#component-types).
+
+:::
+
+:::tip
+If you can't or don't want to import an interface or type definition for the
+props of a component, use this instead:
+
+```tsx
+type SeparatorProps = React.ComponentProps<typeof Separator>
+```
+:::
 
 </TabItem>
 <TabItem value="js" label="JavaScript">
@@ -52,10 +72,13 @@ export default {
     title: "Separator",
 };
 
-export const Horizontal = {};
+const Template = (props) => <Separator {...props} />;
 
-export const Vertical = {
-    props: { vertical: true },
+export const Horizontal = Template.bind({});
+
+export const Vertical = Template.bind({});
+Vertical.props = {
+    vertical: true,
 };
 ```
 

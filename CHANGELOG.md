@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.3.0](https://github.com/larsmunkholm/biblo/compare/biblo-v0.2.0...biblo-v0.3.0) (2022-11-26)
+
+
+### Features
+
+* Add a helpful note to the documentation :) ([3abe70e](https://github.com/larsmunkholm/biblo/commit/3abe70ef67e8e8bad325a7157d8ded2c2a9a22cd))
+* Add method for resetting selected tags ([7478245](https://github.com/larsmunkholm/biblo/commit/7478245853e7836b48921c6130ef648596efa301))
+* Add methods for enabling and disabling tags when using a custom component for tags in BibloIndex ([f1939f0](https://github.com/larsmunkholm/biblo/commit/f1939f0ddc4d2dd9086c2c6ffba7e4a9f6caa0ce))
+* Add support for using Biblo with navigation ([f91e5fb](https://github.com/larsmunkholm/biblo/commit/f91e5fb4e447747b6765cf4d10dc62a4adf9e72b))
+* Change how examples in Biblo files are made - no objects, use `.bind({})` ([b17be6b](https://github.com/larsmunkholm/biblo/commit/b17be6ba570018d49f7af47139940236cb3a7b4d))
+* Improve logo, graphics and a few texts in the documentation ([e064569](https://github.com/larsmunkholm/biblo/commit/e06456986e75a63c62fd6d4507e78103af088217))
+
+
+### Bug Fixes
+
+* Fix some re-rendering bugs in BibloIndex and BibloReader ([d6984eb](https://github.com/larsmunkholm/biblo/commit/d6984ebea176d8b46fee1208396c968c7458e4c9))
+
 ## [0.2.0](https://github.com/larsmunkholm/biblo/compare/biblo-v0.1.2...biblo-v0.2.0) (2022-11-25)
 
 

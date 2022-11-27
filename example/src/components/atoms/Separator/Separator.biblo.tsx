@@ -1,3 +1,4 @@
+import React from "react";
 import { BibloBio, BibloItem } from "@biblo/react-native";
 import { Separator } from "./Separator.component";
 import { SeparatorProps } from "./Separator.props";
@@ -7,7 +8,6 @@ export default {
     description:
         "Be aware that the separator in all these examples is placed in a box with padding in top and bottom.",
     tags: ["graphics"],
-    component: Separator,
     wrapperStyle: {
         marginHorizontal: 0,
         paddingVertical: 10,
@@ -16,20 +16,18 @@ export default {
     },
 } as BibloBio<SeparatorProps>;
 
-export const Default: BibloItem = {};
+const Template: BibloItem<SeparatorProps> = (props) => <Separator {...props} />;
 
-export const MarginVertical: BibloItem<SeparatorProps> = {
-    props: { marginVertical: true },
-};
+export const Default = Template.bind({});
 
-export const MarginTop: BibloItem<SeparatorProps> = {
-    props: { marginTop: true },
-};
+export const MarginVertical = Template.bind({});
+MarginVertical.props = { marginVertical: true };
 
-export const MarginBottom: BibloItem<SeparatorProps> = {
-    props: { marginTop: true },
-};
+export const MarginTop = Template.bind({});
+MarginTop.props = { marginTop: true };
 
-export const NoMarginHorizontal: BibloItem<SeparatorProps> = {
-    props: { noMarginHorizontal: true },
-};
+export const MarginBottom = Template.bind({});
+MarginBottom.props = { marginTop: true };
+
+export const NoMarginHorizontal = Template.bind({});
+NoMarginHorizontal.props = { noMarginHorizontal: true };

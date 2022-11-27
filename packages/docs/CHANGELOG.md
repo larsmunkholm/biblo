@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.0](https://github.com/larsmunkholm/biblo/compare/docs-v0.2.0...docs-v0.3.0) (2022-11-26)
+
+
+### Features
+
+* Add a helpful note to the documentation :) ([3abe70e](https://github.com/larsmunkholm/biblo/commit/3abe70ef67e8e8bad325a7157d8ded2c2a9a22cd))
+* Change how examples in Biblo files are made - no objects, use `.bind({})` ([b17be6b](https://github.com/larsmunkholm/biblo/commit/b17be6ba570018d49f7af47139940236cb3a7b4d))
+* Improve logo, graphics and a few texts in the documentation ([e064569](https://github.com/larsmunkholm/biblo/commit/e06456986e75a63c62fd6d4507e78103af088217))
+
 ## [0.2.0](https://github.com/larsmunkholm/biblo/compare/docs-v0.1.1...docs-v0.2.0) (2022-11-25)
 
 

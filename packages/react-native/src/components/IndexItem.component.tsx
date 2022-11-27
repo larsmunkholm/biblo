@@ -15,6 +15,7 @@ export const IndexItem = ({ file }: Props) => {
     const {
         selectedFile,
         setSelectedFile,
+        onSelectFile,
         indexOptions,
         defaultStyles,
         disableDefaultStyles: disableDefaultStylesGlobal,
@@ -24,11 +25,16 @@ export const IndexItem = ({ file }: Props) => {
 
     const onPress = useCallback(() => {
         const setAsActive =
-            selectedFile?.path !== file.path ||
+            selectedFile !== file.path ||
             !indexOptions.sectionItemToggleOnPress;
+
         setActive(setAsActive);
-        setSelectedFile(setAsActive ? file : undefined);
-    }, [selectedFile, setSelectedFile, file, indexOptions]);
+        setSelectedFile(setAsActive ? file.path : undefined);
+
+        if (setAsActive && onSelectFile) {
+            onSelectFile(file.path);
+        }
+    }, [selectedFile, setSelectedFile, onSelectFile, file, indexOptions]);
 
     const Container = (indexOptions.sectionItemComponent ||
         View) as NonNullable<IndexOptions["sectionItemComponent"]>;

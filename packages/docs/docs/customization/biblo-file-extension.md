@@ -10,11 +10,11 @@ By default, Biblo files end in one of the following extensions:
 - `.biblo.ts`
 - `.biblo.js`
 
-If you wish to change that, here's how to do it:
+If you wish to change that, here's how you do it:
 
 ## 📦 Importing files
 
-This will import all files ending in `.customExtension.*`
+This will import all files ending in `.customExtension.*` (see [regular expression](#-regular-expression))
 
 ```jsx
 const components = bibloImporter(

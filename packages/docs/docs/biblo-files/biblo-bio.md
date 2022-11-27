@@ -56,6 +56,15 @@ export default {
 } as BibloBio<SeparatorProps>;
 ```
 
+:::tip
+If you can't or don't want to import an interface or type definition for the
+props of a component, use this instead:
+
+```tsx
+type SeparatorProps = React.ComponentProps<typeof Separator>
+```
+:::
+
 </TabItem>
 <TabItem value="js" label="JavaScript">
 

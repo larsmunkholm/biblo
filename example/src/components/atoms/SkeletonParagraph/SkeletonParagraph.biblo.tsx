@@ -7,59 +7,53 @@ import { ParagraphSize } from "../Paragraph/Paragraph.component";
 export default {
     title: "SkeletonParagraph",
     tags: ["indicator", "typography"],
-    component: SkeletonParagraph,
     props: {
         lines: 4,
     },
 } as BibloBio<SkeletonParagraphProps>;
 
-export const Default = { props: { lines: 1 } };
+const Template: BibloItem<SkeletonParagraphProps> = (props) => (
+    <SkeletonParagraph {...props} />
+);
 
-export const MultipleLines = {};
+export const Default = Template.bind({});
+Default.props = { lines: 1 };
+
+export const MultipleLines = Template.bind({});
 
 export const Colored: BibloItem<SkeletonParagraphProps> = (args) => {
     return <SkeletonParagraph {...args} color="red" />;
 };
 
-export const WithoutOpacity: BibloItem<SkeletonParagraphProps> = {
-    props: { opacity: 1 },
-};
+export const WithoutOpacity = Template.bind({});
+WithoutOpacity.props = { opacity: 1 };
 
-export const WithCustomOpacity: BibloItem<SkeletonParagraphProps> = {
-    props: { opacity: 0.5 },
-};
+export const WithCustomOpacity = Template.bind({});
+WithCustomOpacity.props = { opacity: 0.5 };
 
-export const Tiny: BibloItem<SkeletonParagraphProps> = {
-    props: { size: ParagraphSize.Tiny },
-};
+export const Tiny = Template.bind({});
+Tiny.props = { size: ParagraphSize.Tiny };
 
-export const Small: BibloItem<SkeletonParagraphProps> = {
-    props: { size: ParagraphSize.Small },
-};
+export const Small = Template.bind({});
+Small.props = { size: ParagraphSize.Small };
 
-export const Large: BibloItem<SkeletonParagraphProps> = {
-    props: { size: ParagraphSize.Large },
-};
+export const Large = Template.bind({});
+Large.props = { size: ParagraphSize.Large };
 
-export const Larger: BibloItem<SkeletonParagraphProps> = {
-    props: { size: ParagraphSize.Larger },
-};
+export const Larger = Template.bind({});
+Larger.props = { size: ParagraphSize.Larger };
 
-export const ExtraLarge: BibloItem<SkeletonParagraphProps> = {
-    props: { size: ParagraphSize.ExtraLarge },
-};
+export const ExtraLarge = Template.bind({});
+ExtraLarge.props = { size: ParagraphSize.ExtraLarge };
 
-export const LineHeight1: BibloItem<SkeletonParagraphProps> = {
-    title: "Line height 1",
-    props: { lineHeight: 1 },
-};
+export const LineHeight1 = Template.bind({});
+LineHeight1.title = "Line height 1";
+LineHeight1.props = { lineHeight: 1 };
 
-export const LineHeight15: BibloItem<SkeletonParagraphProps> = {
-    title: "Line height 1.5",
-    props: { lineHeight: 1.5 },
-};
+export const LineHeight15 = Template.bind({});
+LineHeight15.title = "Line height 1.5";
+LineHeight15.props = { lineHeight: 1.5 };
 
-export const LineHeight2: BibloItem<SkeletonParagraphProps> = {
-    title: "Line height 2",
-    props: { lineHeight: 2 },
-};
+export const LineHeight2 = Template.bind({});
+LineHeight2.title = "Line height 2";
+LineHeight2.props = { lineHeight: 2 };
