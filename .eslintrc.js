@@ -6,6 +6,7 @@ module.exports = {
         commonjs: true,
         es6: true,
     },
+    ignorePatterns: ["web-build", ".expo"],
     extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
     plugins: ["react"],
     settings: {
