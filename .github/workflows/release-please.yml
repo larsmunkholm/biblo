@@ -25,6 +25,14 @@ jobs:
           fetch-depth: 0
         if: ${{ steps.release.outputs.release_created }}
 
+      # ------------
+      # BIBLO / ROOT
+      # ------------
+
+      - name: Root - Install dependencies
+        run: npm ci
+        if: ${{ steps.release.outputs.release_created }}
+
       # --------------------
       # BIBLO / REACT-NATIVE
       # --------------------
@@ -42,14 +50,16 @@ jobs:
       - name: React Native - Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           registry-url: 'https://registry.npmjs.org'
         if: steps.changed-react-native.outputs.any_changed == 'true'
-      - name: React Native - Install dependencies
-        run: npm ci
+      - name: React Native - Build
+        run: npm run build
+        working-directory: ./packages/react-native
         if: steps.changed-react-native.outputs.any_changed == 'true'
       - name: React Native - Publish to NPM
-        run: cd packages/react-native && npm publish
+        run: npm publish
+        working-directory: ./packages/react-native
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: steps.changed-react-native.outputs.any_changed == 'true'
@@ -71,14 +81,15 @@ jobs:
       - name: Babel plugin - Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           registry-url: 'https://registry.npmjs.org'
         if: steps.changed-babel-plugin.outputs.any_changed == 'true'
       - name: Babel plugin - Install dependencies
         run: npm ci
         if: steps.changed-babel-plugin.outputs.any_changed == 'true'
       - name: Babel plugin - Publish to NPM
-        run: cd packages/babel-plugin && npm publish
+        run: npm publish
+        working-directory: ./packages/babel-plugin
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: steps.changed-babel-plugin.outputs.any_changed == 'true'
@@ -100,14 +111,16 @@ jobs:
       - name: Addon simple markup - Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           registry-url: 'https://registry.npmjs.org'
         if: steps.changed-addon-simple-markup.outputs.any_changed == 'true'
-      - name: Addon simple markup - Install dependencies
-        run: npm ci
+      - name: Addon simple markup - Build
+        run: npm run build
+        working-directory: ./packages/addons/simple-markup
         if: steps.changed-addon-simple-markup.outputs.any_changed == 'true'
       - name: Addon simple markup - Publish to NPM
-        run: cd packages/addons/simple-markup && npm publish
+        run: npm publish
+        working-directory: ./packages/addons/simple-markup
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: steps.changed-addon-simple-markup.outputs.any_changed == 'true'
