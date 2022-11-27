@@ -49,7 +49,7 @@ jobs:
         run: npm ci
         if: steps.changed-react-native.outputs.any_changed == 'true'
       - name: React Native - Publish to NPM
-        run: cd packages && cd react-native && npm publish
+        run: cd packages/react-native && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: steps.changed-react-native.outputs.any_changed == 'true'
@@ -78,10 +78,39 @@ jobs:
         run: npm ci
         if: steps.changed-babel-plugin.outputs.any_changed == 'true'
       - name: Babel plugin - Publish to NPM
-        run: cd packages && cd babel-plugin && npm publish
+        run: cd packages/babel-plugin && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: steps.changed-babel-plugin.outputs.any_changed == 'true'
+
+      # ---------------------------
+      # BIBLO / ADDON SIMPLE MARKUP
+      # ---------------------------
+
+      # Check @biblo/addon-simple-markup
+      - name: Addon simple markup - Check for changes
+        id: changed-addon-simple-markup
+        uses: tj-actions/changed-files@v34
+        with:
+          files: |
+            packages/addons/simple-markup/**
+        if: ${{ steps.release.outputs.release_created }}
+
+      # Publish @biblo/addon-simple-markup
+      - name: Addon simple markup - Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+        if: steps.changed-addon-simple-markup.outputs.any_changed == 'true'
+      - name: Addon simple markup - Install dependencies
+        run: npm ci
+        if: steps.changed-addon-simple-markup.outputs.any_changed == 'true'
+      - name: Addon simple markup - Publish to NPM
+        run: cd packages/addons/simple-markup && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        if: steps.changed-addon-simple-markup.outputs.any_changed == 'true'
 
       # ------------
       # BIBLO / DOCS

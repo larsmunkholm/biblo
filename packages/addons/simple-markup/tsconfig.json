@@ -1,0 +1,11 @@
+{
+  "extends": "../../../tsconfig.json",
+  "files": ["./src/index.tsx"],
+  "buildOptions": {
+
+  },
+  "compilerOptions": {
+    "outDir": "lib",
+    "jsx": "react-native"
+  }
+}

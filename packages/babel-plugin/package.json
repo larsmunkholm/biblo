@@ -4,9 +4,6 @@
   "description": "",
   "private": false,
   "main": "index.js",
-  "scripts": {
-    "deploy": "npm publish"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/larsmunkholm/biblo.git"

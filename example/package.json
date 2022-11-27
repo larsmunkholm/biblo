@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@biblo/addon-simple-markup": "file:../packages/addons/simple-markup",
     "@biblo/babel-plugin": "file:../packages/babel-plugin",
     "@biblo/react-native": "file:../packages/react-native",
     "@expo/webpack-config": "^0.17.2",

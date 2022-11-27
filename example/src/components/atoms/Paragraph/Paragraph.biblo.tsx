@@ -12,9 +12,13 @@ const MOCK_LOREM_IPSUM =
 
 export default {
     title: "Paragraph",
-    subtitle: "A component for text nodes",
-    description:
-        "Use this for texts of all types, sizes, weights and colors. Paragraphs, headlines, comments, and so on.",
+    subtitle: "A component for _text_ nodes",
+    description: `Use this for **texts** of all sizes, weights and colors.
+
+• Paragraphs
+• Headlines
+• Comments
+• and so on...`,
     tags: ["typography", "text"],
     props: {
         children: "Lorem ipsum dolor sit amet.",

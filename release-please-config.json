@@ -1,6 +1,7 @@
 {
   "packages": {
     ".": {},
+    "packages/addons/simple-markup": {},
     "packages/babel-plugin": {},
     "packages/docs": {},
     "packages/react-native": {}
