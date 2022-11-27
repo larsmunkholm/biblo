@@ -1,7 +1,7 @@
 {
-  ".": "0.4.1",
-  "packages/addons/simple-markup": "1.1.1",
+  ".": "0.4.2",
+  "packages/addons/simple-markup": "1.1.2",
   "packages/babel-plugin": "1.2.0",
   "packages/docs": "0.4.1",
-  "packages/react-native": "0.5.1"
+  "packages/react-native": "0.5.2"
 }
