@@ -17,10 +17,11 @@ interface BibloHook {
     readerOptions: ReaderOptions;
     defaultStyles: DefaultStyles;
     disableDefaultStyles: boolean;
+    textParser: NonNullable<BibloProviderProps["textParser"]>;
     searchValue: string;
     setSearchValue: (value: string) => void;
-    selectedTags: string[];
-    setSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
+    enabledTags: string[];
+    setEnabledTags: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const BibloContext = React.createContext<BibloHook>({} as BibloHook);
@@ -28,13 +29,32 @@ const BibloContext = React.createContext<BibloHook>({} as BibloHook);
 export const BibloProvider = ({
     components,
     children,
-    indexOptions = {},
-    readerOptions = {},
-    defaultStyles: defStyles,
-    disableDefaultStyles = false,
-    getSection,
-    onSelectFile,
+    addons = [],
+    ...props
 }: BibloProviderProps): JSX.Element => {
+    const [selectedFile, setSelectedFile] = useState<string | undefined>();
+    const [searchValue, setSearchValue] = useState("");
+    const [enabledTags, setEnabledTags] = useState<string[]>([]);
+
+    const {
+        indexOptions = {},
+        readerOptions = {},
+        defaultStyles: defStyles,
+        disableDefaultStyles = false,
+        textParser = (input: string) => input,
+        getSection,
+        onSelectFile,
+    } = {
+        ...addons.reduce(
+            (obj, addon) =>
+                typeof addon === "function"
+                    ? { ...obj, ...addon() }
+                    : { ...obj, ...addon },
+            {},
+        ),
+        ...props,
+    };
+
     const defaultStyles: DefaultStyles = {
         margin: 15,
         lineHeight: 1.25,
@@ -47,9 +67,7 @@ export const BibloProvider = ({
             ...defStyles?.fontSizes,
         },
     };
-    const [selectedFile, setSelectedFile] = useState<string | undefined>();
-    const [searchValue, setSearchValue] = useState("");
-    const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
     const files: BibloHook["files"] = useMemo(
         () =>
             Object.entries(
@@ -122,10 +140,11 @@ export const BibloProvider = ({
                 readerOptions,
                 defaultStyles,
                 disableDefaultStyles,
+                textParser,
                 searchValue,
                 setSearchValue,
-                selectedTags,
-                setSelectedTags,
+                enabledTags,
+                setEnabledTags,
             }}
         >
             {children}

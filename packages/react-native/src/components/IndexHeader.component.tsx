@@ -4,6 +4,7 @@ import { useBiblo } from "../hooks/Biblo.hook";
 import { Typography, TypographySize } from "./Typography.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 import { IndexHeaderTags } from "./IndexHeaderTags.components";
+import { getTextStyles, getViewStyles } from "../helpers/getStyles.helper";
 
 export const IndexHeader = () => {
     const {
@@ -36,23 +37,21 @@ export const IndexHeader = () => {
     return (
         <Container
             title={titleString}
-            style={[
-                disableDefaultStyles
-                    ? {}
-                    : { marginVertical: defaultStyles.margin },
+            style={getViewStyles(
                 indexOptions.headerStyle,
-            ]}
+                { marginVertical: defaultStyles.margin },
+                disableDefaultStyles,
+            )}
         >
             {/** TITLE */}
             {titleString !== "" && (
                 <Title
                     title={titleString}
-                    style={[
-                        disableDefaultStyles
-                            ? {}
-                            : { marginHorizontal: defaultStyles.margin },
-                        indexOptions.headerTitleStyle,
-                    ]}
+                    style={getViewStyles(
+                        indexOptions.headerTitleTextStyle,
+                        { marginHorizontal: defaultStyles.margin },
+                        disableDefaultStyles,
+                    )}
                     textStyle={indexOptions.headerTitleTextStyle}
                 >
                     <Typography
@@ -72,15 +71,14 @@ export const IndexHeader = () => {
                     value={searchValue}
                     onChangeText={setSearchValue}
                     placeholder={placeholderString}
-                    style={[
-                        disableDefaultStyles
-                            ? {}
-                            : {
-                                  marginTop: defaultStyles.margin,
-                                  marginHorizontal: defaultStyles.margin,
-                              },
+                    style={getViewStyles(
                         indexOptions.headerSearchStyle,
-                    ]}
+                        {
+                            marginTop: defaultStyles.margin,
+                            marginHorizontal: defaultStyles.margin,
+                        },
+                        disableDefaultStyles,
+                    )}
                     inputStyle={indexOptions.headerSearchInputStyle}
                 >
                     <TextInput
@@ -88,18 +86,17 @@ export const IndexHeader = () => {
                         value={searchValue}
                         onChangeText={setSearchValue}
                         returnKeyType="search"
-                        style={[
-                            disableDefaultStyles
-                                ? {}
-                                : {
-                                      height: 40,
-                                      paddingHorizontal: 10,
-                                      backgroundColor: "#eee",
-                                      borderWidth: 1,
-                                      borderColor: "#ccc",
-                                  },
+                        style={getTextStyles(
                             indexOptions.headerSearchInputStyle,
-                        ]}
+                            {
+                                height: 40,
+                                paddingHorizontal: 10,
+                                backgroundColor: "#eee",
+                                borderWidth: 1,
+                                borderColor: "#ccc",
+                            },
+                            disableDefaultStyles,
+                        )}
                     />
                 </Search>
             )}

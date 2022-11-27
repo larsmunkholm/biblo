@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, TextProps } from "react-native";
 import { useBiblo } from "../hooks/Biblo.hook";
+import { getTextStyles } from "../helpers/getStyles.helper";
 
 export enum TypographySize {
     Small = "small",
@@ -40,21 +41,20 @@ export const Typography = ({
     return (
         <Text
             {...props}
-            style={[
-                disableDefaultStyles
-                    ? {}
-                    : {
-                          color,
-                          fontSize,
-                          fontWeight: bold ? "bold" : undefined,
-                          fontStyle: italic ? "italic" : undefined,
-                          lineHeight,
-                          opacity,
-                          marginTop,
-                          marginBottom,
-                      },
+            style={getTextStyles(
                 style,
-            ]}
+                {
+                    color,
+                    fontSize,
+                    fontWeight: bold ? "bold" : undefined,
+                    fontStyle: italic ? "italic" : undefined,
+                    lineHeight,
+                    opacity,
+                    marginTop,
+                    marginBottom,
+                },
+                disableDefaultStyles,
+            )}
         >
             {children}
         </Text>

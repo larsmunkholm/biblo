@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleProp, View, ViewStyle } from "react-native";
 import { useBiblo } from "../hooks/Biblo.hook";
+import { getViewStyles } from "../helpers/getStyles.helper";
 
 interface Props {
     disableDefaultStyles?: boolean;
@@ -11,16 +12,15 @@ export const Separator = (props: Props) => {
     const { defaultStyles } = useBiblo();
     return (
         <View
-            style={[
-                props.disableDefaultStyles
-                    ? {}
-                    : {
-                          marginHorizontal: defaultStyles.margin,
-                          borderTopWidth: 1,
-                          borderTopColor: "#ddd",
-                      },
+            style={getViewStyles(
                 props.style,
-            ]}
+                {
+                    marginHorizontal: defaultStyles.margin,
+                    borderTopWidth: 1,
+                    borderTopColor: "#ddd",
+                },
+                props.disableDefaultStyles,
+            )}
         />
     );
 };

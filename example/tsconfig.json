@@ -1,6 +1,6 @@
 {
-    "compilerOptions": {
-      "strictBindCallApply": true
-    },
-    "extends": "expo/tsconfig.base"
+  "compilerOptions": {
+    "strictBindCallApply": true
+  },
+  "extends": "expo/tsconfig.base"
 }

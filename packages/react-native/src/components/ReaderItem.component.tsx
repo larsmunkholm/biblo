@@ -3,12 +3,14 @@ import { BibloComponentItem } from "../interfaces/Biblo.interface";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { View } from "react-native";
 import { Typography, TypographySize } from "./Typography.component";
+import { getTextStyles, getViewStyles } from "../helpers/getStyles.helper";
 
 export const ReaderItem = React.memo((props: BibloComponentItem) => {
     const {
         readerOptions,
         defaultStyles,
         disableDefaultStyles: disabledDefaultStylesGlobal,
+        textParser,
     } = useBiblo();
     const Item = (readerOptions.item || View) as any;
     const ItemTitleComponent = (readerOptions.itemTitleComponent ||
@@ -29,10 +31,11 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
             bio={props.bio}
             title={props.title}
             description={props.description}
-            style={[
-                disableDefaultStyles ? {} : { margin: defaultStyles.margin },
+            style={getViewStyles(
                 readerOptions.itemStyle,
-            ]}
+                { margin: defaultStyles.margin },
+                disableDefaultStyles,
+            )}
         >
             {/** Component title */}
             {props.title && (
@@ -45,7 +48,16 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                         style={readerOptions.itemTitleTextStyle}
                         disableDefaultStyles={disableDefaultStyles}
                     >
-                        {props.title}
+                        {textParser(props.title, {
+                            type: "title",
+                            screen: "reader",
+                            scope: "item",
+                            style: getTextStyles(
+                                readerOptions.itemTitleTextStyle,
+                                { fontWeight: "bold" },
+                                disableDefaultStyles,
+                            ),
+                        })}
                     </Typography>
                 </ItemTitleComponent>
             )}
@@ -54,12 +66,11 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
             {props.description && (
                 <ItemDescriptionComponent
                     description={props.description}
-                    style={[
-                        disableDefaultStyles
-                            ? {}
-                            : { marginTop: defaultStyles.margin },
+                    style={getViewStyles(
                         readerOptions.itemDescriptionStyle,
-                    ]}
+                        { marginTop: defaultStyles.margin },
+                        disableDefaultStyles,
+                    )}
                 >
                     {typeof props.description === "string" ? (
                         <Typography
@@ -67,7 +78,12 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                             style={readerOptions.headerDescriptionTextStyle}
                             disableDefaultStyles={disableDefaultStyles}
                         >
-                            {props.description}
+                            {textParser(props.description, {
+                                type: "description",
+                                screen: "reader",
+                                scope: "item",
+                                style: readerOptions.headerSubtitleTextStyle,
+                            })}
                         </Typography>
                     ) : (
                         props.description
@@ -77,13 +93,11 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
 
             {/** The actual component */}
             <ItemComponentWrapper
-                style={[
-                    disableDefaultStyles
-                        ? {}
-                        : { marginTop: defaultStyles.margin },
-                    readerOptions.itemComponentStyle,
-                    props.wrapperStyle,
-                ]}
+                style={getViewStyles(
+                    [readerOptions.itemComponentStyle, props.wrapperStyle],
+                    { marginTop: defaultStyles.margin },
+                    disableDefaultStyles,
+                )}
             >
                 <props.Component {...props.props} />
             </ItemComponentWrapper>

@@ -3,13 +3,14 @@ import { Pressable, ScrollView } from "react-native";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { Typography, TypographySize } from "./Typography.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
+import { getViewStyles } from "../helpers/getStyles.helper";
 
 export const IndexHeaderTags = () => {
     const {
         files,
         indexOptions,
-        selectedTags,
-        setSelectedTags,
+        enabledTags,
+        setEnabledTags,
         defaultStyles,
         disableDefaultStyles: disableDefaultStylesGlobal,
     } = useBiblo();
@@ -29,25 +30,23 @@ export const IndexHeaderTags = () => {
                 .filter((tag) => typeof tag === "string")
                 .map((tag) => ({
                     tag: tag as string,
-                    active: selectedTags.includes(tag as string),
+                    enabled: enabledTags.includes(tag as string),
                 })),
-        [files, selectedTags],
+        [files, enabledTags],
     );
 
     const enableTag = useCallback(
         (tag: string, multiple = false) =>
-            setSelectedTags((current) =>
-                multiple ? [...current, tag] : [tag],
-            ),
-        [setSelectedTags],
+            setEnabledTags((current) => (multiple ? [...current, tag] : [tag])),
+        [setEnabledTags],
     );
 
     const disableTag = useCallback(
         (tag: string) =>
-            setSelectedTags((current) =>
+            setEnabledTags((current) =>
                 [...current].filter((value) => value !== tag),
             ),
-        [setSelectedTags],
+        [setEnabledTags],
     );
 
     const Tags = useMemo(
@@ -67,45 +66,44 @@ export const IndexHeaderTags = () => {
     return (
         <Tags
             tags={tags}
-            style={[
-                disableDefaultStyles
-                    ? {}
-                    : {
-                          marginTop: defaultStyles.margin,
-                          paddingHorizontal: defaultStyles.margin,
-                      },
+            enabledTags={enabledTags}
+            style={getViewStyles(
                 indexOptions.headerTagsStyle,
-            ]}
+                {
+                    marginTop: defaultStyles.margin,
+                    paddingHorizontal: defaultStyles.margin,
+                },
+                disableDefaultStyles,
+            )}
             itemStyle={indexOptions.headerTagsItemStyle}
             itemTextStyle={indexOptions.headerTagsItemTextStyle}
             enableTag={enableTag}
             disableTag={disableTag}
-            resetTags={() => setSelectedTags([])}
+            resetTags={() => setEnabledTags([])}
         >
-            {tags.map(({ tag, active }, index) =>
+            {tags.map(({ tag, enabled }, index) =>
                 tag ? (
                     <Pressable
                         key={tag}
                         onPress={() =>
-                            active ? disableTag(tag) : enableTag(tag)
+                            enabled ? disableTag(tag) : enableTag(tag)
                         }
                         onLongPress={() =>
-                            active ? disableTag(tag) : enableTag(tag, true)
+                            enabled ? disableTag(tag) : enableTag(tag, true)
                         }
-                        style={[
-                            disableDefaultStyles
-                                ? {}
-                                : {
-                                      marginLeft: index ? 5 : 0,
-                                      height: 40,
-                                      padding: 10,
-                                      justifyContent: "center",
-                                      backgroundColor: active
-                                          ? "#7f7f7f3f"
-                                          : "#7f7f7f7f",
-                                  },
+                        style={getViewStyles(
                             indexOptions.headerTagsItemStyle,
-                        ]}
+                            {
+                                marginLeft: index ? 5 : 0,
+                                height: 40,
+                                padding: 10,
+                                justifyContent: "center",
+                                backgroundColor: enabled
+                                    ? "#7f7f7f3f"
+                                    : "#7f7f7f7f",
+                            },
+                            disableDefaultStyles,
+                        )}
                     >
                         <Typography
                             size={TypographySize.Small}

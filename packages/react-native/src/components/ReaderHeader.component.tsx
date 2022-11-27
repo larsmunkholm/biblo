@@ -4,6 +4,7 @@ import { Text, View } from "react-native";
 import { Typography, TypographySize } from "./Typography.component";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
+import { getTextStyles, getViewStyles } from "../helpers/getStyles.helper";
 
 interface Props {
     bio: BibloBioAndPath;
@@ -14,6 +15,7 @@ export const ReaderHeader = ({ bio }: Props) => {
         readerOptions,
         defaultStyles,
         disableDefaultStyles: disableDefaultStylesGlobal,
+        textParser,
     } = useBiblo();
     const disableDefaultStyles =
         disableDefaultStylesGlobal || readerOptions.disableDefaultStyles;
@@ -38,10 +40,11 @@ export const ReaderHeader = ({ bio }: Props) => {
     return (
         <Container
             bio={bio}
-            style={[
-                disableDefaultStyles ? {} : { margin: defaultStyles.margin },
+            style={getViewStyles(
                 readerOptions.headerStyle,
-            ]}
+                { margin: defaultStyles.margin },
+                disableDefaultStyles,
+            )}
         >
             {/** TITLE */}
             <Title
@@ -55,19 +58,27 @@ export const ReaderHeader = ({ bio }: Props) => {
                     style={readerOptions.headerTitleTextStyle}
                     disableDefaultStyles={disableDefaultStyles}
                 >
-                    {bio.title}
+                    {textParser(bio.title, {
+                        type: "title",
+                        screen: "reader",
+                        scope: "file",
+                        style: getTextStyles(
+                            readerOptions.headerTitleTextStyle,
+                            { fontWeight: "bold" },
+                            disableDefaultStyles,
+                        ),
+                    })}
                 </Typography>
             </Title>
 
             {/** SUBTITLE */}
             {bio.subtitle && !readerOptions.headerSubtitleHidden ? (
                 <Subtitle
-                    style={[
-                        disableDefaultStyles
-                            ? {}
-                            : { marginTop: defaultStyles.margin },
+                    style={getViewStyles(
                         readerOptions.headerSubtitleStyle,
-                    ]}
+                        { marginTop: defaultStyles.margin },
+                        disableDefaultStyles,
+                    )}
                     textStyle={readerOptions.headerSubtitleTextStyle}
                     subtitle={bio.subtitle}
                 >
@@ -76,7 +87,16 @@ export const ReaderHeader = ({ bio }: Props) => {
                         style={readerOptions.headerSubtitleTextStyle}
                         disableDefaultStyles={disableDefaultStyles}
                     >
-                        {bio.subtitle}
+                        {textParser(bio.subtitle, {
+                            type: "subtitle",
+                            screen: "reader",
+                            scope: "file",
+                            style: getTextStyles(
+                                readerOptions.headerSubtitleTextStyle,
+                                { fontWeight: "bold" },
+                                disableDefaultStyles,
+                            ),
+                        })}
                     </Typography>
                 </Subtitle>
             ) : null}
@@ -84,12 +104,11 @@ export const ReaderHeader = ({ bio }: Props) => {
             {/** DESCRIPTION */}
             {bio.description ? (
                 <Description
-                    style={[
-                        disableDefaultStyles
-                            ? {}
-                            : { marginTop: defaultStyles.margin },
+                    style={getViewStyles(
                         readerOptions.headerDescriptionStyle,
-                    ]}
+                        { marginTop: defaultStyles.margin },
+                        disableDefaultStyles,
+                    )}
                     textStyle={readerOptions.headerDescriptionTextStyle}
                     description={bio.description}
                 >
@@ -98,7 +117,12 @@ export const ReaderHeader = ({ bio }: Props) => {
                             style={readerOptions.headerDescriptionTextStyle}
                             disableDefaultStyles={disableDefaultStyles}
                         >
-                            {bio.description}
+                            {textParser(bio.description, {
+                                type: "description",
+                                screen: "reader",
+                                scope: "file",
+                                style: readerOptions.headerDescriptionTextStyle,
+                            })}
                         </Typography>
                     ) : (
                         bio.description
@@ -109,12 +133,11 @@ export const ReaderHeader = ({ bio }: Props) => {
             {/** TAGS */}
             {bio.tags && bio.tags.length && !readerOptions.headerTagsHidden ? (
                 <Tags
-                    style={[
-                        disableDefaultStyles
-                            ? {}
-                            : { marginTop: defaultStyles.margin },
+                    style={getViewStyles(
                         readerOptions.headerTagsStyle,
-                    ]}
+                        { marginTop: defaultStyles.margin },
+                        disableDefaultStyles,
+                    )}
                     textStyle={readerOptions.headerTagsTextStyle}
                     tags={bio.tags}
                 >
@@ -146,12 +169,11 @@ export const ReaderHeader = ({ bio }: Props) => {
             {/** PATH */}
             {readerOptions.headerPathHidden || (
                 <Path
-                    style={[
-                        disableDefaultStyles
-                            ? {}
-                            : { marginTop: defaultStyles.margin },
+                    style={getViewStyles(
                         readerOptions.headerPathStyle,
-                    ]}
+                        { marginTop: defaultStyles.margin },
+                        disableDefaultStyles,
+                    )}
                     textStyle={readerOptions.headerPathTextStyle}
                     path={bio.path}
                 >

@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { Typography } from "./Typography.component";
+import { getTextStyles, getViewStyles } from "../helpers/getStyles.helper";
 
 interface Props {
     title: string;
@@ -14,6 +15,7 @@ export const IndexSectionHeader = ({ title, itemsCount }: Props) => {
         indexOptions,
         defaultStyles,
         disableDefaultStyles: disableDefaultStylesGlobal,
+        textParser,
     } = useBiblo();
     const disableDefaultStyles =
         disableDefaultStylesGlobal || indexOptions.disableDefaultStyles;
@@ -24,17 +26,18 @@ export const IndexSectionHeader = ({ title, itemsCount }: Props) => {
     return itemsCount ? (
         <Container
             title={title}
-            style={[
-                disableDefaultStyles
-                    ? {}
-                    : {
-                          paddingHorizontal: defaultStyles.margin,
-                          backgroundColor: "#ccc",
-                          justifyContent: "center",
-                      },
-                { height: indexOptions.sectionListItemHeight },
-                indexOptions.sectionHeaderStyle,
-            ]}
+            style={getViewStyles(
+                [
+                    { height: indexOptions.sectionListItemHeight },
+                    indexOptions.sectionHeaderStyle,
+                ],
+                {
+                    paddingHorizontal: defaultStyles.margin,
+                    backgroundColor: "#ccc",
+                    justifyContent: "center",
+                },
+                disableDefaultStyles,
+            )}
             textStyle={indexOptions.sectionHeaderTextStyle}
         >
             <Typography
@@ -42,7 +45,16 @@ export const IndexSectionHeader = ({ title, itemsCount }: Props) => {
                 disableDefaultStyles={disableDefaultStyles}
                 style={indexOptions.sectionHeaderTextStyle}
             >
-                {title}
+                {textParser(title, {
+                    type: "title",
+                    screen: "index",
+                    scope: "section",
+                    style: getTextStyles(
+                        indexOptions.sectionHeaderTextStyle,
+                        { fontWeight: "bold" },
+                        disableDefaultStyles,
+                    ),
+                })}
             </Typography>
         </Container>
     ) : null;

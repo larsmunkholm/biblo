@@ -6,6 +6,7 @@ import {
     BibloReader,
 } from "@biblo/react-native";
 import "@biblo/react-native/lib/interfaces/metroRequire.d";
+import BibloAddonSimpleMarkup from "@biblo/addon-simple-markup";
 import {
     createNativeStackNavigator,
     NativeStackNavigationProp,
@@ -23,6 +24,7 @@ export default function ReactNavigationScreen() {
     return (
         <BibloProvider
             components={components}
+            addons={[BibloAddonSimpleMarkup]}
             onSelectFile={() => navigate({ name: "BibloReader", params: {} })}
         >
             <Stack.Navigator>

@@ -1,7 +1,7 @@
 {
-  "name": "@biblo/react-native",
-  "version": "0.4.0",
-  "description": "",
+  "name": "@biblo/addon-simple-markup",
+  "version": "1.0.0",
+  "description": "Allow using simple markup in texts in Biblo files",
   "private": false,
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,7 +9,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "rimraf ./lib && tsc && node ./scripts/copy-d-ts.js",
+    "build": "rimraf ./lib && tsc",
     "clean": "eslint --fix \"./src/**/*.*\" && prettier --write \"./src/**/*.*\""
   },
   "repository": {

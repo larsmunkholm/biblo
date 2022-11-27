@@ -5,12 +5,13 @@ import { IndexHeader } from "../components/IndexHeader.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 import { IndexSectionHeader } from "../components/IndexSectionHeader.component";
 import { IndexItem } from "../components/IndexItem.component";
+import { getViewStyles } from "../helpers/getStyles.helper";
 
 export const IndexScreen = () => {
     const {
         files,
         searchValue,
-        selectedTags,
+        enabledTags,
         indexOptions,
         disableDefaultStyles: disableDefaultStylesGlobal,
     } = useBiblo();
@@ -18,13 +19,13 @@ export const IndexScreen = () => {
         disableDefaultStylesGlobal || indexOptions.disableDefaultStyles;
     const filteredFiles: typeof files = useMemo(() => {
         const lowerCaseQuery = searchValue.toLowerCase();
-        return lowerCaseQuery || selectedTags.length
+        return lowerCaseQuery || enabledTags.length
             ? [...files].map((section) => ({
                   ...section,
                   data: section.data.filter((exports) => {
                       let skip = false;
-                      if (selectedTags.length) {
-                          skip = !selectedTags.some((tag) =>
+                      if (enabledTags.length) {
+                          skip = !enabledTags.some((tag) =>
                               exports.tags?.includes(tag),
                           );
                       }
@@ -47,7 +48,7 @@ export const IndexScreen = () => {
                   }),
               }))
             : files;
-    }, [files, searchValue, selectedTags]);
+    }, [files, searchValue, enabledTags]);
 
     const Wrapper = (indexOptions.wrapperComponent || View) as NonNullable<
         IndexOptions["wrapperComponent"]
@@ -60,10 +61,11 @@ export const IndexScreen = () => {
 
     return (
         <Wrapper
-            style={[
-                disableDefaultStyles ? {} : { flex: 1 },
+            style={getViewStyles(
                 indexOptions.wrapperStyle,
-            ]}
+                { flex: 1 },
+                disableDefaultStyles,
+            )}
         >
             <Animated.SectionList
                 sections={filteredFiles}

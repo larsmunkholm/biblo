@@ -4,6 +4,7 @@ import { useBiblo } from "../hooks/Biblo.hook";
 import { ReaderList } from "../components/ReaderList.component";
 import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
 import { BibloFile } from "../interfaces/Biblo.interface";
+import { getViewStyles } from "../helpers/getStyles.helper";
 
 interface Props {
     file?: string;
@@ -54,10 +55,11 @@ export const ReaderScreen = React.memo(({ file }: Props) => {
     return showFile ? (
         <Wrapper
             item={showFile}
-            style={[
-                disableDefaultStyles ? {} : { flex: 1 },
+            style={getViewStyles(
                 readerOptions.wrapperStyle,
-            ]}
+                { flex: 1 },
+                disableDefaultStyles,
+            )}
         >
             <Animated.ScrollView
                 key={selectedFile}
