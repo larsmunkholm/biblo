@@ -32,5 +32,5 @@
   "version": "1.0.0",
   "private": true,
   "name": "react-native-biblo-example",
-  "description": "Biblo example using Expo"
+  "description": "Biblo example using Expo (React Native)"
 }

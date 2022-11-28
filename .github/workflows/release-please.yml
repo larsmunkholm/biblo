@@ -29,15 +29,31 @@ jobs:
       # BIBLO / ROOT
       # ------------
 
+      - name: Root - Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+        if: ${{ steps.release.outputs.release_created }}
+
       - name: Root - Install dependencies
         run: npm ci
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: React Native - Build
+        run: npm run build
+        working-directory: ./packages/react-native
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Addon simple markup - Build
+        run: npm run build
+        working-directory: ./packages/addons/simple-markup
         if: ${{ steps.release.outputs.release_created }}
 
       # --------------------
       # BIBLO / REACT-NATIVE
       # --------------------
 
-      # Check @biblo/react-native
       - name: React Native - Check for changes
         id: changed-react-native
         uses: tj-actions/changed-files@v34
@@ -46,17 +62,6 @@ jobs:
             packages/react-native/**
         if: ${{ steps.release.outputs.release_created }}
 
-      # Publish @biblo/react-native
-      - name: React Native - Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: 'https://registry.npmjs.org'
-        if: steps.changed-react-native.outputs.any_changed == 'true'
-      - name: React Native - Build
-        run: npm run build
-        working-directory: ./packages/react-native
-        if: steps.changed-react-native.outputs.any_changed == 'true'
       - name: React Native - Publish to NPM
         run: npm publish
         working-directory: ./packages/react-native
@@ -68,7 +73,6 @@ jobs:
       # BIBLO / BABEL-PLUGIN
       # --------------------
 
-      # Check @biblo/babel-plugin
       - name: Babel plugin - Check for changes
         id: changed-babel-plugin
         uses: tj-actions/changed-files@v34
@@ -77,13 +81,6 @@ jobs:
             packages/babel-plugin/**
         if: ${{ steps.release.outputs.release_created }}
 
-      # Publish @biblo/babel-plugin
-      - name: Babel plugin - Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: 'https://registry.npmjs.org'
-        if: steps.changed-babel-plugin.outputs.any_changed == 'true'
       - name: Babel plugin - Install dependencies
         run: npm ci
         if: steps.changed-babel-plugin.outputs.any_changed == 'true'
@@ -98,7 +95,6 @@ jobs:
       # BIBLO / ADDON SIMPLE MARKUP
       # ---------------------------
 
-      # Check @biblo/addon-simple-markup
       - name: Addon simple markup - Check for changes
         id: changed-addon-simple-markup
         uses: tj-actions/changed-files@v34
@@ -107,17 +103,6 @@ jobs:
             packages/addons/simple-markup/**
         if: ${{ steps.release.outputs.release_created }}
 
-      # Publish @biblo/addon-simple-markup
-      - name: Addon simple markup - Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: 'https://registry.npmjs.org'
-        if: steps.changed-addon-simple-markup.outputs.any_changed == 'true'
-      - name: Addon simple markup - Build
-        run: npm run build
-        working-directory: ./packages/addons/simple-markup
-        if: steps.changed-addon-simple-markup.outputs.any_changed == 'true'
       - name: Addon simple markup - Publish to NPM
         run: npm publish
         working-directory: ./packages/addons/simple-markup
@@ -129,7 +114,6 @@ jobs:
       # BIBLO / DOCS
       # ------------
 
-      # Check @biblo/docs
       - name: Docs - Check for changes
         id: changed-docs
         uses: tj-actions/changed-files@v34
@@ -137,14 +121,6 @@ jobs:
           files: |
             packages/docs/**
         if: ${{ steps.release.outputs.release_created }}
-
-      # Publish @biblo/babel-plugin
-      - name: Docs - Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: npm
-        if: steps.changed-docs.outputs.any_changed == 'true'
 
       - name: Docs - Install dependencies
         run: npm ci
@@ -170,14 +146,6 @@ jobs:
       # ---------------
       # BIBLO / EXAMPLE
       # ---------------
-
-      # Publish @biblo/babel-plugin
-      - name: Example - Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-        if: ${{ steps.release.outputs.release_created }}
 
       - name: Example - Install dependencies
         run: npm i
