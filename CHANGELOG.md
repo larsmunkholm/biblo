@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/larsmunkholm/biblo/compare/biblo-v0.4.3...biblo-v0.4.4) (2022-11-27)
+
+
+### Bug Fixes
+
+* Build example ([aa65a81](https://github.com/larsmunkholm/biblo/commit/aa65a8185b4cba4e3e71e28d2ff83c90d0977072))
+
 ## [0.4.3](https://github.com/larsmunkholm/biblo/compare/biblo-v0.4.2...biblo-v0.4.3) (2022-11-27)
 
 
