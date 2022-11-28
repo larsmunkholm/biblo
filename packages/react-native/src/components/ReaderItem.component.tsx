@@ -30,6 +30,7 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
             isLast={props.isLast}
             bio={props.bio}
             title={props.title}
+            originalTitle={props.originalTitle}
             description={props.description}
             style={getViewStyles(
                 readerOptions.itemStyle,
@@ -41,6 +42,7 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
             {props.title && (
                 <ItemTitleComponent
                     title={props.title}
+                    originalTitle={props.originalTitle}
                     style={readerOptions.itemTitleStyle}
                 >
                     <Typography

@@ -44,6 +44,7 @@ export type BibloItem<T = DefaultType> = ((props: T) => React.ReactNode) &
 export type BibloFile<T = DefaultType> = BibloBioAndPath<T> & {
     items: {
         title: string;
+        originalTitle: string;
         component: BibloItem;
     }[];
 };
@@ -90,6 +91,7 @@ export interface BibloComponentItem {
     isFirst: boolean;
     isLast: boolean;
     title: string | null;
+    originalTitle: string;
     description?: React.ReactNode;
     Wrapper?: any;
     wrapperStyle?: StyleProp<ViewStyle>;
