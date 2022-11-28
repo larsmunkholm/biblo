@@ -65,14 +65,16 @@ export interface BibloReaderItemProps {
     isFirst: boolean;
     isLast: boolean;
     bio: BibloBio;
-    title: string;
+    title: string | null;
+    originalTitle: string;
     description?: React.ReactNode;
     style?: StyleProp<ViewStyle>;
     children: React.ReactNode;
 }
 
 export interface BibloReaderItemTitleProps {
-    title: string;
+    title: string | null;
+    originalTitle: string;
     style?: StyleProp<ViewStyle>;
     textStyle?: StyleProp<TextStyle>;
     children: React.ReactNode;

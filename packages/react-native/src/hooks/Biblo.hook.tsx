@@ -88,6 +88,7 @@ export const BibloProvider = ({
                             ...exports
                         } = value;
 
+                        // Set which section the component belong in
                         const section =
                             bio.section ||
                             (getSection
@@ -99,7 +100,16 @@ export const BibloProvider = ({
 
                         const items = Object.entries(exports).map(
                             ([title, component]) => ({
-                                title,
+                                // Convert PascalCase to Title Case
+                                title: title
+                                    .replace(/([A-Z]+)/g, " $1")
+                                    .replace(/([A-Z][a-z])/g, " $1")
+                                    .replace(/\s+/g, " ")
+                                    .trim()
+                                    .replace(/(\s[A-Z][a-z])/g, (match) =>
+                                        match.toLocaleLowerCase(),
+                                    ),
+                                originalTitle: title,
                                 component: component as any,
                             }),
                         );
@@ -107,8 +117,8 @@ export const BibloProvider = ({
                         if (order?.length) {
                             items.sort(
                                 (a, b) =>
-                                    order.indexOf(a.title) -
-                                    order.indexOf(b.title),
+                                    order.indexOf(a.originalTitle) -
+                                    order.indexOf(b.originalTitle),
                             );
                         }
 

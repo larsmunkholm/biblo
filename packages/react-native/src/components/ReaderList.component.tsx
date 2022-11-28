@@ -37,7 +37,7 @@ export const ReaderList = React.memo(({ file }: Props) => {
             {/** Component header */}
             <ReaderHeader bio={bio} />
 
-            {items.map((book, index) => (
+            {items.map((item, index) => (
                 <View key={index}>
                     {/** Separator */}
                     {(index > 0 || !readerOptions.disableHeaderSeparator) && (
@@ -64,23 +64,20 @@ export const ReaderList = React.memo(({ file }: Props) => {
                         index={index}
                         isFirst={index === 0}
                         isLast={index === items.length - 1}
-                        Component={book.component}
-                        props={{ ...bio.props, ...book.component.props }}
-                        Wrapper={book.component.wrapper || bio.wrapper}
+                        Component={item.component}
+                        props={{ ...bio.props, ...item.component.props }}
+                        Wrapper={item.component.wrapper || bio.wrapper}
                         wrapperStyle={[
                             bio.wrapperStyle,
-                            book.component.wrapperStyle,
+                            item.component.wrapperStyle,
                         ]}
                         title={
-                            book.component.title === ""
+                            item.component.title === ""
                                 ? null
-                                : book.component.title ||
-                                  book.title
-                                      .replace(/([A-Z]+)/g, " $1")
-                                      .replace(/([A-Z][a-z])/g, " $1")
-                                      .trim()
+                                : item.component.title || item.title
                         }
-                        description={book.component.description}
+                        originalTitle={item.originalTitle}
+                        description={item.component.description}
                         bio={bio}
                     />
                 </View>
