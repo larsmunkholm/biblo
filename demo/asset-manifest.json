@@ -1,0 +1,19 @@
+{
+  "files": {
+    "app.js": "/biblo/demo/static/js/app.17853195.chunk.js",
+    "app.js.map": "/biblo/demo/static/js/app.17853195.chunk.js.map",
+    "runtime~app.js": "/biblo/demo/static/js/runtime~app.b858ac72.js",
+    "runtime~app.js.map": "/biblo/demo/static/js/runtime~app.b858ac72.js.map",
+    "static/js/2.6828478e.chunk.js": "/biblo/demo/static/js/2.6828478e.chunk.js",
+    "static/js/2.6828478e.chunk.js.map": "/biblo/demo/static/js/2.6828478e.chunk.js.map",
+    "index.html": "/biblo/demo/index.html",
+    "manifest.json": "/biblo/demo/manifest.json",
+    "serve.json": "/biblo/demo/serve.json",
+    "static/js/2.6828478e.chunk.js.LICENSE.txt": "/biblo/demo/static/js/2.6828478e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime~app.b858ac72.js",
+    "static/js/2.6828478e.chunk.js",
+    "static/js/app.17853195.chunk.js"
+  ]
+}
