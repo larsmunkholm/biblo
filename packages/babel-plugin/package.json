@@ -4,6 +4,9 @@
   "description": "",
   "private": false,
   "main": "index.js",
+  "scripts": {
+    "clean": "eslint --fix \"./index.js\" && prettier --write \"./index.js\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/larsmunkholm/biblo.git"
