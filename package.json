@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/saxofonsolo/biblo/issues"
   },
-  "homepage": "https://github.com/saxofonsolo/biblo#readme",
+  "homepage": "https://biblo.saxofonsolo.dk/",
   "workspaces": [
     "packages/addons/markdown",
     "packages/babel-plugin",
