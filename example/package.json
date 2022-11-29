@@ -28,7 +28,7 @@
     "web": "expo start --web",
     "export:web": "expo export:web"
   },
-  "homepage": "/biblo/demo",
+  "homepage": "/demo",
   "version": "1.0.0",
   "private": true,
   "name": "react-native-biblo-example",
