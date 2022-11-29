@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://larsmunkholm.github.io/biblo/img/logo.svg" width="100" />
+<img src="https://biblo.saxofonsolo.dk/img/logo.svg" width="100" />
 
 # Biblo for React Native
 
@@ -10,7 +10,7 @@ A fully customizable **component library** and workshop living in your **React N
 
 ![Compatibility](https://img.shields.io/badge/platform-android%20%7C%20ios%20%7C%20Web%20%7C%20expo-blue.svg?style=for-the-badge)
 
-### Go read the [documentation](https://larsmunkholm.github.io/biblo/)
+### Go read the [documentation](https://biblo.saxofonsolo.dk/)
 
 </div>
 
@@ -44,7 +44,7 @@ So...
 You can run an example by performing these steps:
 
 ```shell
-git clone git@github.com:larsmunkholm/biblo.git
+git clone git@github.com:saxofonsolo/biblo.git
 cd biblo
 cd example
 npm install

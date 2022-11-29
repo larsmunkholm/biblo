@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/larsmunkholm/biblo.git"
+    "url": "git+https://github.com/saxofonsolo/biblo.git"
   },
   "author": "Lars Munkholm",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/larsmunkholm/biblo/issues"
+    "url": "https://github.com/saxofonsolo/biblo/issues"
   },
-  "homepage": "https://github.com/larsmunkholm/biblo#readme",
+  "homepage": "https://github.com/saxofonsolo/biblo#readme",
   "workspaces": [
     "packages/addons/markdown",
     "packages/babel-plugin",

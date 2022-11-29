@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/larsmunkholm/biblo.git"
+    "url": "git+https://github.com/saxofonsolo/biblo.git"
   },
   "author": "Lars Munkholm",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/larsmunkholm/biblo/issues"
+    "url": "https://github.com/saxofonsolo/biblo/issues"
   },
   "homepage": "https://larsmunkholm.github.io/biblo/"
 }

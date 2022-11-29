@@ -14,7 +14,7 @@
 You can run the example by performing these steps:
 
 ```shell
-git clone git@github.com:larsmunkholm/biblo.git
+git clone git@github.com:saxofonsolo/biblo.git
 cd biblo
 cd example
 npm install

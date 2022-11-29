@@ -19,7 +19,18 @@ export default function App() {
                 backgroundColor: "white",
             }}
         >
-            <NavigationContainer>
+            <NavigationContainer
+                linking={{
+                    prefixes: [],
+                    config: {
+                        screens: {
+                            Home: "/",
+                            BasicViewport: "/basic-viewport",
+                            ReactNavigation: "/react-navigation",
+                        },
+                    },
+                }}
+            >
                 <Stack.Navigator>
                     <Stack.Screen name="Home" component={HomeScreen} />
                     <Stack.Screen

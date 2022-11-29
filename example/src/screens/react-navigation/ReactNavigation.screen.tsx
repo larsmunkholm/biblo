@@ -1,16 +1,12 @@
 import React from "react";
-import {
-    bibloImporter,
-    BibloProvider,
-    BibloIndex,
-    BibloReader,
-} from "@biblo/react-native";
+import { bibloImporter, BibloProvider, BibloIndex } from "@biblo/react-native";
 import BibloAddonSimpleMarkup from "@biblo/addon-simple-markup";
 import {
     createNativeStackNavigator,
     NativeStackNavigationProp,
 } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
+import { ReaderScreen } from "./Reader.screen";
 
 const components = bibloImporter(
     require.context("../../", true, /\.biblo\.[tj]sx?$/),
@@ -24,15 +20,21 @@ export default function ReactNavigationScreen() {
         <BibloProvider
             components={components}
             addons={[BibloAddonSimpleMarkup]}
-            onSelectFile={() => navigate({ name: "BibloReader", params: {} })}
+            onSelectFile={(file) => {
+                navigate({ name: "reader", params: { file } });
+            }}
         >
             <Stack.Navigator>
                 <Stack.Screen
-                    name="BibloIndex"
+                    name="index"
                     component={BibloIndex}
                     options={{ title: "React Navigation" }}
                 />
-                <Stack.Screen name="BibloReader" component={BibloReader} />
+                <Stack.Screen
+                    name="reader"
+                    component={ReaderScreen}
+                    options={{ title: "Biblo file" }}
+                />
             </Stack.Navigator>
         </BibloProvider>
     );

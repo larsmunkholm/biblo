@@ -8,8 +8,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
     title: "Biblo",
     tagline: "A component library and workshop for React Native",
-    url: "https://larsmunkholm.github.io/",
-    baseUrl: "/biblo/",
+    url: "https://biblo.saxofonsolo.dk/",
+    baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
@@ -37,7 +37,7 @@ const config = {
                     sidebarPath: require.resolve("./sidebars.js"),
                     breadcrumbs: false,
                     editUrl:
-                        "https://github.com/larsmunkholm/biblo/tree/main/packages/docs/",
+                        "https://github.com/saxofonsolo/biblo/tree/main/packages/docs/",
                 },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
