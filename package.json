@@ -1,7 +1,7 @@
 {
   "name": "biblo",
   "description": "",
-  "version": "0.4.6",
+  "version": "0.5.0",
   "scripts": {
     "clean": "eslint --fix \"./{packages/*/src,example}/**/*.{ts,js}{,x}\" && prettier --write \"./*{packages/*/src,example}/**/*.{ts,tsx,js,jsx,json}\"",
     "deploy": "npm run deploy --workspaces"
