@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/saxofonsolo/biblo/compare/docs-v0.4.1...docs-v0.5.0) (2022-11-29)
+
+
+### Features
+
+* Transfer repo to saxofonsolo ([0924eba](https://github.com/saxofonsolo/biblo/commit/0924ebae1608560e09ac3bc778210d8fff995bee))
+
 ## [0.4.1](https://github.com/saxofonsolo/biblo/compare/docs-v0.4.0...docs-v0.4.1) (2022-11-27)
 
 

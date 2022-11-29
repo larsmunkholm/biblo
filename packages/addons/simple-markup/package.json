@@ -1,6 +1,6 @@
 {
   "name": "@biblo/addon-simple-markup",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Allow using simple markup in texts in Biblo files",
   "keywords": [
     "biblo"

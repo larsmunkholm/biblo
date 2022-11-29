@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/saxofonsolo/biblo/compare/addon-simple-markup-v1.1.2...addon-simple-markup-v1.2.0) (2022-11-29)
+
+
+### Features
+
+* Transfer repo to saxofonsolo ([0924eba](https://github.com/saxofonsolo/biblo/commit/0924ebae1608560e09ac3bc778210d8fff995bee))
+
 ## [1.1.2](https://github.com/saxofonsolo/biblo/compare/addon-simple-markup-v1.1.1...addon-simple-markup-v1.1.2) (2022-11-27)
 
 

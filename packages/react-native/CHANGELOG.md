@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/saxofonsolo/biblo/compare/react-native-v0.5.2...react-native-v0.6.0) (2022-11-29)
+
+
+### Features
+
+* Change where in the code an item's title is converted from PascalCase, convert it to Sentence case instead of Title Case and keep the original title, which will also be passed as a prop to custom components. ([978f446](https://github.com/saxofonsolo/biblo/commit/978f44687ffaf7e6df0ad77a9ee0c25760896dc1))
+* Transfer repo to saxofonsolo ([0924eba](https://github.com/saxofonsolo/biblo/commit/0924ebae1608560e09ac3bc778210d8fff995bee))
+
 ## [0.5.2](https://github.com/saxofonsolo/biblo/compare/react-native-v0.5.1...react-native-v0.5.2) (2022-11-27)
 
 
