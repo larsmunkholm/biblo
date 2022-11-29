@@ -12,7 +12,7 @@ const MOCK_LOREM_IPSUM =
 
 export default {
     title: "Paragraph",
-    subtitle: "A component for _text_ nodes",
+    subtitle: "A component for _text nodes_",
     description: `Use this for **texts** of all sizes, weights and colors.
 
 • Paragraphs
