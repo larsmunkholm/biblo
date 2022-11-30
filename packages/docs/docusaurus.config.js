@@ -15,7 +15,7 @@ const config = {
     favicon: "img/favicon.ico",
 
     // GitHub pages deployment config.
-    organizationName: "larsmunkholm",
+    organizationName: "saxofonsolo",
     projectName: "biblo",
     deploymentBranch: "main",
     trailingSlash: true,
@@ -68,7 +68,7 @@ const config = {
                         position: "right",
                     },
                     {
-                        href: "https://github.com/larsmunkholm/biblo",
+                        href: "https://github.com/saxofonsolo/biblo",
                         label: "GitHub",
                         position: "right",
                     },
@@ -91,7 +91,7 @@ const config = {
                         items: [
                             {
                                 label: "Open an issue",
-                                href: "https://github.com/larsmunkholm/biblo/issues",
+                                href: "https://github.com/saxofonsolo/biblo/issues",
                             },
                         ],
                     },
@@ -104,7 +104,7 @@ const config = {
                             },
                             {
                                 label: "GitHub",
-                                href: "https://github.com/larsmunkholm/biblo",
+                                href: "https://github.com/saxofonsolo/biblo",
                             },
                         ],
                     },
