@@ -6,7 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-    --ifm-color-primary: #EC8008;
+    --ifm-color-primary: #ec8008;
     --ifm-color-primary-dark: #d47307;
     --ifm-color-primary-darker: #bc6606;
     --ifm-color-primary-darkest: #a55905;
@@ -19,8 +19,8 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-    --ifm-color-primary: #FDAB08;
+[data-theme="dark"] {
+    --ifm-color-primary: #fdab08;
     --ifm-color-primary-dark: #e39907;
     --ifm-color-primary-darker: #ca8806;
     --ifm-color-primary-darkest: #b17705;
@@ -32,4 +32,15 @@
 
 .hidden {
     display: none;
+}
+
+a[target="_blank"]:not([class])::before {
+    content: "";
+    margin: 0 0.3em 0 0;
+    width: 0.8em;
+    height: 0.8em;
+    display: inline-block;
+    background: currentColor;
+    mask: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABzElEQVRoge1YS07DMBAd2MICTsCmZwHWwLK9Bb9WCJldKg7AqlwJ9QBACZwDmJFSyRQ72J6XDog86a0av0/jONEQ9ejRwwoD5hnzIpFD5oZJ0ggemR+ZHJkkjaCkgLMIGoNsoWtmFeCUOadfXiAG2ed39AfuQAih8A+kKLDNPGaeU/ppEeIpc68g/D3zprTAIfON8h+0GOcF4Teb0NkFDpjvwPBtBdrCU0kB2Tav3qIF85bCp0Uqryi8hX4KX1TgxFvwzNxJWVSAlPACR5kFxt6CChL1O1LDCxxlFshekImc8IKJd90kxcBRdwVywwvkjf3UcJBi4qibAiXhi+AIXyAlvFwzJMBnsyNsgdR/fuT9rvpsdoQr0OlpEwNKKHfPo3whQiUPLMIXIlR62mh9IUISckZfw88o7ajU+MKE/JMkJ7zWFybkF8gJr/WFCWleRhrfboSsfGFCVr4wIStfmJCVL0zIyhcmZOULE7LyhQlZ+cKErHzXMVYJYer5XmqE/MHWgrobbPnYZb54vkcasdXRogjLndBMp9tYrYSvmVuaAgKZTKOHuykUz31t+CVEqF5j+BoZfgm5lbIfZaSnmU63cdx4qLdNjx7/EZ8oObwxE7Il/gAAAABJRU5ErkJggg==)
+        center/contain;
 }
