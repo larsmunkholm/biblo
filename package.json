@@ -3,8 +3,8 @@
   "description": "",
   "version": "0.6.0",
   "scripts": {
-    "clean": "eslint --fix \"./{packages/*/src,example}/**/*.{ts,js}{,x}\" && prettier --write \"./*{packages/*/src,example}/**/*.{ts,tsx,js,jsx,json}\"",
-    "deploy": "npm run deploy --workspaces"
+    "build": "npm run build --workspaces",
+    "clean": "eslint --fix \"./{packages/*/src,example}/**/*.{ts,js}{,x}\" && prettier --write \"./*{packages/*/src,example}/**/*.{ts,tsx,js,jsx,json}\""
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
   },
   "homepage": "https://biblo.saxofonsolo.dk/",
   "workspaces": [
-    "packages/addons/markdown",
+    "packages/addons/simple-markup",
     "packages/babel-plugin",
     "packages/react-native"
   ],
