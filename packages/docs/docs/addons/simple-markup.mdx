@@ -17,6 +17,10 @@ Biblo addon for parsing simple markup.
 
 `"Lorem _italic_ ipsum"` ➡️ Lorem _italic_ ipsum
 
+#### Strike through text
+
+`"Lorem ~~strike through~~ ipsum"` ➡️ Lorem ~~strike through~~ ipsum
+
 ## Installation
 
 <Tabs>
@@ -69,13 +73,22 @@ export default function App() {
 
 ## Options
 
-The default markup is set with `**` for **bold** and `_` for _italic_.
+The default markup is set with
+- `**` for **bold**
+- `_` for _italic_
+- `~~` for ~~strike through~~
 
 This can be changed by passing an object to `BibloAddonSimpleMarkup`:
 
-```tsx {2}
+```tsx {3-7}
 <BibloProvider
-    addons={[BibloAddonSimpleMarkup({ bold: "*", italic: "__" }]}
+    addons={[
+        BibloAddonSimpleMarkup({
+            bold: "*",
+            italic: "__",
+            strikeThrough: "--",
+        }),
+    ]}
     components={components}
 >
     ...

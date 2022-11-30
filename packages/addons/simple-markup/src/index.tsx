@@ -5,21 +5,28 @@ import { BibloAddon } from "@biblo/react-native";
 interface Options {
     bold?: string;
     italic?: string;
+    strikeThrough?: string;
 }
 
 interface Markup {
     text: string;
     bold: boolean;
     italic: boolean;
+    strikeThrough: boolean;
 }
 
 const escapeRegex = (string: string) =>
     string.replace(/[/\-\\^$*+?.()|[\]{}]/g, "\\$&");
 
 const getMarkup = (input: string, options: Options): Markup[] => {
-    const { bold: boldDelimiter, italic: italicDelimiter } = {
+    const {
+        bold: boldDelimiter,
+        italic: italicDelimiter,
+        strikeThrough: strikeThroughDelimiter,
+    } = {
         bold: "**",
         italic: "_",
+        strikeThrough: "~~",
         ...options,
     };
     const output: Markup[] = [];
@@ -30,17 +37,18 @@ const getMarkup = (input: string, options: Options): Markup[] => {
 
     let bold = false;
     let italic = false;
+    let strikeThrough = false;
 
     const text = input.split(regex).reduce((a, b) => {
         if (b === boldDelimiter) {
             if (bold) {
                 if (a !== "") {
-                    output.push({ text: a, bold, italic });
+                    output.push({ text: a, bold, italic, strikeThrough });
                 }
 
                 bold = false;
             } else {
-                output.push({ text: a, bold, italic });
+                output.push({ text: a, bold, italic, strikeThrough });
                 bold = true;
             }
 
@@ -48,13 +56,26 @@ const getMarkup = (input: string, options: Options): Markup[] => {
         } else if (b === italicDelimiter) {
             if (italic) {
                 if (a !== "") {
-                    output.push({ text: a, bold, italic });
+                    output.push({ text: a, bold, italic, strikeThrough });
                 }
 
                 italic = false;
             } else {
-                output.push({ text: a, bold, italic });
+                output.push({ text: a, bold, italic, strikeThrough });
                 italic = true;
+            }
+
+            return "";
+        } else if (b === strikeThroughDelimiter) {
+            if (strikeThrough) {
+                if (a !== "") {
+                    output.push({ text: a, bold, italic, strikeThrough });
+                }
+
+                strikeThrough = false;
+            } else {
+                output.push({ text: a, bold, italic, strikeThrough });
+                strikeThrough = true;
             }
 
             return "";
@@ -64,7 +85,12 @@ const getMarkup = (input: string, options: Options): Markup[] => {
     }, "");
 
     if (text !== "") {
-        output.push({ text: text, bold: false, italic: false });
+        output.push({
+            text: text,
+            bold: false,
+            italic: false,
+            strikeThrough: false,
+        });
     }
 
     return output;
