@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/saxofonsolo/biblo/compare/react-native-v0.6.0...react-native-v0.7.0) (2022-11-30)
+
+
+### Features
+
+* Add device mockup as demo in docs ([ae39779](https://github.com/saxofonsolo/biblo/commit/ae3977957b1eb5fff0d1cb27a6e75c900b706243))
+
 ## [0.6.0](https://github.com/saxofonsolo/biblo/compare/react-native-v0.5.2...react-native-v0.6.0) (2022-11-29)
 
 
