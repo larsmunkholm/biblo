@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/saxofonsolo/biblo/compare/docs-v0.6.0...docs-v0.6.1) (2022-11-30)
+
+
+### Bug Fixes
+
+* Fix URLs in Expo web example ([5b86eaf](https://github.com/saxofonsolo/biblo/commit/5b86eaf8a8ff384f31e5bb19c67f00d9a0f3e0f4))
+
 ## [0.6.0](https://github.com/saxofonsolo/biblo/compare/docs-v0.5.0...docs-v0.6.0) (2022-11-30)
 
 
