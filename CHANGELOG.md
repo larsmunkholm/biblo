@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/saxofonsolo/biblo/compare/biblo-v0.5.0...biblo-v0.6.0) (2022-11-30)
+
+
+### Features
+
+* Add device mockup as demo in docs ([ae39779](https://github.com/saxofonsolo/biblo/commit/ae3977957b1eb5fff0d1cb27a6e75c900b706243))
+
 ## [0.5.0](https://github.com/saxofonsolo/biblo/compare/biblo-v0.4.6...biblo-v0.5.0) (2022-11-29)
 
 
