@@ -78,4 +78,4 @@
 
 ### Features
 
-* Create a bunch of interfaces available via imports ([#3](https://github.com/saxofonsolo/biblo/issues/3)) ([623fab0](https://github.com/larsmunkholm/biblo/commit/623fab0179f49bbfcf88b48233a4f84a6c01ee7b))
+* Create a bunch of interfaces available via imports ([#3](https://github.com/saxofonsolo/biblo/issues/3)) ([623fab0](https://github.com/saxofonsolo/biblo/commit/623fab0179f49bbfcf88b48233a4f84a6c01ee7b))
