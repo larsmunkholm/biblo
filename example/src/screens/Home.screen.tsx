@@ -10,13 +10,13 @@ export default function HomeScreen() {
             <View style={{ marginBottom: 15 }}>
                 <Button
                     title="Basic viewport"
-                    onPress={() => linkTo("/basic-viewport")}
+                    onPress={() => linkTo("/demo/basic-viewport")}
                 />
             </View>
             <View style={{ marginBottom: 15 }}>
                 <Button
                     title="React Navigation"
-                    onPress={() => linkTo("/react-navigation")}
+                    onPress={() => linkTo("/demo/react-navigation")}
                 />
             </View>
         </View>

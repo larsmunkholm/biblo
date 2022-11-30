@@ -24,9 +24,9 @@ export default function App() {
                     prefixes: [],
                     config: {
                         screens: {
-                            Home: "/",
-                            BasicViewport: "/basic-viewport",
-                            ReactNavigation: "/react-navigation",
+                            Home: "/demo",
+                            BasicViewport: "/demo/basic-viewport",
+                            ReactNavigation: "/demo/react-navigation",
                         },
                     },
                 }}

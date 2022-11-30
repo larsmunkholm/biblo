@@ -1,5 +1,6 @@
 {
   "name": "@biblo/docs",
+  "description": "Documentation for Biblo",
   "version": "0.6.0",
   "private": true,
   "scripts": {
