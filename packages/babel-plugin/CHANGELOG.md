@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/saxofonsolo/biblo/compare/babel-plugin-v1.3.0...babel-plugin-v1.3.1) (2022-11-30)
+
+
+### Bug Fixes
+
+* Fix building workspaces and adjust documentation ([da8ab19](https://github.com/saxofonsolo/biblo/commit/da8ab19f1bd91c3f8243ae5ae9ca0966496bdd02))
+
 ## [1.3.0](https://github.com/saxofonsolo/biblo/compare/babel-plugin-v1.2.0...babel-plugin-v1.3.0) (2022-11-29)
 
 
