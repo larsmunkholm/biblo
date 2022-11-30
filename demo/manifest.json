@@ -1,0 +1,8 @@
+{
+  "description": "Biblo example using Expo (React Native)",
+  "display": "standalone",
+  "lang": "en",
+  "name": "react-native-biblo-example",
+  "short_name": "react-native-biblo-example",
+  "start_url": "/?utm_source=web_app_manifest"
+}
