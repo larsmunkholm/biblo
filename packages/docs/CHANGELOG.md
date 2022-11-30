@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.2](https://github.com/saxofonsolo/biblo/compare/docs-v0.6.1...docs-v0.6.2) (2022-11-30)
+
+
+### Bug Fixes
+
+* Fix building workspaces and adjust documentation ([da8ab19](https://github.com/saxofonsolo/biblo/commit/da8ab19f1bd91c3f8243ae5ae9ca0966496bdd02))
+
 ## [0.6.1](https://github.com/saxofonsolo/biblo/compare/docs-v0.6.0...docs-v0.6.1) (2022-11-30)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/saxofonsolo/biblo/compare/react-native-v0.7.0...react-native-v0.7.1) (2022-11-30)
+
+
+### Bug Fixes
+
+* Fix building workspaces and adjust documentation ([da8ab19](https://github.com/saxofonsolo/biblo/commit/da8ab19f1bd91c3f8243ae5ae9ca0966496bdd02))
+
 ## [0.7.0](https://github.com/saxofonsolo/biblo/compare/react-native-v0.6.0...react-native-v0.7.0) (2022-11-30)
 
 
