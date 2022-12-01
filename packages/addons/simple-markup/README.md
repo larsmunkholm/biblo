@@ -57,7 +57,10 @@ export default function App() {
 
 ## Options
 
-The default markup is set with `**` for **bold** and `_` for _italic_.
+The default markup is set with
+- `**` for **bold**
+- `_` for _italic_
+- `~~` for ~~strike through~~
 
 This can be changed by passing an object to `BibloAddonSimpleMarkup`:
 

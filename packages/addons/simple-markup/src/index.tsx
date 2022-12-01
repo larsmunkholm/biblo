@@ -31,7 +31,9 @@ const getMarkup = (input: string, options: Options): Markup[] => {
     };
     const output: Markup[] = [];
     const regex = new RegExp(
-        `(${escapeRegex(boldDelimiter)}|${escapeRegex(italicDelimiter)})`,
+        `(${escapeRegex(boldDelimiter)}|${escapeRegex(
+            italicDelimiter,
+        )}|${escapeRegex(strikeThroughDelimiter)})`,
         "g",
     );
 
@@ -43,12 +45,22 @@ const getMarkup = (input: string, options: Options): Markup[] => {
         if (b === boldDelimiter) {
             if (bold) {
                 if (a !== "") {
-                    output.push({ text: a, bold, italic, strikeThrough });
+                    output.push({
+                        text: a,
+                        bold,
+                        italic,
+                        strikeThrough,
+                    });
                 }
 
                 bold = false;
             } else {
-                output.push({ text: a, bold, italic, strikeThrough });
+                output.push({
+                    text: a,
+                    bold,
+                    italic,
+                    strikeThrough,
+                });
                 bold = true;
             }
 
@@ -56,12 +68,22 @@ const getMarkup = (input: string, options: Options): Markup[] => {
         } else if (b === italicDelimiter) {
             if (italic) {
                 if (a !== "") {
-                    output.push({ text: a, bold, italic, strikeThrough });
+                    output.push({
+                        text: a,
+                        bold,
+                        italic,
+                        strikeThrough,
+                    });
                 }
 
                 italic = false;
             } else {
-                output.push({ text: a, bold, italic, strikeThrough });
+                output.push({
+                    text: a,
+                    bold,
+                    italic,
+                    strikeThrough,
+                });
                 italic = true;
             }
 
@@ -69,12 +91,22 @@ const getMarkup = (input: string, options: Options): Markup[] => {
         } else if (b === strikeThroughDelimiter) {
             if (strikeThrough) {
                 if (a !== "") {
-                    output.push({ text: a, bold, italic, strikeThrough });
+                    output.push({
+                        text: a,
+                        bold,
+                        italic,
+                        strikeThrough,
+                    });
                 }
 
                 strikeThrough = false;
             } else {
-                output.push({ text: a, bold, italic, strikeThrough });
+                output.push({
+                    text: a,
+                    bold,
+                    italic,
+                    strikeThrough,
+                });
                 strikeThrough = true;
             }
 
@@ -99,18 +131,27 @@ const getMarkup = (input: string, options: Options): Markup[] => {
 export default (options: Options = {}): BibloAddon => ({
     textParser: (text, { style }) => {
         const inheritedStyle = style ? StyleSheet.flatten(style) : {};
-        return getMarkup(text, options).map(({ text, bold, italic }, index) => (
-            <Text
-                key={index}
-                style={[
-                    {
-                        fontStyle: italic ? "italic" : inheritedStyle.fontStyle,
-                        fontWeight: bold ? "bold" : inheritedStyle.fontWeight,
-                    },
-                ]}
-            >
-                {text}
-            </Text>
-        ));
+        return getMarkup(text, options).map(
+            ({ text, bold, italic, strikeThrough }, index) => (
+                <Text
+                    key={index}
+                    style={[
+                        {
+                            fontStyle: italic
+                                ? "italic"
+                                : inheritedStyle.fontStyle,
+                            fontWeight: bold
+                                ? "bold"
+                                : inheritedStyle.fontWeight,
+                            textDecorationLine: strikeThrough
+                                ? "line-through"
+                                : inheritedStyle.textDecorationLine,
+                        },
+                    ]}
+                >
+                    {text}
+                </Text>
+            ),
+        );
     },
 });
