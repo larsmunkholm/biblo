@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/saxofonsolo/biblo/compare/biblo-v0.7.0...biblo-v0.7.1) (2022-12-01)
+
+
+### Bug Fixes
+
+* Fix how addon Simple Markup makes line through text ([6d4390d](https://github.com/saxofonsolo/biblo/commit/6d4390d21dfc00cd2cea4e008ac155e9724330fe))
+
 ## [0.7.0](https://github.com/saxofonsolo/biblo/compare/biblo-v0.6.2...biblo-v0.7.0) (2022-11-30)
 
 
