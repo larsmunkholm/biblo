@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/saxofonsolo/biblo/compare/addon-simple-markup-v1.2.0...addon-simple-markup-v1.3.0) (2022-11-30)
+
+
+### Features
+
+* Add strike through to Simple Markup addon ([649e217](https://github.com/saxofonsolo/biblo/commit/649e2175d6d9ca33ead2976885cf60c5bb75bf84))
+
 ## [1.2.0](https://github.com/saxofonsolo/biblo/compare/addon-simple-markup-v1.1.2...addon-simple-markup-v1.2.0) (2022-11-29)
 
 

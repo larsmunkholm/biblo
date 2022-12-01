@@ -1,7 +1,7 @@
 {
   "name": "@biblo/docs",
   "description": "Documentation for Biblo",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
