@@ -45,7 +45,7 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                     originalTitle={props.originalTitle}
                     style={getViewStyles(
                         readerOptions.itemTitleStyle,
-                        { marginHorizontal: defaultStyles.margin },
+                        { paddingHorizontal: defaultStyles.margin },
                         disableDefaultStyles,
                     )}
                 >
@@ -76,7 +76,7 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                         readerOptions.itemDescriptionStyle,
                         {
                             marginTop: defaultStyles.margin,
-                            marginHorizontal: defaultStyles.margin,
+                            paddingHorizontal: defaultStyles.margin,
                         },
                         disableDefaultStyles,
                     )}
@@ -106,7 +106,7 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                     [readerOptions.itemComponentStyle, props.wrapperStyle],
                     {
                         marginTop: defaultStyles.margin,
-                        marginHorizontal: defaultStyles.margin,
+                        paddingHorizontal: defaultStyles.margin,
                     },
                     disableDefaultStyles,
                 )}

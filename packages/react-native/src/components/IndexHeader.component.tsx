@@ -39,7 +39,7 @@ export const IndexHeader = () => {
             title={titleString}
             style={getViewStyles(
                 indexOptions.headerStyle,
-                { marginVertical: defaultStyles.margin },
+                { paddingVertical: defaultStyles.margin },
                 disableDefaultStyles,
             )}
         >
@@ -49,7 +49,7 @@ export const IndexHeader = () => {
                     title={titleString}
                     style={getViewStyles(
                         indexOptions.headerTitleTextStyle,
-                        { marginHorizontal: defaultStyles.margin },
+                        { paddingHorizontal: defaultStyles.margin },
                         disableDefaultStyles,
                     )}
                     textStyle={indexOptions.headerTitleTextStyle}
@@ -74,9 +74,9 @@ export const IndexHeader = () => {
                     style={getViewStyles(
                         indexOptions.headerSearchStyle,
                         {
-                            marginTop:
+                            paddingTop:
                                 titleString === "" ? 0 : defaultStyles.margin,
-                            marginHorizontal: defaultStyles.margin,
+                            paddingHorizontal: defaultStyles.margin,
                         },
                         disableDefaultStyles,
                     )}
