@@ -135,7 +135,7 @@ Using `require.context` is still experimental in Metro/React Native, so they hav
 Luckily, you can fix that by placing the following `import` in a `.d.ts` file in the root of your app:
 
 ```tsx
-import "@biblo/react-native/lib/interfaces/metroRequire.d";
+import "@biblo/react-native/lib/typescript/interfaces/metroRequire.d";
 ```
 
 ## 🛠 Usage
