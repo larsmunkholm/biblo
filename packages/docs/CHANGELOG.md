@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/saxofonsolo/biblo/compare/docs-v0.7.0...docs-v0.7.1) (2022-12-05)
+
+
+### Bug Fixes
+
+* **docs:** Fix wrong paths to d.ts file ([c4f5c58](https://github.com/saxofonsolo/biblo/commit/c4f5c588d2e2234a0ed881d7de5df5ebafec650d))
+
 ## [0.7.0](https://github.com/saxofonsolo/biblo/compare/docs-v0.6.2...docs-v0.7.0) (2022-11-30)
 
 

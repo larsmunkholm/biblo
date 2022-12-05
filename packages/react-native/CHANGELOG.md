@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.7.2](https://github.com/saxofonsolo/biblo/compare/react-native-v0.7.1...react-native-v0.7.2) (2022-12-05)
+
+
+### Bug Fixes
+
+* Avoid breaking the app if a Biblo file is doesn't have a default export ([fb728d6](https://github.com/saxofonsolo/biblo/commit/fb728d61882403a09f155c593dee24b38ba886f0))
+* **docs:** Fix wrong paths to d.ts file ([c4f5c58](https://github.com/saxofonsolo/biblo/commit/c4f5c588d2e2234a0ed881d7de5df5ebafec650d))
+* Make adjustment to converting item titles with numbers to sentence case ([4207286](https://github.com/saxofonsolo/biblo/commit/42072865c77a1d3f10754478c768a910615f8d89))
+* Make margins easier to adjust with custom styling ([a9d2354](https://github.com/saxofonsolo/biblo/commit/a9d2354c65aa7c880a7a50b0fa6c2d1bcacf125b))
+
 ## [0.7.1](https://github.com/saxofonsolo/biblo/compare/react-native-v0.7.0...react-native-v0.7.1) (2022-11-30)
 
 
