@@ -82,6 +82,10 @@ export const BibloProvider = ({
                             },
                         ],
                     ) => {
+                        if (!value?.default?.title) {
+                            return acc;
+                        }
+
                         const {
                             default: bio,
                             __namedExportsOrder: order,
