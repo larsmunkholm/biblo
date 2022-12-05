@@ -74,7 +74,8 @@ export const IndexHeader = () => {
                     style={getViewStyles(
                         indexOptions.headerSearchStyle,
                         {
-                            marginTop: defaultStyles.margin,
+                            marginTop:
+                                titleString === "" ? 0 : defaultStyles.margin,
                             marginHorizontal: defaultStyles.margin,
                         },
                         disableDefaultStyles,
