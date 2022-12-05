@@ -34,7 +34,7 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
             description={props.description}
             style={getViewStyles(
                 readerOptions.itemStyle,
-                { margin: defaultStyles.margin },
+                { marginVertical: defaultStyles.margin },
                 disableDefaultStyles,
             )}
         >
@@ -43,7 +43,11 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                 <ItemTitleComponent
                     title={props.title}
                     originalTitle={props.originalTitle}
-                    style={readerOptions.itemTitleStyle}
+                    style={getViewStyles(
+                        readerOptions.itemTitleStyle,
+                        { marginHorizontal: defaultStyles.margin },
+                        disableDefaultStyles,
+                    )}
                 >
                     <Typography
                         bold
@@ -70,7 +74,10 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                     description={props.description}
                     style={getViewStyles(
                         readerOptions.itemDescriptionStyle,
-                        { marginTop: defaultStyles.margin },
+                        {
+                            marginTop: defaultStyles.margin,
+                            marginHorizontal: defaultStyles.margin,
+                        },
                         disableDefaultStyles,
                     )}
                 >
@@ -97,7 +104,10 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
             <ItemComponentWrapper
                 style={getViewStyles(
                     [readerOptions.itemComponentStyle, props.wrapperStyle],
-                    { marginTop: defaultStyles.margin },
+                    {
+                        marginTop: defaultStyles.margin,
+                        marginHorizontal: defaultStyles.margin,
+                    },
                     disableDefaultStyles,
                 )}
             >
