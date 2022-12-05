@@ -60,7 +60,7 @@ export const IndexItem = ({ file }: Props) => {
                         flexDirection: "row",
                         alignItems: "center",
                         justifyContent: "space-between",
-                        marginHorizontal: defaultStyles.margin,
+                        paddingHorizontal: defaultStyles.margin,
                     },
                     disableDefaultStyles,
                 )}
