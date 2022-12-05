@@ -102,7 +102,7 @@ export const BibloProvider = ({
                             ([title, component]) => ({
                                 // Convert PascalCase to Title Case
                                 title: title
-                                    .replace(/([A-Z]+)/g, " $1")
+                                    .replace(/([A-Z0-9]+)/g, " $1")
                                     .replace(/([A-Z][a-z])/g, " $1")
                                     .replace(/\s+/g, " ")
                                     .trim()
