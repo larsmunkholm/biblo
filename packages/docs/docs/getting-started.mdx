@@ -98,8 +98,12 @@ haven't added it to their TypeScript declaration.
 
 Luckily, you can fix that by placing the following `import` in a `.d.ts` file in the root of your app:
 
+:::warning
+There's a change that this won't work - in that case, use `// @ts-ignore`
+:::
+
 ```tsx declarations.d.ts
-import "@biblo/react-native/lib/interfaces/metroRequire.d";
+import "@biblo/react-native/lib/typescript/interfaces/metroRequire.d";
 ```
 
 ### Component types
