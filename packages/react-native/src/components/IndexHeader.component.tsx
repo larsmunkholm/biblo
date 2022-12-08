@@ -3,7 +3,7 @@ import { TextInput, View } from "react-native";
 import { useBiblo } from "../hooks/Biblo.hook";
 import { Typography, TypographySize } from "./Typography.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
-import { IndexHeaderTags } from "./IndexHeaderTags.components";
+import { IndexHeaderTags } from "./IndexHeaderTags.component";
 import { getTextStyles, getViewStyles } from "../helpers/getStyles.helper";
 
 export const IndexHeader = () => {
