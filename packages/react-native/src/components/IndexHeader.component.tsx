@@ -5,6 +5,7 @@ import { Typography, TypographySize } from "./Typography.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 import { IndexHeaderTags } from "./IndexHeaderTags.component";
 import { getTextStyles, getViewStyles } from "../helpers/getStyles.helper";
+import { ErrorBoundary } from "./ErrorBoundary.component";
 
 export const IndexHeader = () => {
     const {
@@ -35,75 +36,87 @@ export const IndexHeader = () => {
     >;
 
     return (
-        <Container
-            title={titleString}
-            style={getViewStyles(
-                indexOptions.headerStyle,
-                { paddingVertical: defaultStyles.margin },
-                disableDefaultStyles,
-            )}
-        >
-            {/** TITLE */}
-            {titleString !== "" && (
-                <Title
-                    title={titleString}
-                    style={getViewStyles(
-                        indexOptions.headerTitleTextStyle,
-                        { paddingHorizontal: defaultStyles.margin },
-                        disableDefaultStyles,
-                    )}
-                    textStyle={indexOptions.headerTitleTextStyle}
-                >
-                    <Typography
-                        bold
-                        size={TypographySize.Large}
-                        style={indexOptions.headerTitleTextStyle}
-                        disableDefaultStyles={disableDefaultStyles}
-                    >
-                        {titleString}
-                    </Typography>
-                </Title>
-            )}
+        <ErrorBoundary type="headerComponent">
+            <Container
+                title={titleString}
+                style={getViewStyles(
+                    indexOptions.headerStyle,
+                    { paddingVertical: defaultStyles.margin },
+                    disableDefaultStyles,
+                )}
+            >
+                {/** TITLE */}
+                {titleString !== "" && (
+                    <ErrorBoundary type="headerTitle">
+                        <Title
+                            title={titleString}
+                            style={getViewStyles(
+                                indexOptions.headerTitleTextStyle,
+                                { paddingHorizontal: defaultStyles.margin },
+                                disableDefaultStyles,
+                            )}
+                            textStyle={indexOptions.headerTitleTextStyle}
+                        >
+                            <Typography
+                                bold
+                                size={TypographySize.Large}
+                                style={indexOptions.headerTitleTextStyle}
+                                disableDefaultStyles={disableDefaultStyles}
+                            >
+                                {titleString}
+                            </Typography>
+                        </Title>
+                    </ErrorBoundary>
+                )}
 
-            {/** SEARCH */}
-            {indexOptions.headerSearchHidden || (
-                <Search
-                    value={searchValue}
-                    onChangeText={setSearchValue}
-                    placeholder={placeholderString}
-                    style={getViewStyles(
-                        indexOptions.headerSearchStyle,
-                        {
-                            paddingTop:
-                                titleString === "" ? 0 : defaultStyles.margin,
-                            paddingHorizontal: defaultStyles.margin,
-                        },
-                        disableDefaultStyles,
-                    )}
-                    inputStyle={indexOptions.headerSearchInputStyle}
-                >
-                    <TextInput
-                        placeholder={placeholderString}
-                        value={searchValue}
-                        onChangeText={setSearchValue}
-                        returnKeyType="search"
-                        style={getTextStyles(
-                            indexOptions.headerSearchInputStyle,
-                            {
-                                height: 40,
-                                paddingHorizontal: 10,
-                                backgroundColor: "#eee",
-                                borderWidth: 1,
-                                borderColor: "#ccc",
-                            },
-                            disableDefaultStyles,
-                        )}
-                    />
-                </Search>
-            )}
+                {/** SEARCH */}
+                {indexOptions.headerSearchHidden || (
+                    <ErrorBoundary type="headerSearchComponent">
+                        <Search
+                            value={searchValue}
+                            onChangeText={setSearchValue}
+                            placeholder={placeholderString}
+                            style={getViewStyles(
+                                indexOptions.headerSearchStyle,
+                                {
+                                    paddingTop:
+                                        titleString === ""
+                                            ? 0
+                                            : defaultStyles.margin,
+                                    paddingHorizontal: defaultStyles.margin,
+                                },
+                                disableDefaultStyles,
+                            )}
+                            inputStyle={indexOptions.headerSearchInputStyle}
+                        >
+                            <TextInput
+                                placeholder={placeholderString}
+                                value={searchValue}
+                                onChangeText={setSearchValue}
+                                returnKeyType="search"
+                                style={getTextStyles(
+                                    indexOptions.headerSearchInputStyle,
+                                    {
+                                        height: 40,
+                                        paddingHorizontal: 10,
+                                        backgroundColor: "#eee",
+                                        borderWidth: 1,
+                                        borderColor: "#ccc",
+                                    },
+                                    disableDefaultStyles,
+                                )}
+                            />
+                        </Search>
+                    </ErrorBoundary>
+                )}
 
-            {/** TAGS */}
-            {indexOptions.headerTagsHidden || <IndexHeaderTags />}
-        </Container>
+                {/** TAGS */}
+                {indexOptions.headerTagsHidden || (
+                    <ErrorBoundary type="headerTagsComponent">
+                        <IndexHeaderTags />
+                    </ErrorBoundary>
+                )}
+            </Container>
+        </ErrorBoundary>
     );
 };
