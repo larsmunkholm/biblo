@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.8.0](https://github.com/saxofonsolo/biblo/compare/react-native-v0.7.2...react-native-v0.8.0) (2022-12-08)
+
+
+### Features
+
+* Add error boundaries to Biblo index ([6172723](https://github.com/saxofonsolo/biblo/commit/6172723e18d35f10d687e7437d5c735c4125c467))
+* Add error boundaries to Biblo reader ([fd33e14](https://github.com/saxofonsolo/biblo/commit/fd33e146adf5e67158fbe1258a400773a7b09487))
+
+
+### Bug Fixes
+
+* Change margins to paddings in default styling ([7e02e68](https://github.com/saxofonsolo/biblo/commit/7e02e68acad683baaa24db29883a2d4dda74edfb))
+
 ## [0.7.2](https://github.com/saxofonsolo/biblo/compare/react-native-v0.7.1...react-native-v0.7.2) (2022-12-05)
 
 
