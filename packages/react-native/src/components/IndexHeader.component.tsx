@@ -21,7 +21,7 @@ export const IndexHeader = () => {
     const titleString =
         typeof indexOptions.headerTitle === "string"
             ? indexOptions.headerTitle
-            : "Component Library";
+            : "";
     const placeholderString =
         indexOptions.headerSearchPlaceholder || "Type to search";
 

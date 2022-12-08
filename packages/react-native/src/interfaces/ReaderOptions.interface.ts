@@ -8,7 +8,6 @@ import {
     BibloReaderHeaderSubtitleProps,
     BibloReaderHeaderDescriptionProps,
     BibloReaderHeaderTagsProps,
-    BibloReaderHeaderPathProps,
     BibloReaderSeparatorProps,
     BibloReaderItemProps,
     BibloReaderItemTitleProps,
@@ -38,10 +37,6 @@ export interface ReaderOptions {
     headerTagsStyle?: StyleProp<ViewStyle>;
     headerTagsTextStyle?: StyleProp<TextStyle>;
     headerTagsComponent?: React.ElementType<BibloReaderHeaderTagsProps>;
-    headerPathHidden?: boolean;
-    headerPathStyle?: StyleProp<ViewStyle>;
-    headerPathTextStyle?: StyleProp<TextStyle>;
-    headerPathComponent?: React.ElementType<BibloReaderHeaderPathProps>;
     separatorStyle?: StyleProp<ViewStyle>;
     separator?: React.ElementType<BibloReaderSeparatorProps>;
     disableHeaderSeparator?: boolean;

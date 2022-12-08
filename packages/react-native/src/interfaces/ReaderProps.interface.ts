@@ -46,13 +46,6 @@ export interface BibloReaderHeaderTagsProps {
     children: React.ReactNode;
 }
 
-export interface BibloReaderHeaderPathProps {
-    style?: StyleProp<ViewStyle>;
-    textStyle?: StyleProp<TextStyle>;
-    path: string;
-    children: React.ReactNode;
-}
-
 export interface BibloReaderSeparatorProps {
     index: number;
     isFirst: boolean;
