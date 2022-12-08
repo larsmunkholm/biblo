@@ -8,28 +8,22 @@ interface Props {
 
 interface State {
     hasError: boolean;
+    name: string;
+    message: string;
 }
 
 export class ErrorBoundary extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
-        this.state = { hasError: false };
+        this.state = { hasError: false, name: "", message: "" };
     }
 
     static getDerivedStateFromError(error: Error) {
-        console.log(error);
-        // Update state so the next render will show the fallback UI.
-        return { hasError: true };
-    }
-
-    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-        // You can also log the error to an error reporting service
-        console.log(error, errorInfo);
+        return { hasError: true, name: error.name, message: error.message };
     }
 
     render() {
         if (this.state.hasError) {
-            // You can render any custom fallback UI
             return (
                 <View
                     style={{
@@ -46,6 +40,23 @@ export class ErrorBoundary extends React.Component<Props, State> {
                             {this.props.type}
                         </Text>
                     </Text>
+                    <View
+                        style={{
+                            marginVertical: 5,
+                            paddingVertical: 5,
+                            paddingHorizontal: 10,
+                            borderWidth: 1,
+                            borderColor: "#DF1924",
+                            backgroundColor: "#fff",
+                        }}
+                    >
+                        <Text style={{ fontSize: 14, color: "#000" }}>
+                            <Text style={{ fontWeight: "bold" }}>
+                                {this.state.name}:
+                            </Text>{" "}
+                            {this.state.message}
+                        </Text>
+                    </View>
                 </View>
             );
         }
