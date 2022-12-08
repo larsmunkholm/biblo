@@ -34,9 +34,6 @@ export const ReaderHeader = ({ bio }: Props) => {
     const Tags = (readerOptions.headerTagsComponent || View) as NonNullable<
         ReaderOptions["headerTagsComponent"]
     >;
-    const Path = (readerOptions.headerPathComponent || View) as NonNullable<
-        ReaderOptions["headerPathComponent"]
-    >;
 
     return (
         <ErrorBoundary type="the header">
@@ -183,37 +180,6 @@ export const ReaderHeader = ({ bio }: Props) => {
                         </Tags>
                     </ErrorBoundary>
                 ) : null}
-
-                {/** PATH */}
-                {readerOptions.headerPathHidden || (
-                    <ErrorBoundary type="the path">
-                        <Path
-                            style={getViewStyles(
-                                readerOptions.headerPathStyle,
-                                { marginTop: defaultStyles.margin },
-                                disableDefaultStyles,
-                            )}
-                            textStyle={readerOptions.headerPathTextStyle}
-                            path={bio.path}
-                        >
-                            <Typography
-                                style={readerOptions.headerPathTextStyle}
-                                disableDefaultStyles={disableDefaultStyles}
-                            >
-                                <Text
-                                    style={
-                                        disableDefaultStyles
-                                            ? {}
-                                            : { fontWeight: "bold" }
-                                    }
-                                >
-                                    Path:{" "}
-                                </Text>
-                                <Text>{bio.path}</Text>
-                            </Typography>
-                        </Path>
-                    </ErrorBoundary>
-                )}
             </Container>
         </ErrorBoundary>
     );
