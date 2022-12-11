@@ -58,6 +58,7 @@ export interface DefaultStyles {
     spacing: number;
     lineHeight: number;
     textColor: string;
+    surfaceColor: string;
     separatorColor: string;
 }
 

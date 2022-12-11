@@ -35,7 +35,7 @@ export const IndexSectionHeader = ({ title, itemsCount }: Props) => {
                     ],
                     {
                         paddingHorizontal: defaultStyles.spacing,
-                        backgroundColor: "#ccc",
+                        backgroundColor: defaultStyles.surfaceColor,
                         justifyContent: "center",
                     },
                     disableDefaultStyles,

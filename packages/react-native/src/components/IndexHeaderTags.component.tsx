@@ -96,11 +96,13 @@ export const IndexHeaderTags = () => {
                             {
                                 marginLeft: index ? 5 : 0,
                                 height: 40,
-                                padding: 10,
+                                paddingHorizontal: 9,
                                 justifyContent: "center",
+                                borderWidth: 1,
+                                borderColor: defaultStyles.surfaceColor,
                                 backgroundColor: enabled
-                                    ? "#7f7f7f3f"
-                                    : "#7f7f7f7f",
+                                    ? undefined
+                                    : defaultStyles.surfaceColor,
                             },
                             disableDefaultStyles,
                         )}

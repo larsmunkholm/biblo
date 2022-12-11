@@ -59,6 +59,7 @@ export const BibloProvider = ({
         spacing: 15,
         lineHeight: 1.25,
         textColor: "#000",
+        surfaceColor: "#CCC",
         separatorColor: "#DDD",
         ...defStyles,
         fontSizes: {

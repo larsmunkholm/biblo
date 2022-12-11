@@ -41,7 +41,9 @@ export const ReaderHeader = ({ bio }: Props) => {
                 bio={bio}
                 style={getViewStyles(
                     readerOptions.headerStyle,
-                    { padding: defaultStyles.spacing },
+                    {
+                        padding: defaultStyles.spacing,
+                    },
                     disableDefaultStyles,
                 )}
             >
