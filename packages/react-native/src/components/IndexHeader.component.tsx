@@ -41,7 +41,9 @@ export const IndexHeader = () => {
                 title={titleString}
                 style={getViewStyles(
                     indexOptions.headerStyle,
-                    { paddingVertical: defaultStyles.spacing },
+                    {
+                        paddingVertical: defaultStyles.spacing,
+                    },
                     disableDefaultStyles,
                 )}
             >
