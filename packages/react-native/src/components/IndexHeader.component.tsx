@@ -41,7 +41,7 @@ export const IndexHeader = () => {
                 title={titleString}
                 style={getViewStyles(
                     indexOptions.headerStyle,
-                    { padding: defaultStyles.spacing },
+                    { paddingVertical: defaultStyles.spacing },
                     disableDefaultStyles,
                 )}
             >
@@ -50,7 +50,11 @@ export const IndexHeader = () => {
                     <ErrorBoundary type="headerTitle">
                         <Title
                             title={titleString}
-                            style={indexOptions.headerTitleStyle}
+                            style={getViewStyles(
+                                indexOptions.headerTitleStyle,
+                                { paddingHorizontal: defaultStyles.spacing },
+                                disableDefaultStyles,
+                            )}
                             textStyle={indexOptions.headerTitleTextStyle}
                         >
                             <Typography
@@ -79,6 +83,7 @@ export const IndexHeader = () => {
                                         titleString === ""
                                             ? 0
                                             : defaultStyles.spacing,
+                                    paddingHorizontal: defaultStyles.spacing,
                                 },
                                 disableDefaultStyles,
                             )}

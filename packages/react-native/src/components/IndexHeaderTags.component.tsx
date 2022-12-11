@@ -71,6 +71,7 @@ export const IndexHeaderTags = () => {
                 indexOptions.headerTagsStyle,
                 {
                     marginTop: defaultStyles.spacing,
+                    paddingHorizontal: defaultStyles.spacing,
                 },
                 disableDefaultStyles,
             )}
