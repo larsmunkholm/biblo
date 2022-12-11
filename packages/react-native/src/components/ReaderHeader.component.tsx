@@ -41,7 +41,7 @@ export const ReaderHeader = ({ bio }: Props) => {
                 bio={bio}
                 style={getViewStyles(
                     readerOptions.headerStyle,
-                    { margin: defaultStyles.margin },
+                    { padding: defaultStyles.spacing },
                     disableDefaultStyles,
                 )}
             >
@@ -78,7 +78,7 @@ export const ReaderHeader = ({ bio }: Props) => {
                         <Subtitle
                             style={getViewStyles(
                                 readerOptions.headerSubtitleStyle,
-                                { marginTop: defaultStyles.margin },
+                                { marginTop: defaultStyles.spacing },
                                 disableDefaultStyles,
                             )}
                             textStyle={readerOptions.headerSubtitleTextStyle}
@@ -110,7 +110,7 @@ export const ReaderHeader = ({ bio }: Props) => {
                         <Description
                             style={getViewStyles(
                                 readerOptions.headerDescriptionStyle,
-                                { marginTop: defaultStyles.margin },
+                                { marginTop: defaultStyles.spacing },
                                 disableDefaultStyles,
                             )}
                             textStyle={readerOptions.headerDescriptionTextStyle}
@@ -149,7 +149,7 @@ export const ReaderHeader = ({ bio }: Props) => {
                         <Tags
                             style={getViewStyles(
                                 readerOptions.headerTagsStyle,
-                                { marginTop: defaultStyles.margin },
+                                { marginTop: defaultStyles.spacing },
                                 disableDefaultStyles,
                             )}
                             textStyle={readerOptions.headerTagsTextStyle}

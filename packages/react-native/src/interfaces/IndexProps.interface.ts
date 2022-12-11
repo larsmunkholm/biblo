@@ -68,6 +68,10 @@ export interface BibloIndexSectionFooterProps {
     style?: StyleProp<ViewStyle>;
 }
 
+export interface BibloIndexSeparatorProps {
+    style?: StyleProp<ViewStyle>;
+}
+
 export interface BibloIndexFooterProps {
     style?: StyleProp<ViewStyle>;
 }

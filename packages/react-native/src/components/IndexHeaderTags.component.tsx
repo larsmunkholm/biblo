@@ -70,8 +70,7 @@ export const IndexHeaderTags = () => {
             style={getViewStyles(
                 indexOptions.headerTagsStyle,
                 {
-                    marginTop: defaultStyles.margin,
-                    paddingHorizontal: defaultStyles.margin,
+                    marginTop: defaultStyles.spacing,
                 },
                 disableDefaultStyles,
             )}

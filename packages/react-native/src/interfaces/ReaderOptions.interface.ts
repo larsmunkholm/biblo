@@ -39,8 +39,8 @@ export interface ReaderOptions {
     headerTagsComponent?: React.ElementType<BibloReaderHeaderTagsProps>;
     separatorStyle?: StyleProp<ViewStyle>;
     separator?: React.ElementType<BibloReaderSeparatorProps>;
-    disableHeaderSeparator?: boolean;
-    disableFooterSeparator?: boolean;
+    headerSeparatorHidden?: boolean;
+    footerSeparatorHidden?: boolean;
     itemStyle?: StyleProp<ViewStyle>;
     item?: React.ElementType<BibloReaderItemProps>;
     itemTitleStyle?: StyleProp<ViewStyle>;

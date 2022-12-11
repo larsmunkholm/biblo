@@ -36,7 +36,7 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                 description={props.description}
                 style={getViewStyles(
                     readerOptions.itemStyle,
-                    { marginVertical: defaultStyles.margin },
+                    { marginVertical: defaultStyles.spacing },
                     disableDefaultStyles,
                 )}
             >
@@ -48,7 +48,7 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                             originalTitle={props.originalTitle}
                             style={getViewStyles(
                                 readerOptions.itemTitleStyle,
-                                { paddingHorizontal: defaultStyles.margin },
+                                { paddingHorizontal: defaultStyles.spacing },
                                 disableDefaultStyles,
                             )}
                         >
@@ -82,8 +82,8 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                             style={getViewStyles(
                                 readerOptions.itemDescriptionStyle,
                                 {
-                                    marginTop: defaultStyles.margin,
-                                    paddingHorizontal: defaultStyles.margin,
+                                    marginTop: defaultStyles.spacing,
+                                    paddingHorizontal: defaultStyles.spacing,
                                 },
                                 disableDefaultStyles,
                             )}
@@ -123,8 +123,8 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                                 props.wrapperStyle,
                             ],
                             {
-                                marginTop: defaultStyles.margin,
-                                paddingHorizontal: defaultStyles.margin,
+                                marginTop: defaultStyles.spacing,
+                                paddingHorizontal: defaultStyles.spacing,
                             },
                             disableDefaultStyles,
                         )}

@@ -15,9 +15,9 @@ export const Separator = (props: Props) => {
             style={getViewStyles(
                 props.style,
                 {
-                    marginHorizontal: defaultStyles.margin,
+                    marginHorizontal: defaultStyles.spacing,
                     borderTopWidth: 1,
-                    borderTopColor: "#ddd",
+                    borderTopColor: defaultStyles.separatorColor,
                 },
                 props.disableDefaultStyles,
             )}
