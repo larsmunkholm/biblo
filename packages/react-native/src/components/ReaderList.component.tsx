@@ -18,7 +18,7 @@ export const ReaderList = React.memo(({ file }: Props) => {
     const disableDefaultStyles =
         disableDefaultStylesGlobal || readerOptions.disableDefaultStyles;
     const disableFooterSeparator =
-        readerOptions.disableFooterSeparator ||
+        readerOptions.footerSeparatorHidden ||
         (!readerOptions.footerStyle && !readerOptions.footerComponent);
 
     const Footer = (readerOptions.footerComponent || View) as NonNullable<
@@ -40,15 +40,15 @@ export const ReaderList = React.memo(({ file }: Props) => {
             {items.map((item, index) => (
                 <View key={index}>
                     {/** Separator */}
-                    {(index > 0 || !readerOptions.disableHeaderSeparator) && (
+                    {(index > 0 || !readerOptions.headerSeparatorHidden) && (
                         <Separator
                             index={
                                 index -
-                                (readerOptions.disableHeaderSeparator ? 1 : 0)
+                                (readerOptions.headerSeparatorHidden ? 1 : 0)
                             }
                             isFirst={
                                 index ===
-                                (readerOptions.disableHeaderSeparator ? 1 : 0)
+                                (readerOptions.headerSeparatorHidden ? 1 : 0)
                             }
                             isLast={
                                 disableFooterSeparator

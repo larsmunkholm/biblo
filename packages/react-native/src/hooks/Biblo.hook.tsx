@@ -56,9 +56,10 @@ export const BibloProvider = ({
     };
 
     const defaultStyles: DefaultStyles = {
-        margin: 15,
+        spacing: 15,
         lineHeight: 1.25,
         textColor: "#000",
+        separatorColor: "#DDD",
         ...defStyles,
         fontSizes: {
             small: 13,

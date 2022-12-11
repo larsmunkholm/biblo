@@ -10,6 +10,7 @@ import {
     BibloIndexSectionHeaderProps,
     BibloIndexSectionItemProps,
     BibloIndexSectionListProps,
+    BibloIndexSeparatorProps,
     BibloIndexWrapperProps,
 } from "./IndexProps.interface";
 
@@ -43,7 +44,9 @@ export interface IndexOptions {
     sectionItemTitleStyle?: StyleProp<TextStyle>;
     sectionItemSubtitleHidden?: boolean;
     sectionItemSubtitleStyle?: StyleProp<TextStyle>;
+    sectionItemSeparator?: React.ElementType<BibloIndexSeparatorProps>;
     sectionItemSeparatorHidden?: boolean;
+    sectionItemSeparatorStyle?: StyleProp<ViewStyle>;
     sectionItemComponent?: React.ElementType<BibloIndexSectionItemProps>;
     sectionFooterStyle?: StyleProp<ViewStyle>;
     sectionFooterComponent?: React.ElementType<BibloIndexSectionFooterProps>;

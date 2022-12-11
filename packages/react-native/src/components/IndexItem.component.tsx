@@ -7,6 +7,7 @@ import { Typography, TypographySize } from "./Typography.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 import { getViewStyles } from "../helpers/getStyles.helper";
 import { ErrorBoundary } from "./ErrorBoundary.component";
+import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
 
 interface Props {
     file: BibloFile;
@@ -41,6 +42,13 @@ export const IndexItem = ({ file }: Props) => {
 
     const Container = (indexOptions.sectionItemComponent ||
         View) as NonNullable<IndexOptions["sectionItemComponent"]>;
+    const Separator = (indexOptions.sectionItemSeparator ||
+        ((props: any) => (
+            <DefaultSeparator
+                disableDefaultStyles={disableDefaultStyles}
+                {...props}
+            />
+        ))) as NonNullable<IndexOptions["sectionItemSeparator"]>;
 
     return (
         <ErrorBoundary type="the item">
@@ -62,7 +70,7 @@ export const IndexItem = ({ file }: Props) => {
                             flexDirection: "row",
                             alignItems: "center",
                             justifyContent: "space-between",
-                            paddingHorizontal: defaultStyles.margin,
+                            paddingHorizontal: defaultStyles.spacing,
                         },
                         disableDefaultStyles,
                     )}
@@ -106,7 +114,7 @@ export const IndexItem = ({ file }: Props) => {
 
                 {/** SEPARATOR */}
                 {indexOptions.sectionItemSeparatorHidden || (
-                    <DefaultSeparator />
+                    <Separator style={indexOptions.sectionItemSeparatorStyle} />
                 )}
             </Container>
         </ErrorBoundary>

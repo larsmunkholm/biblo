@@ -55,9 +55,10 @@ export interface DefaultStyles {
         medium: number;
         large: number;
     };
+    spacing: number;
     lineHeight: number;
     textColor: string;
-    margin: number;
+    separatorColor: string;
 }
 
 export interface BibloProviderProps {
