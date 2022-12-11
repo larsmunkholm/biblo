@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.9.0](https://github.com/saxofonsolo/biblo/compare/react-native-v0.8.0...react-native-v0.9.0) (2022-12-11)
+
+
+### Features
+
+* Remove path component from Biblo reader's header and remove default title of Biblo index ([7772027](https://github.com/saxofonsolo/biblo/commit/777202729266d3a2cba601b228f73945d14f107a))
+
+
+### Bug Fixes
+
+* Add more default stylings ([3514c8b](https://github.com/saxofonsolo/biblo/commit/3514c8b65ad16cb57095b8f48475bb2bf3f8baa3))
+* Change `margin` to `spacing`, adjust margins and paddings and add possibility to style and change separator on Biblo index ([e0dc7f0](https://github.com/saxofonsolo/biblo/commit/e0dc7f04aa688e116c83c2decc160690b09dad1a))
+
 ## [0.8.0](https://github.com/saxofonsolo/biblo/compare/react-native-v0.7.2...react-native-v0.8.0) (2022-12-08)
 
 
