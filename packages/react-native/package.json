@@ -20,7 +20,7 @@
     "!**/__mocks__"
   ],
   "scripts": {
-    "build": "rimraf ./lib && bob build && node ./scripts/copy-d-ts.js",
+    "build": "rimraf ./lib && bob build",
     "clean": "eslint --fix \"./src/**/*.*\" && prettier --write \"./src/**/*.*\""
   },
   "repository": {

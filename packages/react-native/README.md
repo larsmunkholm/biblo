@@ -36,8 +36,8 @@ You'll need support for `require.context`, which was introduced in **Metro versi
 
 So...
 
-- Make sure React Native is version **0.70.0** or newer.
-- Or if you're using Expo, you'll need version **47.0.0** or newer.
+-   Make sure React Native is version **0.70.0** or newer.
+-   Or if you're using Expo, you'll need version **47.0.0** or newer.
 
 ## 🖥️ Try it out
 
@@ -60,9 +60,9 @@ npm run android
 ### 💾 Installation
 
 > **Note**
-> 
+>
 > This package requires that you use React Native version **0.70.0** or newer.
-> 
+>
 > Or if you're using Expo, make sure it's version **47.0.0** or newer.
 
 📦 Using **npm**
@@ -100,10 +100,11 @@ module.exports = {
 > This is supported since [version **0.72.1** of Metro](https://github.com/facebook/metro/releases/tag/v0.72.1), and [version **0.70.0** of React Native](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#0700)
 
 Biblo uses `require.context` to import all files that end in
-- `.biblo.tsx`
-- `.biblo.jsx`
-- `.biblo.ts`
-- `.biblo.js`
+
+-   `.biblo.tsx`
+-   `.biblo.jsx`
+-   `.biblo.ts`
+-   `.biblo.js`
 
 You need to enable `unstable_allowRequireContext` in your **metro.config.js** file.
 
@@ -130,12 +131,48 @@ module.exports = (async () => {
 
 ### 🎯 TypeScript
 
-Using `require.context` is still experimental in Metro/React Native, so they haven't added it to their TypeScript declaration.
+#### RequireContext
 
-Luckily, you can fix that by placing the following `import` in a `.d.ts` file in the root of your app:
+Using `require.context` is still experimental in Metro/React Native, so they
+haven't added it to their TypeScript declaration.
+
+You may be able to fix that by adding
+[metroRequire.d.ts](https://github.com/EvanBacon/Metro-Context-Modules-Demo/blob/main/types/metroRequire.d.ts)
+or use `// @ts-ignore`.
+
+#### Component types
+
+It is **recommended** that you enable `strictBindCallApply` in your
+`tsconfig.json` file, so you'll only have to define types once.
+
+```json
+{
+    "compilerOptions": {
+        "strictBindCallApply": true
+    }
+}
+```
+
+This will allow you to do this:
 
 ```tsx
-import "@biblo/react-native/lib/typescript/interfaces/metroRequire.d";
+const Template: BibloItem<SeparatorProps> = (props) => <Separator {...props} />;
+
+export const Default = Template.bind({});
+
+export const MarginVertical = Template.bind({});
+MarginVertical.props = { marginVertical: true };
+```
+
+Instead of this:
+
+```tsx
+const Template = (props) => <Separator {...props} />;
+
+export const Default: BibloItem<SeparatorProps> = Template.bind({});
+
+export const MarginVertical: BibloItem<SeparatorProps> = Template.bind({});
+MarginVertical.props = { marginVertical: true };
 ```
 
 ## 🛠 Usage
@@ -163,7 +200,7 @@ const components = bibloImporter(
         "/", // The root path to search in
         true, // Recursive (keep searching in subfolders of the root path)
         /\.biblo\.(tsx|jsx|ts|js)$/, // The files to search for
-    )
+    ),
 );
 ```
 
@@ -182,7 +219,7 @@ export default function App() {
         </BibloProvider>
     );
 }
-````
+```
 
 ### 📄 A basic component example
 
