@@ -191,7 +191,7 @@ Let's say you have a component named **Separator**. _Let's create a **Biblo file
 Add a file named `Separator.biblo.tsx` with the following content:
 
 ```tsx
-import { BibloBio, BibloBook } from "@biblo/react-native";
+import { BibloBio, BibloItem } from "@biblo/react-native";
 import { Separator, SeparatorProps } from "./Separator.component";
 
 export default {
@@ -204,22 +204,22 @@ export default {
 const Template = (props) => <Separator {...props} />;
 
 // The component in its default form
-export const Horizontal: BibloBook<SeparatorProps> = Template.bind({});
+export const Horizontal: BibloItem<SeparatorProps> = Template.bind({});
 
 // With props
-export const Vertical: BibloBook<SeparatorProps> = Template.bind({});
+export const Vertical: BibloItem<SeparatorProps> = Template.bind({});
 Vertical.props = {
     vertical: true,
 };
 
 // With props, a title and a description
-export const MarginTop: BibloBook<SeparatorProps> = Template.bind({});
+export const MarginTop: BibloItem<SeparatorProps> = Template.bind({});
 MarginTop.title = "With top margin";
 MarginTop.description = "You might need a little buffer up top.";
 MarginTop.props = { marginTop: true };
 
 // In case you need more freedom
-export const BrandColored: BibloBook<SeparatorProps> = (props) => {
+export const BrandColored: BibloItem<SeparatorProps> = (props) => {
     const { palette } = useTheme();
     return <Separator {...props} color={palette.brandColor} />;
 };
