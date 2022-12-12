@@ -82,7 +82,9 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                             style={getViewStyles(
                                 readerOptions.itemDescriptionStyle,
                                 {
-                                    marginTop: defaultStyles.spacing,
+                                    marginTop: props.title
+                                        ? defaultStyles.spacing
+                                        : 0,
                                     paddingHorizontal: defaultStyles.spacing,
                                 },
                                 disableDefaultStyles,
@@ -123,7 +125,10 @@ export const ReaderItem = React.memo((props: BibloComponentItem) => {
                                 props.wrapperStyle,
                             ],
                             {
-                                marginTop: defaultStyles.spacing,
+                                marginTop:
+                                    props.title || props.description
+                                        ? defaultStyles.spacing
+                                        : 0,
                                 paddingHorizontal: defaultStyles.spacing,
                             },
                             disableDefaultStyles,
