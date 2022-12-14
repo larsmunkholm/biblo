@@ -30,7 +30,7 @@ export const IndexSectionHeader = ({ title, itemsCount }: Props) => {
                 title={title}
                 style={getViewStyles(
                     [
-                        { height: indexOptions.sectionListItemHeight },
+                        { height: indexOptions.sectionListItemHeight || 40 },
                         indexOptions.sectionHeaderStyle,
                     ],
                     {
