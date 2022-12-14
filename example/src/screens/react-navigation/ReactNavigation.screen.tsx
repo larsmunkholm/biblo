@@ -9,6 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 import { ReaderScreen } from "./Reader.screen";
 
 const components = bibloImporter(
+    // @ts-ignore
     require.context("../../", true, /\.biblo\.[tj]sx?$/),
 );
 

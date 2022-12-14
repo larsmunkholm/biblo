@@ -6,6 +6,7 @@ import { IndexOptions } from "../interfaces/IndexOptions.interface";
 import { IndexSectionHeader } from "../components/IndexSectionHeader.component";
 import { IndexItem } from "../components/IndexItem.component";
 import { getViewStyles } from "../helpers/getStyles.helper";
+import { BibloIndexSectionListProps } from "../interfaces/IndexProps.interface";
 
 export const IndexScreen = () => {
     const {
@@ -61,6 +62,7 @@ export const IndexScreen = () => {
 
     return (
         <Wrapper
+            headerTitle={indexOptions.headerTitle}
             style={getViewStyles(
                 indexOptions.wrapperStyle,
                 { flex: 1 },
@@ -87,7 +89,11 @@ export const IndexScreen = () => {
                             title={section.title}
                             itemsCount={section.data.length}
                             style={[
-                                { height: indexOptions.sectionListItemHeight },
+                                {
+                                    height:
+                                        indexOptions.sectionListItemHeight ||
+                                        40,
+                                },
                                 indexOptions.sectionFooterStyle,
                             ]}
                         />
@@ -95,12 +101,11 @@ export const IndexScreen = () => {
                 }
                 renderItem={({ item }) => <IndexItem file={item} />}
                 getItemLayout={(data, index) => ({
-                    length: indexOptions.sectionListItemHeight,
-                    offset:
-                        (indexOptions.sectionListItemHeight as number) * index,
+                    length: indexOptions.sectionListItemHeight || 40,
+                    offset: (indexOptions.sectionListItemHeight || 40) * index,
                     index,
                 })}
-                {...(indexOptions.sectionListProps as any)}
+                {...(indexOptions.sectionListProps as BibloIndexSectionListProps)}
             />
         </Wrapper>
     );
