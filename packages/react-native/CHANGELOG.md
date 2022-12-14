@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.10.0](https://github.com/saxofonsolo/biblo/compare/react-native-v0.9.0...react-native-v0.10.0) (2022-12-14)
+
+
+### Features
+
+* Naming an export in a Biblo file `const _` will remove the title ([e00d321](https://github.com/saxofonsolo/biblo/commit/e00d321a713e608eb95f8d4930c9249a804b354e))
+
+
+### Bug Fixes
+
+* Make all margin-top styles conditional in RaderItem ([de6675e](https://github.com/saxofonsolo/biblo/commit/de6675e76fca2c2338378504618bc99e5b1df283))
+
 ## [0.9.0](https://github.com/saxofonsolo/biblo/compare/react-native-v0.8.0...react-native-v0.9.0) (2022-12-11)
 
 
