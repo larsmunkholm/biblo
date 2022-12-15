@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.1](https://github.com/saxofonsolo/biblo/compare/react-native-v0.10.0...react-native-v0.10.1) (2022-12-15)
+
+
+### Bug Fixes
+
+* Add support for ref on BibloIndexSectionListProps ([190bda0](https://github.com/saxofonsolo/biblo/commit/190bda092feba2b42297b0049565115f8dc7343a))
+
 ## [0.10.0](https://github.com/saxofonsolo/biblo/compare/react-native-v0.9.0...react-native-v0.10.0) (2022-12-14)
 
 
