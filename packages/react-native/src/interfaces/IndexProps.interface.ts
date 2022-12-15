@@ -1,12 +1,12 @@
 import React from "react";
 import {
     Animated,
+    SectionList,
     SectionListProps,
     StyleProp,
     TextStyle,
     ViewStyle,
 } from "react-native";
-import { BibloFile } from "./Biblo.interface";
 
 export interface BibloIndexWrapperProps {
     headerTitle?: string;
@@ -14,22 +14,11 @@ export interface BibloIndexWrapperProps {
     children: React.ReactNode;
 }
 
-export type BibloIndexSectionListProps = Omit<
-    Animated.AnimatedProps<
-        SectionListProps<
-            BibloFile,
-            {
-                title: string;
-                data: BibloFile[];
-            }
-        >
-    >,
-    | "sections"
-    | "renderSectionHeader"
-    | "renderSectionFooter"
-    | "renderItem"
-    | "getItemLayout"
->;
+export type BibloIndexSectionListProps = Partial<
+    Animated.AnimatedProps<SectionListProps<any>>
+> & {
+    ref?: React.RefObject<SectionList>;
+};
 
 export interface BibloIndexHeaderProps {
     style?: StyleProp<ViewStyle>;
