@@ -1,10 +1,10 @@
 import React from "react";
 import { View } from "react-native";
-import { IndexOptions } from "../interfaces/IndexOptions.interface";
-import { useBiblo } from "../hooks/Biblo.hook";
-import { Typography } from "./Typography.component";
-import { getTextStyles, getViewStyles } from "../helpers/getStyles.helper";
-import { ErrorBoundary } from "./ErrorBoundary.component";
+import { IndexOptions } from "../../interfaces/IndexOptions.interface";
+import { useBiblo } from "../../hooks/Biblo.hook";
+import { Typography } from "../Typography.component";
+import { getTextStyles, getViewStyles } from "../../helpers/getStyles.helper";
+import { ErrorBoundary } from "../ErrorBoundary.component";
 
 interface Props {
     title: string;

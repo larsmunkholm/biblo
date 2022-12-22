@@ -1,21 +1,27 @@
 import React from "react";
-import { StyleProp, TextStyle, ViewStyle } from "react-native";
-import { ReaderOptions } from "./ReaderOptions.interface";
-import { IndexOptions } from "./IndexOptions.interface";
+import { StyleProp, ViewStyle } from "react-native";
 import { BibloReaderItemComponentWrapperProps } from "./ReaderProps.interface";
-
-type RecursivePartial<T> = {
-    [P in keyof T]?: T[P] extends (infer U)[]
-        ? RecursivePartial<U>[]
-        : T[P] extends object
-        ? RecursivePartial<T[P]>
-        : T[P];
-};
 
 type DefaultType = Record<string, any>;
 
+type PropTypeOptions = "string" | "number" | "hidden";
+export type PropTypes = Record<
+    string,
+    PropTypeOptions | { type?: PropTypeOptions; title?: string }
+>;
+
+export type PropsFromBioOrItem = Record<
+    string,
+    {
+        type: string;
+        title: string;
+        value: any;
+    }
+>;
+
 interface SharedBasics<T> {
     props?: Partial<T>;
+    propTypes?: PropTypes;
     wrapper?: React.ElementType<BibloReaderItemComponentWrapperProps>;
     wrapperStyle?: StyleProp<ViewStyle>;
 }
@@ -55,38 +61,19 @@ export interface DefaultStyles {
         medium: number;
         large: number;
     };
+    textInput: {
+        height: number;
+        paddingHorizontal: number;
+        backgroundColor: string;
+        borderWidth: number;
+        borderColor: string;
+    };
     spacing: number;
     lineHeight: number;
     textColor: string;
     surfaceColor: string;
     separatorColor: string;
 }
-
-export interface BibloProviderProps {
-    components: Record<string, any>;
-    children: React.ReactNode;
-    addons?: (BibloAddon | (() => BibloAddon))[];
-    indexOptions?: IndexOptions;
-    readerOptions?: ReaderOptions;
-    defaultStyles?: RecursivePartial<DefaultStyles>;
-    disableDefaultStyles?: boolean;
-    textParser?: (
-        text: string,
-        meta: {
-            type: "title" | "subtitle" | "description" | "path" | "tag";
-            screen: "index" | "reader";
-            scope: "section" | "file" | "item";
-            style: StyleProp<TextStyle>;
-        },
-    ) => React.ReactNode;
-    getSection?: (basics: BibloBioAndPath) => string;
-    onSelectFile?: (path: string) => void;
-}
-
-export type BibloAddon = Omit<
-    BibloProviderProps,
-    "components" | "children" | "addons"
->;
 
 export interface BibloComponentItem {
     index: number;

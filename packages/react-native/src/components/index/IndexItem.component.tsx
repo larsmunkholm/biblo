@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
 import { Pressable, View } from "react-native";
-import { Separator as DefaultSeparator } from "./Separator.component";
-import { BibloFile } from "../interfaces/Biblo.interface";
-import { useBiblo } from "../hooks/Biblo.hook";
-import { Typography, TypographySize } from "./Typography.component";
-import { IndexOptions } from "../interfaces/IndexOptions.interface";
-import { getViewStyles } from "../helpers/getStyles.helper";
-import { ErrorBoundary } from "./ErrorBoundary.component";
-import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
+import { Separator as DefaultSeparator } from "../Separator.component";
+import { BibloFile } from "../../interfaces/Biblo.interface";
+import { useBiblo } from "../../hooks/Biblo.hook";
+import { Typography, TypographySize } from "../Typography.component";
+import { IndexOptions } from "../../interfaces/IndexOptions.interface";
+import { getViewStyles } from "../../helpers/getStyles.helper";
+import { ErrorBoundary } from "../ErrorBoundary.component";
+import { ReaderOptions } from "../../interfaces/ReaderOptions.interface";
 
 interface Props {
     file: BibloFile;

@@ -14,6 +14,8 @@ import {
     BibloReaderItemDescriptionProps,
     BibloReaderFooterProps,
     BibloReaderItemComponentWrapperProps,
+    BibloReaderControlsProps,
+    BibloReaderControlsToggleProps,
 } from "./ReaderProps.interface";
 
 export interface ReaderOptions {
@@ -53,5 +55,12 @@ export interface ReaderOptions {
     itemComponentWrapper?: React.ElementType<BibloReaderItemComponentWrapperProps>;
     footerStyle?: StyleProp<ViewStyle>;
     footerComponent?: React.ElementType<BibloReaderFooterProps>;
+    controlsStyle?: StyleProp<ViewStyle>;
+    controlsTextStyle?: StyleProp<TextStyle>;
+    controlsInputStyle?: StyleProp<TextStyle>;
+    controlsComponent?: React.ElementType<BibloReaderControlsProps>;
+    controlsToggle?: React.ElementType<BibloReaderControlsToggleProps>;
+    headerControlsToggleHidden?: boolean;
+    itemControlsToggleHidden?: boolean;
     onMount?: () => void;
 }

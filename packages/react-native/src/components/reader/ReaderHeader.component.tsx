@@ -1,23 +1,28 @@
-import React from "react";
-import { BibloBioAndPath } from "../interfaces/Biblo.interface";
-import { Text, View } from "react-native";
-import { Typography, TypographySize } from "./Typography.component";
-import { useBiblo } from "../hooks/Biblo.hook";
-import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
-import { getTextStyles, getViewStyles } from "../helpers/getStyles.helper";
-import { ErrorBoundary } from "./ErrorBoundary.component";
+import React, { useState } from "react";
+import { Pressable, Text, View } from "react-native";
+import { BibloBioAndPath } from "../../interfaces/Biblo.interface";
+import { Typography, TypographySize } from "../Typography.component";
+import { useBiblo } from "../../hooks/Biblo.hook";
+import { ReaderOptions } from "../../interfaces/ReaderOptions.interface";
+import { getTextStyles, getViewStyles } from "../../helpers/getStyles.helper";
+import { ErrorBoundary } from "../ErrorBoundary.component";
+import { ReaderControls } from "./ReaderControls.component";
+import { useProps } from "../../hooks/Props.hook";
+import { ReaderControlsToggle } from "./ReaderControlsToggle.component";
 
 interface Props {
     bio: BibloBioAndPath;
 }
 
 export const ReaderHeader = ({ bio }: Props) => {
+    const [controlsShown, setControlsShown] = useState(false);
     const {
         readerOptions,
         defaultStyles,
         disableDefaultStyles: disableDefaultStylesGlobal,
         textParser,
     } = useBiblo();
+    const { propsFromBio, updatePropFromBio } = useProps();
     const disableDefaultStyles =
         disableDefaultStylesGlobal || readerOptions.disableDefaultStyles;
 
@@ -46,33 +51,61 @@ export const ReaderHeader = ({ bio }: Props) => {
                     },
                     disableDefaultStyles,
                 )}
+                controlsShown={controlsShown}
+                setControlsShown={setControlsShown}
             >
-                {/** TITLE */}
-                <ErrorBoundary type="headerTitleComponent">
-                    <Title
-                        style={readerOptions.headerTitleStyle}
-                        textStyle={readerOptions.headerTitleTextStyle}
-                        title={bio.title}
-                    >
-                        <Typography
-                            bold
-                            size={TypographySize.Large}
-                            style={readerOptions.headerTitleTextStyle}
-                            disableDefaultStyles={disableDefaultStyles}
+                <View
+                    style={{
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                    }}
+                >
+                    {/** TITLE */}
+                    <ErrorBoundary type="headerTitleComponent">
+                        <Title
+                            style={getViewStyles(
+                                readerOptions.headerTitleStyle,
+                                { flex: 1 },
+                                disableDefaultStyles,
+                            )}
+                            textStyle={readerOptions.headerTitleTextStyle}
+                            title={bio.title}
                         >
-                            {textParser(bio.title, {
-                                type: "title",
-                                screen: "reader",
-                                scope: "file",
-                                style: getTextStyles(
-                                    readerOptions.headerTitleTextStyle,
-                                    { fontWeight: "bold" },
-                                    disableDefaultStyles,
-                                ),
-                            })}
-                        </Typography>
-                    </Title>
-                </ErrorBoundary>
+                            <Typography
+                                bold
+                                size={TypographySize.Large}
+                                style={readerOptions.headerTitleTextStyle}
+                                disableDefaultStyles={disableDefaultStyles}
+                            >
+                                {textParser(bio.title, {
+                                    type: "title",
+                                    screen: "reader",
+                                    scope: "file",
+                                    style: getTextStyles(
+                                        readerOptions.headerTitleTextStyle,
+                                        { fontWeight: "bold" },
+                                        disableDefaultStyles,
+                                    ),
+                                })}
+                            </Typography>
+                        </Title>
+                    </ErrorBoundary>
+
+                    {/** CONTROLS TOGGLE */}
+                    {readerOptions.headerControlsToggleHidden !== true &&
+                        Object.keys(propsFromBio).length > 0 && (
+                            <View
+                                style={{
+                                    alignSelf: "center",
+                                }}
+                            >
+                                <ReaderControlsToggle
+                                    controlsShown={controlsShown}
+                                    setControlsShown={setControlsShown}
+                                />
+                            </View>
+                        )}
+                </View>
 
                 {/** SUBTITLE */}
                 {bio.subtitle && !readerOptions.headerSubtitleHidden ? (
@@ -182,6 +215,17 @@ export const ReaderHeader = ({ bio }: Props) => {
                         </Tags>
                     </ErrorBoundary>
                 ) : null}
+
+                {/** CONTROLS */}
+                {bio.props && Object.keys(bio.props).length > 0 && (
+                    <ReaderControls
+                        props={propsFromBio}
+                        updateProp={updatePropFromBio}
+                        shown={controlsShown}
+                        setShown={setControlsShown}
+                        parent="header"
+                    />
+                )}
             </Container>
         </ErrorBoundary>
     );
