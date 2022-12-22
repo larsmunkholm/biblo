@@ -1,8 +1,5 @@
-export type {
-    BibloAddon,
-    BibloBio,
-    BibloItem,
-} from "./interfaces/Biblo.interface";
+export type { BibloBio, BibloItem } from "./interfaces/Biblo.interface";
+export type { BibloAddon } from "./interfaces/BibloHook.interface";
 export * from "./interfaces/IndexProps.interface";
 export * from "./interfaces/ReaderProps.interface";
 export { BibloProvider } from "./hooks/Biblo.hook";

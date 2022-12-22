@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { Animated, View } from "react-native";
 import { useBiblo } from "../hooks/Biblo.hook";
-import { IndexHeader } from "../components/IndexHeader.component";
+import { IndexHeader } from "../components/index/IndexHeader.component";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
-import { IndexSectionHeader } from "../components/IndexSectionHeader.component";
-import { IndexItem } from "../components/IndexItem.component";
+import { IndexSectionHeader } from "../components/index/IndexSectionHeader.component";
+import { IndexItem } from "../components/index/IndexItem.component";
 import { getViewStyles } from "../helpers/getStyles.helper";
 import { BibloIndexSectionListProps } from "../interfaces/IndexProps.interface";
 

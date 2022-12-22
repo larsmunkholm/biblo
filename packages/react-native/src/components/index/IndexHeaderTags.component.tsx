@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo } from "react";
 import { Pressable, ScrollView } from "react-native";
-import { useBiblo } from "../hooks/Biblo.hook";
-import { Typography, TypographySize } from "./Typography.component";
-import { IndexOptions } from "../interfaces/IndexOptions.interface";
-import { getViewStyles } from "../helpers/getStyles.helper";
+import { useBiblo } from "../../hooks/Biblo.hook";
+import { Typography, TypographySize } from "../Typography.component";
+import { IndexOptions } from "../../interfaces/IndexOptions.interface";
+import { getViewStyles } from "../../helpers/getStyles.helper";
 
 export const IndexHeaderTags = () => {
     const {

@@ -14,7 +14,10 @@ import {
     BibloReaderItemDescriptionProps,
     BibloReaderFooterProps,
     BibloReaderItemComponentWrapperProps,
+    BibloReaderHeaderKnobsProps,
+    BibloReaderControlsToggleProps,
 } from "./ReaderProps.interface";
+import { ReaderControlsToggle } from "../components/reader/ReaderControlsToggle.component";
 
 export interface ReaderOptions {
     disableDefaultStyles?: boolean;
@@ -37,6 +40,9 @@ export interface ReaderOptions {
     headerTagsStyle?: StyleProp<ViewStyle>;
     headerTagsTextStyle?: StyleProp<TextStyle>;
     headerTagsComponent?: React.ElementType<BibloReaderHeaderTagsProps>;
+    headerControlsStyle?: StyleProp<ViewStyle>;
+    headerControlsTextStyle?: StyleProp<TextStyle>;
+    headerControlsComponent?: React.ElementType<BibloReaderHeaderKnobsProps>;
     separatorStyle?: StyleProp<ViewStyle>;
     separator?: React.ElementType<BibloReaderSeparatorProps>;
     headerSeparatorHidden?: boolean;
@@ -53,5 +59,8 @@ export interface ReaderOptions {
     itemComponentWrapper?: React.ElementType<BibloReaderItemComponentWrapperProps>;
     footerStyle?: StyleProp<ViewStyle>;
     footerComponent?: React.ElementType<BibloReaderFooterProps>;
+    controlsToggle?: React.ElementType<BibloReaderControlsToggleProps>;
+    headerControlsToggleHidden?: boolean;
+    itemControlsToggleHidden?: boolean;
     onMount?: () => void;
 }

@@ -2,6 +2,11 @@ import React from "react";
 import { Animated, StyleProp, TextStyle, ViewStyle } from "react-native";
 import { BibloBio, BibloFile } from "./Biblo.interface";
 
+export interface BibloControlsBaseProps {
+    controlsShown: boolean;
+    setControlsShown: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export interface BibloReaderWrapperProps {
     item: BibloFile;
     style?: StyleProp<ViewStyle>;
@@ -12,7 +17,7 @@ export type BibloReaderScrollViewProps = React.ComponentProps<
     typeof Animated.ScrollView
 >;
 
-export interface BibloReaderHeaderProps {
+export interface BibloReaderHeaderProps extends BibloControlsBaseProps {
     bio: BibloBio;
     style?: StyleProp<ViewStyle>;
     children: React.ReactNode;
@@ -46,6 +51,15 @@ export interface BibloReaderHeaderTagsProps {
     children: React.ReactNode;
 }
 
+export interface BibloReaderHeaderKnobsProps {
+    shown: boolean;
+    setShown: React.Dispatch<React.SetStateAction<boolean>>;
+    parent: "header" | "item";
+    style?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
+    children: React.ReactNode;
+}
+
 export interface BibloReaderSeparatorProps {
     index: number;
     isFirst: boolean;
@@ -53,7 +67,7 @@ export interface BibloReaderSeparatorProps {
     style?: StyleProp<ViewStyle>;
 }
 
-export interface BibloReaderItemProps {
+export interface BibloReaderItemProps extends BibloControlsBaseProps {
     index: number;
     isFirst: boolean;
     isLast: boolean;
@@ -88,4 +102,9 @@ export interface BibloReaderItemComponentWrapperProps {
 export interface BibloReaderFooterProps {
     bio: BibloBio;
     style?: StyleProp<ViewStyle>;
+}
+
+export interface BibloReaderControlsToggleProps extends BibloControlsBaseProps {
+    style?: StyleProp<ViewStyle>;
+    children: React.ReactNode;
 }

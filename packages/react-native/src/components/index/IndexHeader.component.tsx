@@ -1,11 +1,11 @@
 import React from "react";
 import { TextInput, View } from "react-native";
-import { useBiblo } from "../hooks/Biblo.hook";
-import { Typography, TypographySize } from "./Typography.component";
-import { IndexOptions } from "../interfaces/IndexOptions.interface";
+import { useBiblo } from "../../hooks/Biblo.hook";
+import { Typography, TypographySize } from "../Typography.component";
+import { IndexOptions } from "../../interfaces/IndexOptions.interface";
 import { IndexHeaderTags } from "./IndexHeaderTags.component";
-import { getTextStyles, getViewStyles } from "../helpers/getStyles.helper";
-import { ErrorBoundary } from "./ErrorBoundary.component";
+import { getTextStyles, getViewStyles } from "../../helpers/getStyles.helper";
+import { ErrorBoundary } from "../ErrorBoundary.component";
 
 export const IndexHeader = () => {
     const {
@@ -98,13 +98,7 @@ export const IndexHeader = () => {
                                 returnKeyType="search"
                                 style={getTextStyles(
                                     indexOptions.headerSearchInputStyle,
-                                    {
-                                        height: 40,
-                                        paddingHorizontal: 10,
-                                        backgroundColor: "#eee",
-                                        borderWidth: 1,
-                                        borderColor: "#ccc",
-                                    },
+                                    defaultStyles.textInput,
                                     disableDefaultStyles,
                                 )}
                             />
