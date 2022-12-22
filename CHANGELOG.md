@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.1](https://github.com/saxofonsolo/biblo/compare/biblo-v0.11.0...biblo-v0.11.1) (2022-12-22)
+
+
+### Bug Fixes
+
+* Fix typescript error ([fa6db54](https://github.com/saxofonsolo/biblo/commit/fa6db5459851bcf4cb202b9acfbed9d07f64f260))
+
 ## [0.11.0](https://github.com/saxofonsolo/biblo/compare/biblo-v0.10.1...biblo-v0.11.0) (2022-12-22)
 
 
