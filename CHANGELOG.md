@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/saxofonsolo/biblo/compare/biblo-v0.10.1...biblo-v0.11.0) (2022-12-22)
+
+
+### Features
+
+* Add controls ([5a8e387](https://github.com/saxofonsolo/biblo/commit/5a8e387fca7850490b2f226736983b93c802e60f))
+
 ## [0.10.1](https://github.com/saxofonsolo/biblo/compare/biblo-v0.10.0...biblo-v0.10.1) (2022-12-15)
 
 
