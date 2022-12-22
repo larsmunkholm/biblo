@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import { Animated, View } from "react-native";
 import { useBiblo } from "../hooks/Biblo.hook";
-import { ReaderList } from "../components/ReaderList.component";
+import { ReaderList } from "../components/reader/ReaderList.component";
 import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
 import { BibloFile } from "../interfaces/Biblo.interface";
 import { getViewStyles } from "../helpers/getStyles.helper";

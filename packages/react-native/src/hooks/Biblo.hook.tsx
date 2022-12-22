@@ -2,9 +2,9 @@ import React, { useMemo, useState } from "react";
 import {
     BibloBio,
     BibloFile,
-    BibloProviderProps,
     DefaultStyles,
 } from "../interfaces/Biblo.interface";
+import { BibloProviderProps } from "../interfaces/BibloHook.interface";
 import { ReaderOptions } from "../interfaces/ReaderOptions.interface";
 import { IndexOptions } from "../interfaces/IndexOptions.interface";
 
@@ -67,6 +67,14 @@ export const BibloProvider = ({
             medium: 15,
             large: 20,
             ...defStyles?.fontSizes,
+        },
+        textInput: {
+            height: 40,
+            paddingHorizontal: 10,
+            backgroundColor: "#FFF",
+            borderWidth: 1,
+            borderColor: "#CCC",
+            ...defStyles?.textInput,
         },
     };
 
