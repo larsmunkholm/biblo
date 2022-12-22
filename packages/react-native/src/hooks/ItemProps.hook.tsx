@@ -13,7 +13,7 @@ interface ItemPropsHook {
 const ItemPropsContext = React.createContext<ItemPropsHook>({
     propsFromItem: {},
     updatePropFromItem: () => null,
-    getPropsForComponent: () => null,
+    getPropsForComponent: () => ({}),
 });
 
 type Props = {
