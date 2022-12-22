@@ -51,12 +51,13 @@ export interface BibloReaderHeaderTagsProps {
     children: React.ReactNode;
 }
 
-export interface BibloReaderHeaderKnobsProps {
+export interface BibloReaderControlsProps {
     shown: boolean;
     setShown: React.Dispatch<React.SetStateAction<boolean>>;
     parent: "header" | "item";
     style?: StyleProp<ViewStyle>;
     textStyle?: StyleProp<TextStyle>;
+    inputStyle?: StyleProp<TextStyle>;
     children: React.ReactNode;
 }
 

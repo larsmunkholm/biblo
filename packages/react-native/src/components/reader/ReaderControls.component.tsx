@@ -31,27 +31,25 @@ export const ReaderControls = ({
     const disableDefaultStyles =
         disableDefaultStylesGlobal || readerOptions.disableDefaultStyles;
 
-    const Controls = (readerOptions.headerControlsComponent ||
-        View) as NonNullable<ReaderOptions["headerControlsComponent"]>;
+    const Controls = (readerOptions.controlsComponent || View) as NonNullable<
+        ReaderOptions["controlsComponent"]
+    >;
 
-    const inputStyle = useMemo(
-        () =>
-            getTextStyles(
-                {}, //indexOptions.headerSearchInputStyle,
-                defaultStyles.textInput,
-                disableDefaultStyles,
-            ),
-        [defaultStyles, disableDefaultStyles],
+    const inputStyle = getTextStyles(
+        readerOptions.controlsInputStyle,
+        defaultStyles.textInput,
+        disableDefaultStyles,
     );
 
-    return shown || readerOptions.headerControlsComponent ? (
+    return shown || readerOptions.controlsComponent ? (
         <ErrorBoundary type="propsComponent">
             <Controls
                 shown={shown}
                 setShown={setShown}
                 parent={parent}
-                style={readerOptions.headerControlsStyle}
-                textStyle={readerOptions.headerControlsTextStyle}
+                style={readerOptions.controlsStyle}
+                textStyle={readerOptions.controlsTextStyle}
+                inputStyle={readerOptions.controlsInputStyle}
             >
                 {propsArray.map(([prop, data], index) => {
                     return (
@@ -61,7 +59,7 @@ export const ReaderControls = ({
                             <View
                                 key={`${prop}-${index}`}
                                 style={getViewStyles(
-                                    {}, //readerOptions.headerKnobsStyle,
+                                    readerOptions.controlsStyle,
                                     {
                                         marginHorizontal:
                                             parent === "item"
@@ -74,10 +72,11 @@ export const ReaderControls = ({
                             >
                                 <Typography
                                     bold
-                                    style={[
-                                        readerOptions.headerControlsTextStyle,
+                                    style={getTextStyles(
+                                        readerOptions.controlsTextStyle,
                                         { marginBottom: 5 },
-                                    ]}
+                                        disableDefaultStyles,
+                                    )}
                                     disableDefaultStyles={disableDefaultStyles}
                                 >
                                     {data.title}
