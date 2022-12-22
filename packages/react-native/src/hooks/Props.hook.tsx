@@ -21,7 +21,7 @@ type Props = {
 
 const buildProps = (
     inheritedProps: Record<string, any> | undefined,
-    propTypes: PropTypes,
+    propTypes?: PropTypes,
 ): PropsHook["propsFromBio"] => {
     const propsObj = Object.entries(inheritedProps || {}).reduce<
         PropsHook["propsFromBio"]
@@ -29,7 +29,7 @@ const buildProps = (
         (obj, [key, value]) => ({
             ...obj,
             [key]: {
-                type: getPropType(propTypes, key, value),
+                type: getPropType(propTypes, key, value) || "hidden",
                 title:
                     (typeof propTypes?.[key] === "object"
                         ? (propTypes[key] as { title?: string }).title
@@ -43,7 +43,9 @@ const buildProps = (
         Object.entries(propTypes).forEach(([key, value]) => {
             if (typeof propsObj[key] === "undefined") {
                 propsObj[key] = {
-                    type: typeof value === "string" ? value : value.type,
+                    type:
+                        (typeof value === "string" ? value : value.type) ||
+                        "hidden",
                     title:
                         typeof value === "object" && value.title
                             ? value.title
@@ -66,7 +68,9 @@ export const PropsProvider = ({
     );
 
     const updatePropFromBio = useCallback((prop: string, value: any) => {
-        setPropsFromBio((prevState) => updateProps(prevState, prop, value));
+        setPropsFromBio((prevState: PropsFromBioOrItem) =>
+            updateProps(prevState, prop, value),
+        );
     }, []);
 
     useEffect(() => {
