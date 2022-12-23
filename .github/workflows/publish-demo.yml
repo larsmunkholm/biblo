@@ -1,0 +1,50 @@
+name: Publish demo
+on: workflow_dispatch
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+
+      # ------------
+      # BIBLO / ROOT
+      # ------------
+
+      - name: Root - Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Root - Install dependencies
+        run: npm ci
+
+      - name: React Native - Build
+        run: npm run build
+        working-directory: ./packages/react-native
+
+      - name: Addon simple markup - Build
+        run: npm run build
+        working-directory: ./packages/addons/simple-markup
+
+      # ---------------
+      # BIBLO / EXAMPLE
+      # ---------------
+
+      - name: Example - Install dependencies
+        run: npm i
+        working-directory: ./example
+      - name: Example - Build website
+        run: npm run export:web
+        working-directory: ./example
+
+      # Popular action to deploy to GitHub Pages:
+      # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
+      - name: Example - Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Build output to publish to the `gh-pages` branch:
+          publish_dir: ./example/web-build
+          destination_dir: ./demo
+          user_name: larsmunkholm
+          user_email: mail@larsersej.dk
