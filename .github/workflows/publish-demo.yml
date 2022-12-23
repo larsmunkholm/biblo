@@ -1,7 +1,7 @@
 name: Publish demo
 on: workflow_dispatch
 jobs:
-  release-please:
+  publish-demo:
     runs-on: ubuntu-latest
     steps:
 
@@ -16,7 +16,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Root - Install dependencies
-        run: npm ci
+        run: npm i
 
       - name: React Native - Build
         run: npm run build
