@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/saxofonsolo/biblo/compare/docs-v0.7.1...docs-v0.8.0) (2023-01-13)
+
+
+### Features
+
+* New logo ([28544df](https://github.com/saxofonsolo/biblo/commit/28544df85e98757f9c2c200406e3b6f96e2c2cc4))
+
 ## [0.7.1](https://github.com/saxofonsolo/biblo/compare/docs-v0.7.0...docs-v0.7.1) (2022-12-05)
 
 
