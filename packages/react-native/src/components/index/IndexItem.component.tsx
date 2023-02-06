@@ -7,7 +7,6 @@ import { Typography, TypographySize } from "../Typography.component";
 import { IndexOptions } from "../../interfaces/IndexOptions.interface";
 import { getViewStyles } from "../../helpers/getStyles.helper";
 import { ErrorBoundary } from "../ErrorBoundary.component";
-import { ReaderOptions } from "../../interfaces/ReaderOptions.interface";
 
 interface Props {
     file: BibloFile;

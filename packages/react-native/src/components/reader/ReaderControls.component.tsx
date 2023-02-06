@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { TextInput, View } from "react-native";
 import { Typography } from "../Typography.component";
 import { useBiblo } from "../../hooks/Biblo.hook";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { BibloBioAndPath } from "../../interfaces/Biblo.interface";
 import { Typography, TypographySize } from "../Typography.component";
 import { useBiblo } from "../../hooks/Biblo.hook";
