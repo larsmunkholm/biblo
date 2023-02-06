@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BibloComponentItem } from "../../interfaces/Biblo.interface";
 import { useBiblo } from "../../hooks/Biblo.hook";
-import { Pressable, View } from "react-native";
+import { View } from "react-native";
 import { Typography, TypographySize } from "../Typography.component";
 import { getTextStyles, getViewStyles } from "../../helpers/getStyles.helper";
 import { ErrorBoundary } from "../ErrorBoundary.component";
