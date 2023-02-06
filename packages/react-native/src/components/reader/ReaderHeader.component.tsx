@@ -93,7 +93,9 @@ export const ReaderHeader = ({ bio }: Props) => {
 
                     {/** CONTROLS TOGGLE */}
                     {readerOptions.headerControlsToggleHidden !== true &&
-                        Object.keys(propsFromBio).length > 0 && (
+                        Object.keys(propsFromBio).filter(
+                            (prop) => propsFromBio[prop].type !== "hidden",
+                        ).length > 0 && (
                             <View
                                 style={{
                                     alignSelf: "center",
