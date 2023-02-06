@@ -94,7 +94,6 @@ export const ReaderControls = ({
                                 ) : data.type === "number" ? (
                                     <TextInput
                                         defaultValue={
-                                            data.value &&
                                             typeof data.value === "number"
                                                 ? data.value.toString()
                                                 : ""
