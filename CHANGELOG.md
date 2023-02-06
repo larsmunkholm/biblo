@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.12.1](https://github.com/saxofonsolo/biblo/compare/biblo-v0.12.0...biblo-v0.12.1) (2023-02-06)
+
+
+### Bug Fixes
+
+* Don't show prop values of `0` as `undefined` in ReaderControls ([5a508db](https://github.com/saxofonsolo/biblo/commit/5a508db7ac5dcf8a0dbf8511d4edb43db16a5741))
+* Hide `ReaderControlsToggle` when all props are hidden ([5d5750c](https://github.com/saxofonsolo/biblo/commit/5d5750c8a67f00a2e847b3a6d050a18fac78d77a))
+
 ## [0.12.0](https://github.com/saxofonsolo/biblo/compare/biblo-v0.11.1...biblo-v0.12.0) (2023-01-13)
 
 
